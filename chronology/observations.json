@@ -1,0 +1,3100 @@
+{
+	"engine": "4.7.2-stable (official)",
+	"native_surface_probes": [
+		{
+			"fixture": "wall",
+			"fraction": 0.398437476158142,
+			"hit": true,
+			"normal": "(-1.0, 0.0)",
+			"travel": "(3.984375, 3.984375)"
+		},
+		{
+			"fixture": "floor",
+			"fraction": 0.496093702316284,
+			"hit": true,
+			"normal": "(0.0, -1.0)",
+			"travel": "(4.960937, 4.960937)"
+		}
+	],
+	"runs": [
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"contacts": [
+						{
+							"attacker": "Left",
+							"target": "Target",
+							"time": 0.4
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(1.1, -1.1)"
+						}
+					},
+					"time": 0.4
+				},
+				{
+					"contacts": [
+						{
+							"attacker": "Right",
+							"target": "Target",
+							"time": 0.580180173987993
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(-1.2, -1.2)"
+						}
+					},
+					"time": 0.580180173987993
+				}
+			],
+			"final": [
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Left",
+					"launch": "(1.0, -1.0)",
+					"p": "(4.0, -1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(10.0, 0.0)"
+				},
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Right",
+					"launch": "(-1.0, -1.0)",
+					"p": "(-2.0, 1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(-10.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 20.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(-0.305586, -0.701982)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(-1.2, -1.2)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-6.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(8.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-2.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(4.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, -1.1)"
+						}
+					],
+					"time": 0.4
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-0.198198, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(2.198198, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.198198, -0.198198)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-1.2, -1.2)"
+						}
+					],
+					"time": 0.580180173987993
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(4.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(-2.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(-0.305586, -0.701982)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-1.2, -1.2)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Left",
+					"target": "Target",
+					"time": 0.4
+				},
+				{
+					"attacker": "Right",
+					"target": "Target",
+					"time": 0.6
+				}
+			],
+			"name": "Distinct hits"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"contacts": [
+						{
+							"attacker": "Left",
+							"target": "Target",
+							"time": 0.4
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(1.1, -1.1)"
+						}
+					},
+					"time": 0.4
+				},
+				{
+					"contacts": [
+						{
+							"attacker": "Right",
+							"target": "Target",
+							"time": 0.6
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(-1.2, -1.2)"
+						}
+					},
+					"time": 0.6
+				}
+			],
+			"final": [
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Left",
+					"launch": "(1.0, -1.0)",
+					"p": "(-2.0, -1.5)",
+					"paused": true,
+					"start": 0.0,
+					"v": "(0.0, 0.0)"
+				},
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Right",
+					"launch": "(-1.0, -1.0)",
+					"p": "(2.0, 1.5)",
+					"paused": true,
+					"start": 0.0,
+					"v": "(0.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 20.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(0.0, 0.0)",
+					"paused": true,
+					"start": 0.0,
+					"v": "(0.0, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-6.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(8.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-2.0, -1.5)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(4.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.4
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-2.0, -1.5)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(2.0, 1.5)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.6
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-2.0, -1.5)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(2.0, 1.5)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Left",
+					"target": "Target",
+					"time": 0.4
+				},
+				{
+					"attacker": "Right",
+					"target": "Target",
+					"time": 0.6
+				}
+			],
+			"name": "Distinct hits with per-character pause"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"contacts": [
+						{
+							"attacker": "Left",
+							"target": "Target",
+							"time": 0.4
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(1.1, -1.1)"
+						}
+					},
+					"time": 0.4
+				},
+				{
+					"contacts": [
+						{
+							"attacker": "Right",
+							"target": "Target",
+							"time": 0.580180173987993
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(-1.2, -1.2)"
+						}
+					},
+					"time": 0.580180173987993
+				}
+			],
+			"final": [
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 20.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(-0.305586, -0.701982)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(-1.2, -1.2)"
+				},
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Right",
+					"launch": "(-1.0, -1.0)",
+					"p": "(-2.0, 1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(-10.0, 0.0)"
+				},
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Left",
+					"launch": "(1.0, -1.0)",
+					"p": "(4.0, -1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(10.0, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(8.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-6.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, -1.1)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(4.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-2.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						}
+					],
+					"time": 0.4
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.198198, -0.198198)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-1.2, -1.2)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(2.198198, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-0.198198, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						}
+					],
+					"time": 0.580180173987993
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(-0.305586, -0.701982)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-1.2, -1.2)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(-2.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(4.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Left",
+					"target": "Target",
+					"time": 0.4
+				},
+				{
+					"attacker": "Right",
+					"target": "Target",
+					"time": 0.6
+				}
+			],
+			"name": "Distinct hits reversed"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"contacts": [
+						{
+							"attacker": "Left",
+							"target": "Target",
+							"time": 0.4
+						},
+						{
+							"attacker": "Right",
+							"target": "Target",
+							"time": 0.4
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 20.0,
+							"launch": "(0.0, -2.4)"
+						}
+					},
+					"time": 0.4
+				}
+			],
+			"final": [
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Left",
+					"launch": "(1.0, -1.0)",
+					"p": "(4.0, -1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(10.0, 0.0)"
+				},
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Right",
+					"launch": "(-1.0, -1.0)",
+					"p": "(-4.0, 1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(-10.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 20.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(0.0, -1.44)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(0.0, -2.4)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-6.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(6.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-2.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(2.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, -2.4)"
+						}
+					],
+					"time": 0.4
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(4.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(-4.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, -1.44)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, -2.4)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Left",
+					"target": "Target",
+					"time": 0.4
+				},
+				{
+					"attacker": "Right",
+					"target": "Target",
+					"time": 0.4
+				}
+			],
+			"name": "True tie: opposing launches"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"contacts": [
+						{
+							"attacker": "Right",
+							"target": "Target",
+							"time": 0.4
+						},
+						{
+							"attacker": "Left",
+							"target": "Target",
+							"time": 0.4
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 20.0,
+							"launch": "(0.0, -2.4)"
+						}
+					},
+					"time": 0.4
+				}
+			],
+			"final": [
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 20.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(0.0, -1.44)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(0.0, -2.4)"
+				},
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Right",
+					"launch": "(-1.0, -1.0)",
+					"p": "(-4.0, 1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(-10.0, 0.0)"
+				},
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Left",
+					"launch": "(1.0, -1.0)",
+					"p": "(4.0, -1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(10.0, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(6.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-6.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, -2.4)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(2.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-2.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						}
+					],
+					"time": 0.4
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, -1.44)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, -2.4)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(-4.0, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(4.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Right",
+					"target": "Target",
+					"time": 0.4
+				},
+				{
+					"attacker": "Left",
+					"target": "Target",
+					"time": 0.4
+				}
+			],
+			"name": "True tie reversed"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"contacts": [
+						{
+							"attacker": "Left",
+							"target": "Target",
+							"time": 0.4
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(1.1, -1.1)"
+						}
+					},
+					"time": 0.4
+				},
+				{
+					"contacts": [
+						{
+							"attacker": "Right",
+							"target": "Target",
+							"time": 0.400090083557332
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(-1.2, -1.2)"
+						}
+					},
+					"time": 0.400090083557332
+				}
+			],
+			"final": [
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Left",
+					"launch": "(1.0, -1.0)",
+					"p": "(4.0, -1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(10.0, 0.0)"
+				},
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Right",
+					"launch": "(-1.0, -1.0)",
+					"p": "(-3.999, 1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(-10.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 20.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(-0.719793, -0.719991)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(-1.2, -1.2)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-6.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(6.001, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-2.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(2.001, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, -1.1)"
+						}
+					],
+					"time": 0.4
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-1.999099, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(2.000099, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.000099, -0.000099)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-1.2, -1.2)"
+						}
+					],
+					"time": 0.400090083557332
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(4.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Right",
+							"launch": "(-1.0, -1.0)",
+							"p": "(-3.999, 1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 20.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(-0.719793, -0.719991)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(-1.2, -1.2)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Left",
+					"target": "Target",
+					"time": 0.4
+				},
+				{
+					"attacker": "Right",
+					"target": "Target",
+					"time": 0.400099992752075
+				}
+			],
+			"name": "Near tie: 0.0001 step apart"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [],
+			"final": [
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Attack",
+					"launch": "(1.0, 0.0)",
+					"p": "(10.0, 0.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(10.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(15.0, 0.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(10.0, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(5.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(10.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(15.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [],
+			"name": "Parallel negative control"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [],
+			"final": [
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Left",
+					"launch": "(1.0, -1.0)",
+					"p": "(4.0, -1.5)",
+					"paused": false,
+					"start": 0.9,
+					"v": "(10.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(0.0, 0.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(0.0, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-6.0, -1.5)",
+							"paused": false,
+							"start": 0.9,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(4.0, -1.5)",
+							"paused": false,
+							"start": 0.9,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [],
+			"name": "Startup excluded"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [],
+			"final": [
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 0.3,
+					"history": [],
+					"id": "Left",
+					"launch": "(1.0, -1.0)",
+					"p": "(4.0, -1.5)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(10.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(0.0, 0.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(0.0, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 0.3,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-6.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 0.3,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(4.0, -1.5)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [],
+			"name": "Inactive excluded"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"contacts": [
+						{
+							"attacker": "Left",
+							"target": "Target",
+							"time": 0.4
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(1.1, -1.1)"
+						}
+					},
+					"time": 0.4
+				}
+			],
+			"final": [
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 0.5,
+					"history": [
+						"Target"
+					],
+					"id": "Left",
+					"launch": "(1.0, -1.0)",
+					"p": "(4.0, -1.5)",
+					"paused": false,
+					"start": 0.2,
+					"v": "(10.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 10.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(0.66, -0.66)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(1.1, -1.1)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 0.5,
+							"history": [],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-6.0, -1.5)",
+							"paused": false,
+							"start": 0.2,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 0.5,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(-2.0, -1.5)",
+							"paused": false,
+							"start": 0.2,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, -1.1)"
+						}
+					],
+					"time": 0.4
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 0.5,
+							"history": [
+								"Target"
+							],
+							"id": "Left",
+							"launch": "(1.0, -1.0)",
+							"p": "(4.0, -1.5)",
+							"paused": false,
+							"start": 0.2,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(0.66, -0.66)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, -1.1)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Left",
+					"target": "Target",
+					"time": 0.4
+				}
+			],
+			"name": "First active interval crossing"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"contacts": [
+						{
+							"attacker": "Early",
+							"target": "Later",
+							"time": 0.4
+						},
+						{
+							"attacker": "Later",
+							"target": "Early",
+							"time": 0.4
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Early": {
+							"damage": 10.0,
+							"launch": "(1.1, 0.0)"
+						},
+						"Later": {
+							"damage": 10.0,
+							"launch": "(1.1, 0.0)"
+						}
+					},
+					"time": 0.4
+				}
+			],
+			"final": [
+				{
+					"active": false,
+					"attack_damage": 10.0,
+					"damage": 10.0,
+					"end": 1.0,
+					"history": [
+						"Later"
+					],
+					"id": "Early",
+					"launch": "(1.0, 0.0)",
+					"p": "(2.66, 0.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(1.1, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 10.0,
+					"damage": 10.0,
+					"end": 1.0,
+					"history": [
+						"Early"
+					],
+					"id": "Later",
+					"launch": "(1.0, 0.0)",
+					"p": "(4.66, 0.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(1.1, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Other",
+					"launch": "(0.0, 0.0)",
+					"p": "(9.0, 0.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(0.0, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Early",
+							"launch": "(1.0, 0.0)",
+							"p": "(-6.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(20.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Later",
+							"launch": "(1.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Other",
+							"launch": "(0.0, 0.0)",
+							"p": "(9.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [
+								"Later"
+							],
+							"id": "Early",
+							"launch": "(1.0, 0.0)",
+							"p": "(2.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [
+								"Early"
+							],
+							"id": "Later",
+							"launch": "(1.0, 0.0)",
+							"p": "(4.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Other",
+							"launch": "(0.0, 0.0)",
+							"p": "(9.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.4
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [
+								"Later"
+							],
+							"id": "Early",
+							"launch": "(1.0, 0.0)",
+							"p": "(2.66, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [
+								"Early"
+							],
+							"id": "Later",
+							"launch": "(1.0, 0.0)",
+							"p": "(4.66, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Other",
+							"launch": "(0.0, 0.0)",
+							"p": "(9.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Early",
+					"target": "Later",
+					"time": 0.4
+				},
+				{
+					"attacker": "Later",
+					"target": "Early",
+					"time": 0.4
+				},
+				{
+					"attacker": "Early",
+					"target": "Other",
+					"time": 0.65
+				},
+				{
+					"attacker": "Later",
+					"target": "Other",
+					"time": 0.7
+				}
+			],
+			"name": "Early interruption invalidates later"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"contacts": [
+						{
+							"attacker": "Early",
+							"target": "Later",
+							"time": 0.4
+						},
+						{
+							"attacker": "Later",
+							"target": "Early",
+							"time": 0.4
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Early": {
+							"damage": 10.0,
+							"launch": "(1.1, 0.0)"
+						},
+						"Later": {
+							"damage": 10.0,
+							"launch": "(1.1, 0.0)"
+						}
+					},
+					"time": 0.4
+				}
+			],
+			"final": [
+				{
+					"active": false,
+					"attack_damage": 10.0,
+					"damage": 10.0,
+					"end": 1.0,
+					"history": [
+						"Later"
+					],
+					"id": "Early",
+					"launch": "(1.0, 0.0)",
+					"p": "(2.0, 0.0)",
+					"paused": true,
+					"start": 0.0,
+					"v": "(0.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 10.0,
+					"damage": 10.0,
+					"end": 1.0,
+					"history": [
+						"Early"
+					],
+					"id": "Later",
+					"launch": "(1.0, 0.0)",
+					"p": "(4.0, 0.0)",
+					"paused": true,
+					"start": 0.0,
+					"v": "(0.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Other",
+					"launch": "(0.0, 0.0)",
+					"p": "(9.0, 0.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(0.0, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Early",
+							"launch": "(1.0, 0.0)",
+							"p": "(-6.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(20.0, 0.0)"
+						},
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Later",
+							"launch": "(1.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Other",
+							"launch": "(0.0, 0.0)",
+							"p": "(9.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [
+								"Later"
+							],
+							"id": "Early",
+							"launch": "(1.0, 0.0)",
+							"p": "(2.0, 0.0)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [
+								"Early"
+							],
+							"id": "Later",
+							"launch": "(1.0, 0.0)",
+							"p": "(4.0, 0.0)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Other",
+							"launch": "(0.0, 0.0)",
+							"p": "(9.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.4
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [
+								"Later"
+							],
+							"id": "Early",
+							"launch": "(1.0, 0.0)",
+							"p": "(2.0, 0.0)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [
+								"Early"
+							],
+							"id": "Later",
+							"launch": "(1.0, 0.0)",
+							"p": "(4.0, 0.0)",
+							"paused": true,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Other",
+							"launch": "(0.0, 0.0)",
+							"p": "(9.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Early",
+					"target": "Later",
+					"time": 0.4
+				},
+				{
+					"attacker": "Later",
+					"target": "Early",
+					"time": 0.4
+				},
+				{
+					"attacker": "Early",
+					"target": "Other",
+					"time": 0.65
+				},
+				{
+					"attacker": "Later",
+					"target": "Other",
+					"time": 0.7
+				}
+			],
+			"name": "Early hit pause invalidates later"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"id": "Attack",
+					"kind": "wall",
+					"time": 0.398437476158142
+				},
+				{
+					"contacts": [
+						{
+							"attacker": "Attack",
+							"target": "Target",
+							"time": 0.4
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(1.1, 0.0)"
+						}
+					},
+					"time": 0.4
+				}
+			],
+			"final": [
+				{
+					"active": true,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Attack",
+					"launch": "(1.0, 0.0)",
+					"p": "(3.984375, 10.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(0.0, 10.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 10.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(6.56, 6.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(1.1, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 10.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(5.9, 6.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(3.984375, 3.984375)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 10.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(5.9, 6.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.398437476158142
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(3.984375, 4.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 10.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(5.9, 6.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, 0.0)"
+						}
+					],
+					"time": 0.4
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(3.984375, 10.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 10.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(6.56, 6.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Attack",
+					"target": "Target",
+					"time": 0.4
+				}
+			],
+			"name": "Wall piecewise path"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"contacts": [
+						{
+							"attacker": "Attack",
+							"target": "Target",
+							"time": 0.2
+						}
+					],
+					"kind": "hits",
+					"results": {
+						"Target": {
+							"damage": 10.0,
+							"launch": "(1.1, 0.0)"
+						}
+					},
+					"time": 0.2
+				},
+				{
+					"id": "Attack",
+					"kind": "landing",
+					"time": 0.496093702316284
+				}
+			],
+			"final": [
+				{
+					"active": false,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [
+						"Target"
+					],
+					"id": "Attack",
+					"launch": "(1.0, 0.0)",
+					"p": "(10.0, 4.960937)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(10.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 10.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(4.88, 4.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(1.1, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 10.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(4.0, 4.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(2.0, 2.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 10.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(4.0, 4.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, 0.0)"
+						}
+					],
+					"time": 0.2
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(4.960937, 4.960937)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(4.325703, 4.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, 0.0)"
+						}
+					],
+					"time": 0.496093702316284
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [
+								"Target"
+							],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(10.0, 4.960937)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 10.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(4.88, 4.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(1.1, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Attack",
+					"target": "Target",
+					"time": 0.2
+				}
+			],
+			"name": "Contact before landing retained"
+		},
+		{
+			"completed": true,
+			"end_time": 1.0,
+			"events": [
+				{
+					"id": "Attack",
+					"kind": "landing",
+					"time": 0.496093702316284
+				}
+			],
+			"final": [
+				{
+					"active": false,
+					"attack_damage": 10.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Attack",
+					"launch": "(1.0, 0.0)",
+					"p": "(10.0, 4.960937)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(10.0, 0.0)"
+				},
+				{
+					"active": false,
+					"attack_damage": 0.0,
+					"damage": 0.0,
+					"end": 1.0,
+					"history": [],
+					"id": "Target",
+					"launch": "(0.0, 0.0)",
+					"p": "(8.0, 5.0)",
+					"paused": false,
+					"start": 0.0,
+					"v": "(0.0, 0.0)"
+				}
+			],
+			"frames": [
+				{
+					"bodies": [
+						{
+							"active": true,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(0.0, 0.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 10.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(8.0, 5.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.0
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(4.960937, 4.960937)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(8.0, 5.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 0.496093702316284
+				},
+				{
+					"bodies": [
+						{
+							"active": false,
+							"attack_damage": 10.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Attack",
+							"launch": "(1.0, 0.0)",
+							"p": "(10.0, 4.960937)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(10.0, 0.0)"
+						},
+						{
+							"active": false,
+							"attack_damage": 0.0,
+							"damage": 0.0,
+							"end": 1.0,
+							"history": [],
+							"id": "Target",
+							"launch": "(0.0, 0.0)",
+							"p": "(8.0, 5.0)",
+							"paused": false,
+							"start": 0.0,
+							"v": "(0.0, 0.0)"
+						}
+					],
+					"time": 1.0
+				}
+			],
+			"initial_candidates": [
+				{
+					"attacker": "Attack",
+					"target": "Target",
+					"time": 0.6
+				}
+			],
+			"name": "Contact after landing rejected"
+		}
+	],
+	"tie_epsilon_normalized_step": 0.0000001,
+	"type": "Analytic swept-AABB model executed in Godot; separate native surface probes"
+}
