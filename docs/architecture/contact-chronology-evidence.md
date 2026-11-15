@@ -1,6 +1,6 @@
 # Contact chronology evidence
 
-Status: [#13](https://github.com/Fusion2k/smash-fight/issues/13) remains open for new human feedback and review. This is additional evidence for #8, not a finalized production scheduler. The accepted gameplay distinction remains chronological distinct hits versus vector-summed true ties.
+Status: [#13](https://github.com/Fusion2k/smash-fight/issues/13) is resolved as focused evidence for #8. On 2026-11-15, after trying this extension, the user reported: "looks ok, keep going". This completes its required human reaction and supports the intended chronological distinct hits versus vector-summed true ties. It does not finalize a production scheduler.
 
 The throwaway [native runnable extension](https://github.com/Fusion2k/smash-fight/blob/f7a36da/chronology/README.md) and [raw measurements](https://github.com/Fusion2k/smash-fight/blob/f7a36da/chronology/observations.json) are preserved on `prototype/contact-chronology`. The original #11 lab remains unchanged at `3820f96` on `prototype/combat-timing`. Main contains no throwaway implementation.
 
@@ -30,4 +30,4 @@ Provisional engineering conventions are absolute tie tolerance `1e-7` normalized
 
 Pause lasts through the rest of this one-step fixture. No release, timer, stored-launch restoration, buffered input or later-step behavior is validated. Surface events must be invalidated and re-queried when preceding hits change motion in the production design; multiple surfaces, one-way platforms, ring-outs/respawns and exact combat/surface ties remain open integration work.
 
-The headless launcher passed. A graphical process launched, but screenshot capture hung and was aborted. **Visual layout and interactive controls are unverified.** No new human feedback has been received; the user's old #11 feedback does not cover this experiment. No Linux/Steam Deck, gamepad, performance or gameplay acceptance is claimed.
+The headless launcher passed. A graphical process launched, but screenshot capture hung and was aborted. **Automated visual layout and interactive-control QA remain unverified.** The new human reaction above covers this extension; it does not extend its measured coverage. No Linux/Steam Deck, gamepad, performance or gameplay acceptance is claimed.

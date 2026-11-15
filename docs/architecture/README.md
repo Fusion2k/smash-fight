@@ -12,7 +12,7 @@ The main working tree currently contains the starter Godot project, without game
 | [Module interfaces](module-interfaces.md) | Ownership, concrete interface candidate, editor authoring and step schedule | #8 draft; core technology, ownership, Resources, clocks and geometry scope accepted; final interfaces/schedule under review |
 | [Match flow](match-flow.md) | Joining, selection, match results, pause, and controller replacement | Agreed behavior from #2 and #4; not implemented |
 | [Combat lifecycle](combat-lifecycle.md) | Attack phases, hit response, and timing constraints | Agreed rules from #2; #11 evidence accepted for architecture review |
-| [Contact chronology evidence](contact-chronology-evidence.md) | Contact fractions, true ties and re-evaluated motion | #13: fifteen analytic fixtures plus native surface probes; new human review pending |
+| [Contact chronology evidence](contact-chronology-evidence.md) | Contact fractions, true ties and re-evaluated motion | #13 resolved: fifteen analytic fixtures plus separate native surface probes; human reaction recorded; integration unverified |
 | [Combat timing evidence](combat-timing-evidence.md) | Reproducible fixture results, limitations, and candidate approach | Eleven scenarios measured; user reported "prototype looks good" |
 | [State and content](state-and-content.md) | Player identity, character definitions, independent match state, and content requirements | JSON physics/damage and editor-authored graphics/move data agreed |
 | [Character authoring](character-authoring.md) | Concrete JSON fields, units, editor reference, validation, and editing walkthroughs | Accepted specification from #7; loader/editor implementation pending |
@@ -32,7 +32,7 @@ The main working tree currently contains the starter Godot project, without game
 | [#9: Development workflow](https://github.com/Fusion2k/smash-fight/issues/9) | Pending portable launcher, renderer/scaling, and delivery workflow |
 | [#10: Acceptance](https://github.com/Fusion2k/smash-fight/issues/10) | Pending automated/manual checks and Steam Deck/TV validation policy |
 | [#11: Timing prototype](https://github.com/Fusion2k/smash-fight/issues/11) | Resolved: native timing lab measured and human feedback recorded; production design remains #8 |
-| [#13: Contact chronology prototype](https://github.com/Fusion2k/smash-fight/issues/13) | Open: analytic chronological resolution plus native boundary probes; integrated movement and human review pending |
+| [#13: Contact chronology prototype](https://github.com/Fusion2k/smash-fight/issues/13) | Resolved focused evidence with new human reaction; integrated native movement remains unverified |
 | [#12: Physics backend research](https://github.com/Fusion2k/smash-fight/issues/12) | Completed source evaluation: GodotPhysics2D baseline recommended, Rapier v0.36.1 a credible alternative; Rapier runtime untested and Box2D deferred |
 
 The cited [physics-backend evaluation](https://github.com/Fusion2k/smash-fight/blob/1fb7589/docs/research/physics-backend-evaluation.md) is preserved on the research-only `research/physics-backends` branch, following the repository's research convention. It recommends a first-experiment baseline; it does not settle the production backend or replace #11's measurements.
