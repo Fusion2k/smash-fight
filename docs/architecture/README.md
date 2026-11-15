@@ -10,7 +10,7 @@ The main working tree currently contains the starter Godot project, without game
 | --- | --- | --- |
 | [Scene map](scene-map.md) | Godot scene composition, scene responsibilities, and implementation status | Accepted production targets (unimplemented) plus separate implemented timing-lab tree |
 | [Module interfaces](module-interfaces.md) | Ownership, accepted interfaces, editor authoring and step schedule | #8 accepted on 2026-11-15, including native prediction/commit and exact event ties; integration unverified |
-| [Development workflow](../development-workflow.md) | Portable engine, planned commands, rendering and native delivery | #9 review draft; tooling and exports not implemented |
+| [Development workflow](../development-workflow.md) | Portable engine, planned commands, rendering and native delivery | #9 accepted on 2026-11-15; tooling and exports not implemented |
 | [Match flow](match-flow.md) | Joining, selection, match results, pause, and controller replacement | Agreed behavior from #2 and #4; not implemented |
 | [Combat lifecycle](combat-lifecycle.md) | Attack phases, hit response, and timing constraints | Accepted #2/#8 rules and schedule; integrated native behavior unverified |
 | [Contact chronology evidence](contact-chronology-evidence.md) | Contact fractions, true ties and re-evaluated motion | #13 resolved: fifteen analytic fixtures plus separate native surface probes; human reaction recorded; integration unverified |
@@ -30,7 +30,7 @@ The main working tree currently contains the starter Godot project, without game
 | [#4: Controllers and match flow](https://github.com/Fusion2k/smash-fight/issues/4) | Agreed player slots, controls, lifecycle, and developer test path |
 | [#7: Character files](https://github.com/Fusion2k/smash-fight/issues/7) | Resolved: JSON physics/attack damage, editor-authored geometry/timing/launch parameters, Godot reference, schema, validation, and edit boundaries |
 | [#8: Architecture](https://github.com/Fusion2k/smash-fight/issues/8) | Accepted scene/module responsibilities, interfaces, GDScript, state ownership and chronological schedule |
-| [#9: Development workflow](https://github.com/Fusion2k/smash-fight/issues/9) | Pending portable launcher, renderer/scaling, and delivery workflow |
+| [#9: Development workflow](https://github.com/Fusion2k/smash-fight/issues/9) | Accepted portable setup, planned launcher, renderer/scaling, and native delivery workflow; implementation pending |
 | [#10: Acceptance](https://github.com/Fusion2k/smash-fight/issues/10) | Pending automated/manual checks and Steam Deck/TV validation policy |
 | [#11: Timing prototype](https://github.com/Fusion2k/smash-fight/issues/11) | Resolved: native timing lab measured and human feedback recorded; production design remains #8 |
 | [#13: Contact chronology prototype](https://github.com/Fusion2k/smash-fight/issues/13) | Resolved focused evidence with new human reaction; integrated native movement remains unverified |

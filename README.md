@@ -17,7 +17,7 @@ The project is being scoped through GitHub Issues. Start with [Scope the first p
 
 Windows is the initial iteration environment. Final platform acceptance will also require testing on the actual Steam Deck and TV setup, including external controllers, presentation, and performance.
 
-The SteamOS/native Linux delivery path and 1080p/60 FPS goal are agreed targets. Internal rendering resolution, scaling, and renderer selection remain design decisions; 1080p describes the TV output target. Track the remaining setup and verification choices in [Choose the cross-PC setup and daily development workflow](https://github.com/Fusion2k/smash-fight/issues/9) and [Define first-playable acceptance checks and the implementation handoff](https://github.com/Fusion2k/smash-fight/issues/10).
+The SteamOS/native Linux delivery path and 1080p/60 FPS goal are agreed targets. #9 accepts Compatibility and a 1280 ? 720 logical layout rendered at actual display resolution with fractional `canvas_items` scaling and fixed 16:9 framing; the 1080p TV fills the layout, while taller displays letterbox it. The accepted workflow is documented in [Development workflow](docs/development-workflow.md). See [Choose the cross-PC setup and daily development workflow](https://github.com/Fusion2k/smash-fight/issues/9) and [Define first-playable acceptance checks and the implementation handoff](https://github.com/Fusion2k/smash-fight/issues/10).
 
 ## First playable
 
@@ -40,7 +40,7 @@ GDScript and built-in GodotPhysics2D are accepted in #8. See [Define Godot scene
 
 ## Opening the project
 
-1. Install Godot **4.7.2** for your development PC. GDScript is the accepted scripting language from #8; the portable setup and distribution workflow will be finalized in #9.
+1. Install Godot **4.7.2** for your development PC. Use the Standard distribution and matching Standard export templates. GDScript is accepted in #8; [the #9 workflow](docs/development-workflow.md) specifies portable local discovery and future launch/check/export commands.
 2. Clone this repository and import the root [`project.godot`](project.godot) through Godot's Project Manager.
 3. Read the relevant GitHub issue before making changes, along with the [glossary](GLOSSARY.md) and any applicable architectural decision records under `docs/adr/`.
 
