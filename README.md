@@ -2,7 +2,7 @@
 
 A Godot 2D local multiplayer platform fighting game inspired by Super Smash Bros. Ultimate, with original characters and art. Players build damage, launch opponents out of the arena, and compete for the last remaining stocks.
 
-The project is being scoped through GitHub Issues. Start with [Scope the first playable Smash Fight](https://github.com/Fusion2k/smash-fight/issues/1) for the current decision map, completed research, and outstanding questions.
+The first-playable specification is accepted; implementation is tracked through GitHub Issues. Start with [Scope the first playable Smash Fight](https://github.com/Fusion2k/smash-fight/issues/1) for the completed decision map and research.
 
 ## Engine and platforms
 
@@ -29,7 +29,7 @@ The SteamOS/native Linux delivery path and 1080p/60 FPS goal are agreed targets.
 
 The agreed movement, attack, defense, recovery, and match rules are specified in [Define first-playable movement and combat rules](https://github.com/Fusion2k/smash-fight/issues/2). The agreed controls, controller ownership, selection, pause/reconnect, and developer keyboard path are specified in [Define gamepad ownership and the local match flow](https://github.com/Fusion2k/smash-fight/issues/4). These are specifications; gameplay implementation and playtest validation are still upcoming.
 
-The [first-playable acceptance and implementation handoff](docs/first-playable-acceptance.md) is the review draft for #10. It proposes observable automated and human checks plus dependent implementation issues; it remains unaccepted and does not claim a playable build.
+The [first-playable acceptance and implementation handoff](docs/first-playable-acceptance.md) is accepted in #10. It defines observable automated and human checks plus dependent implementation issues; it does not claim a playable build.
 
 ## Design direction
 

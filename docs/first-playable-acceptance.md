@@ -1,6 +1,6 @@
 # First-playable acceptance and implementation handoff
 
-**Status: review draft for [#10](https://github.com/Fusion2k/smash-fight/issues/10), not accepted criteria or implemented checks.** This document proposes completion gates and issue-sized work. It implements no gameplay and claims no passing game, export, controller, Linux, Deck or performance result. Human confirmation of the gates and complete shared understanding is required before resolving #10 or the planning map.
+**Status: accepted specification for [#10](https://github.com/Fusion2k/smash-fight/issues/10), confirmed by the user on 2026-11-15 ("awesome, keep going").** The user accepted the cumulative gates, staged implementation and complete shared understanding. This document implements no gameplay and claims no passing game, export, controller, Linux, Deck or performance result.
 
 ## Authority and scope
 
@@ -8,7 +8,7 @@ Use the accepted specifications rather than substituting this checklist for thei
 
 The delivered first playable is a restartable two-player, three-stock, untimed game with Zip, Bramble and one agreed arena. Gamepads are primary; keyboard Developer Test and keyboard plus gamepad support development. Native Linux on the actual Steam Deck/1080p TV is part of acceptance. Four-player shipping content and menus remain later work; collection-based ownership, state and combat must be exercised with four slots now to expose pair-only assumptions.
 
-The proposed gates below are cumulative: a green headless check does not replace physical input, game-feel or native hardware review. An unfinished gate remains recorded as unverified, rather than waived by a Windows or analytic result.
+The accepted gates below are cumulative: a green headless check does not replace physical input, game-feel or native hardware review. An unfinished gate remains recorded as unverified, rather than waived by a Windows or analytic result.
 
 ## Evidence and check execution
 
@@ -59,11 +59,11 @@ H8's run length and percentile/spike thresholds are proposed practical defaults 
 
 Before declaring four-player support delivered, add shipping join/select/HUD/results capacity and run four physical controllers on the actual Deck/TV. Cover all-device ownership, simultaneous actions, disconnect/replacement of each slot without stealing another, eliminated-player handling, same-character independence, multi-target and simultaneous contacts, complete four-player stock flow, and H8 under representative four-player effects/activity. Confirm readable four-player markers/HUD and sustained 60 FPS. A13 must pass now; this later physical/content gate remains explicitly outstanding and does not make the two-player first playable wait for four-player shipping features.
 
-## Proposed implementation issues and dependencies
+## Implementation issues and dependencies
 
-These are draft issue titles/scopes, not created or assigned tickets. After #10/shared-understanding acceptance, publish implementation issues with named spec links, appropriate triage and native dependencies; keep them separate from wayfinder labels. Each issue closes only after its own delivered checks and evidence, with documentation updated and its change committed/pushed. A later milestone issue cannot retroactively substitute for missing per-change checks.
+These are accepted issue scopes. Publish implementation issues with named spec links, appropriate triage and native dependencies; keep them separate from wayfinder labels. Each issue closes only after its own delivered checks and evidence, with documentation updated and its change committed/pushed. A later milestone issue cannot retroactively substitute for missing per-change checks.
 
-| Stage | Draft issue / output | Depends on | Completion evidence |
+| Stage | Issue / output | Depends on | Completion evidence |
 | --- | --- | --- | --- |
 | I1 | Implement portable Godot launcher, bounded check harness and renderer/layout configuration | Accepted #10 | #9 discovery/version/error/timeout contracts; controlled assertion failure; clean import/editor invocation. Actual scripts/settings replace planned status only when delivered. |
 | I2 | Implement character Resources/catalog, JSON validation and fresh snapshots | I1 | A1/A2 content portions; authored Zip/Bramble pairs; useful retry diagnostics. |
@@ -80,4 +80,4 @@ I3/I4 deliberately isolate the highest integration risk before investing in full
 
 Keep the starting simulation/timer values from #2, analog thresholds from #4, character physics/damage, move timing/launch, arena dimensions, hitstun coefficients/cap and precision conventions tunable and documented. A value change reruns relevant checks and playtests; it does not expand scope into projectiles, shields, multi-hit systems, moving arenas or new mechanics. Accepted action/resource, tie, ownership and snapshot rules remain requirements.
 
-No foundational decision gap has been identified in this review: the accepted rules, content, interfaces and workflow define what to build. Remaining risk is implementation and validation, with explicit stop-and-report behavior above. Proposed final human frontier for #10: accept (1) cumulative real-interface plus physical/feel acceptance, including the explicit Deck performance gate and later four-player distinction; (2) staged implementation issues/dependencies and bounded tuning policy; then confirm the complete shared understanding before resolving #10/map. Until that confirmation, this document and issue plan remain a review draft.
+No foundational decision gap has been identified in this review: the accepted rules, content, interfaces and workflow define what to build. Remaining risk is implementation and validation, with explicit stop-and-report behavior above. The user confirmed the complete shared understanding on 2026-11-15 with "awesome, keep going", accepting cumulative real-interface and physical/feel acceptance, the explicit Deck performance gate, the later four-player distinction, staged dependencies and bounded tuning policy. Planning is complete; implementation and its evidence remain outstanding.

@@ -10,7 +10,7 @@ The main working tree currently contains the starter Godot project, without game
 | --- | --- | --- |
 | [Scene map](scene-map.md) | Godot scene composition, scene responsibilities, and implementation status | Accepted production targets (unimplemented) plus separate implemented timing-lab tree |
 | [Module interfaces](module-interfaces.md) | Ownership, accepted interfaces, editor authoring and step schedule | #8 accepted on 2026-11-15, including native prediction/commit and exact event ties; integration unverified |
-| [First-playable acceptance](../first-playable-acceptance.md) | Real-interface, physical/hardware acceptance and staged implementation handoff | #10 review draft; no production acceptance claimed |
+| [First-playable acceptance](../first-playable-acceptance.md) | Real-interface, physical/hardware acceptance and staged implementation handoff | #10 accepted on 2026-11-15; no production acceptance claimed |
 | [Development workflow](../development-workflow.md) | Portable engine, planned commands, rendering and native delivery | #9 accepted on 2026-11-15; tooling and exports not implemented |
 | [Match flow](match-flow.md) | Joining, selection, match results, pause, and controller replacement | Agreed behavior from #2 and #4; not implemented |
 | [Combat lifecycle](combat-lifecycle.md) | Attack phases, hit response, and timing constraints | Accepted #2/#8 rules and schedule; integrated native behavior unverified |
@@ -32,7 +32,7 @@ The main working tree currently contains the starter Godot project, without game
 | [#7: Character files](https://github.com/Fusion2k/smash-fight/issues/7) | Resolved: JSON physics/attack damage, editor-authored geometry/timing/launch parameters, Godot reference, schema, validation, and edit boundaries |
 | [#8: Architecture](https://github.com/Fusion2k/smash-fight/issues/8) | Accepted scene/module responsibilities, interfaces, GDScript, state ownership and chronological schedule |
 | [#9: Development workflow](https://github.com/Fusion2k/smash-fight/issues/9) | Accepted portable setup, planned launcher, renderer/scaling, and native delivery workflow; implementation pending |
-| [#10: Acceptance](https://github.com/Fusion2k/smash-fight/issues/10) | Pending automated/manual checks and Steam Deck/TV validation policy |
+| [#10: Acceptance](https://github.com/Fusion2k/smash-fight/issues/10) | Accepted automated/manual checks and Steam Deck/TV validation policy |
 | [#11: Timing prototype](https://github.com/Fusion2k/smash-fight/issues/11) | Resolved: native timing lab measured and human feedback recorded; production design remains #8 |
 | [#13: Contact chronology prototype](https://github.com/Fusion2k/smash-fight/issues/13) | Resolved focused evidence with new human reaction; integrated native movement remains unverified |
 | [#12: Physics backend research](https://github.com/Fusion2k/smash-fight/issues/12) | Completed source evaluation: GodotPhysics2D baseline recommended, Rapier v0.36.1 a credible alternative; Rapier runtime untested and Box2D deferred |
