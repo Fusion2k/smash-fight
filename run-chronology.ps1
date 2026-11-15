@@ -22,4 +22,3 @@ $arguments = @('--path', $prototypeRoot, 'res://chronology/lab.tscn', '--log-fil
 if ($Measure) { $arguments += @('--headless', '--', '--measure') }
 & $GodotPath @arguments
 exit $LASTEXITCODE
-

@@ -28,7 +28,7 @@ func _ready() -> void:
 	root.add_theme_constant_override("separation",10)
 	add_child(root)
 	var title := Label.new()
-	title.text = "THROWAWAY #13 — chronological contacts"
+	title.text = "THROWAWAY #13 â€” chronological contacts"
 	root.add_child(title)
 	var intro := Label.new()
 	intro.text = "Analytic rectangles: distinct hits, true ties and changed future motion.\nNative probes measure wall/floor boundaries separately. Formula/tolerance provisional."
@@ -103,4 +103,3 @@ func measure_native_boundaries() -> void:
 		native_observations.append({"fixture":spec.name,"hit":collision != null,"travel":collision.get_travel() if collision else Vector2.ZERO,"normal":collision.get_normal() if collision else Vector2.ZERO,"fraction":collision.get_travel().x/10 if collision else -1})
 		actor.free()
 		wall.free()
-

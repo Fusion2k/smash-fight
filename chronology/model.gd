@@ -142,5 +142,3 @@ static func fixtures() -> Array:
 		{"name":"Contact before landing retained", "bodies":[land_a,body("Target",Vector2(4,4),Vector2.ZERO)],"boundary":{"time":0.5,"id":"Attack","velocity":Vector2(10,0),"landing":true}},
 		{"name":"Contact after landing rejected", "bodies":[land_a,body("Target",Vector2(8,5),Vector2.ZERO)],"boundary":{"time":0.5,"id":"Attack","velocity":Vector2(10,0),"landing":true}}
 	]
-
-
