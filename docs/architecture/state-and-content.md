@@ -30,11 +30,25 @@ Controller identity does not define player identity. See [ADR 0001](../adr/0001-
 
 | Content | Agreed direction | Still to settle |
 | --- | --- | --- |
-| Zip | Small clockwork courier; light, fast, strong air movement, short reach, quick attacks, weaker individual hits | Concrete move identities and tuning |
-| Bramble | Broad wooden guardian; heavy, slower, longer reach, slower attacks, stronger launches | Concrete move identities and tuning |
-| Both characters | Six ordinary melee attacks and an upward recovery special; no projectiles, meters, summons, or new unique subsystems initially | Recovery differences and bounded move details in #3 |
+| Zip | Small clockwork courier; light, fast, strong air movement, short reach, quick attacks, weaker individual hits; taller spring-boost recovery | Numeric tuning and implementation |
+| Bramble | Broad wooden guardian; heavy, slower, longer reach, slower attacks, stronger launches; shorter recovery leap with stronger contact hit | Numeric tuning and implementation |
+| Both characters | Agreed melee move kits below; shared attack lifecycle, with no projectiles, meters, summons, lingering hazards, multi-hit attacks, or new unique subsystems initially | Data schema in #7 and scene/module responsibilities in #8 |
 | Arena | Floating flat main surface, two symmetric elevated one-way platforms, open surrounding space, fixed camera, ring-out limits beyond the view, opposing starts and respawns above each side | Dimensions tuned against both characters' jump/recovery reach |
 | Presentation | Distinct silhouettes, player colors/markers, readable attack phases, damage/stocks, hit and launch feedback | Placeholder implementation; production art deferred |
+
+### Agreed move identities
+
+| Attack | Zip | Bramble |
+| --- | --- | --- |
+| Ground neutral | Quick forward wrench jab | Broad forward branch swing |
+| Ground up | Overhead wrench flick | Branch uppercut |
+| Ground down | Short low sweep | Wide root sweep |
+| Aerial neutral | Quick forward swipe | Broad forward sweep |
+| Aerial up | Overhead wrench tap | Heavy overhead swing |
+| Aerial down | Small downward stomp | Heavy downward stomp |
+| Recovery special | Upward spring boost | Upward root-powered leap |
+
+Differences use timing, reach, damage, launch strength, and recovery movement within the shared lifecycle. Both characters must reach elevated platforms using their jumps and recover from modest positions below/beside the stage when their air jump and recovery special remain available. Deep falls stay unrecoverable. Platform heights and recovery distances remain provisional tuning targets, not passed playtest checks.
 
 ## Ordinary change checks
 

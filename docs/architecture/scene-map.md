@@ -40,7 +40,7 @@ flowchart TB
         Arena --> Markers
         Arena --> Limits
         Arena --> Camera
-        Body["Movement and collision representation"]
+        Body["Movement and collision representation<br/>2D backend under evaluation"]
         Visual["Character presentation<br/>Silhouette, attack poses, hit feedback"]
         Characters --> Body
         Characters --> Visual
@@ -69,12 +69,18 @@ flowchart TB
 | --- | --- | --- |
 | Application/frontend | Join, independent selection, readiness, results, and Developer Test entry | Proposed; no scene path yet |
 | Match composition | Complete restartable matches, pause, controller loss, and same-step outcomes | Proposed; state ownership pending #8 |
-| Arena | Main surface, two one-way platforms, fixed view, safe starts, respawn positions, and ring-out limits | Topology agreed in #3; dimensions and scene layout pending |
+| Arena | Main surface, two one-way platforms reachable by both characters' jumps, fixed view, safe starts, respawn positions, and ring-out limits | Topology and recovery expectations agreed in #3; dimensions and scene layout pending |
 | Character instance | Independent movement, damage, attack state, and airborne resources for every player slot | Requirement agreed; script/module composition pending #7, #8, and #11 |
 | HUD/presentation | Distinguishable players, damage/stocks, attack phases, and hit feedback | Requirement agreed; scene paths pending |
 | Pause/countdown presentation | Frozen match state, explicit missing-slot replacement, and three-second resume countdown | Behavior agreed in #4; scene ownership pending #8 |
 
 Controller assignment, character-file validation, combat resolution, and match rules need explicit module responsibilities in #8. Their logical roles do not each require a separate node or scene. Likewise, this diagram does not prescribe autoloads, signals, inheritance, collision-node types, or a hit-query method.
+
+## Physics backend status
+
+[Research #12](https://github.com/Fusion2k/smash-fight/issues/12) evaluated GodotPhysics2D and Godot Rapier 2D before the timing experiment in #11. Its [cited report](https://github.com/Fusion2k/smash-fight/blob/1fb7589/docs/research/physics-backend-evaluation.md) recommends GodotPhysics2D as the initial baseline and retains Rapier v0.36.1 as a credible alternative if a relevant problem is demonstrated. Box2D is deferred at the user's request. No backend switch has been made, and this scene map does not assume one. The current `project.godot` has no custom 2D-backend selection; its Jolt setting is specifically `3d/physics_engine`.
+
+Backend compatibility and packaging evidence will inform #8 and #9. The experiment must still establish short-window hit behavior, query freshness, one-way-platform movement, and simultaneous outcomes for any selected backend.
 
 ## Evolution checks
 

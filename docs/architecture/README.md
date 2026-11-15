@@ -20,13 +20,16 @@ The repository currently contains the starter Godot project, without gameplay sc
 | --- | --- |
 | [#1: Planning map](https://github.com/Fusion2k/smash-fight/issues/1) | Scope, platform targets, decision order, and completed evidence |
 | [#2: Movement and combat](https://github.com/Fusion2k/smash-fight/issues/2) | Agreed actions, attack/hit/stock rules, and provisional timing |
-| [#3: Characters and arena](https://github.com/Fusion2k/smash-fight/issues/3) | Zip, Bramble, arena topology, and placeholder presentation; move details still being discussed |
+| [#3: Characters and arena](https://github.com/Fusion2k/smash-fight/issues/3) | Agreed Zip/Bramble move kits, recovery differences, arena topology, and placeholder presentation |
 | [#4: Controllers and match flow](https://github.com/Fusion2k/smash-fight/issues/4) | Agreed player slots, controls, lifecycle, and developer test path |
 | [#7: Character files](https://github.com/Fusion2k/smash-fight/issues/7) | Pending format, schema, validation, and editing workflow |
 | [#8: Architecture](https://github.com/Fusion2k/smash-fight/issues/8) | Pending scene/module responsibilities, interfaces, language, and state ownership |
 | [#9: Development workflow](https://github.com/Fusion2k/smash-fight/issues/9) | Pending portable launcher, renderer/scaling, and delivery workflow |
 | [#10: Acceptance](https://github.com/Fusion2k/smash-fight/issues/10) | Pending automated/manual checks and Steam Deck/TV validation policy |
 | [#11: Timing prototype](https://github.com/Fusion2k/smash-fight/issues/11) | Pending evidence for physics ordering and hit detection |
+| [#12: Physics backend research](https://github.com/Fusion2k/smash-fight/issues/12) | Completed source evaluation: GodotPhysics2D baseline recommended, Rapier v0.36.1 a credible alternative; runtime behavior untested and Box2D deferred |
+
+The cited [physics-backend evaluation](https://github.com/Fusion2k/smash-fight/blob/1fb7589/docs/research/physics-backend-evaluation.md) is preserved on the research-only `research/physics-backends` branch, following the repository's research convention. It recommends a first-experiment baseline; it does not settle the production backend or replace #11's measurements.
 
 ## Keeping the views current
 
