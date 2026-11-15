@@ -12,14 +12,14 @@ Solid lines show accepted parent/child composition. Dashed lines show phase-depe
 flowchart TB
     App["Application root<br/>Active flow and view composition"]
 
-    subgraph Frontend["Frontend views Ã‚Â· active as needed"]
+    subgraph Frontend["Frontend views · active as needed"]
         direction LR
         Join["Join and character select<br/>Slots, picks, ready status"]
         Results["Results<br/>Winner or draw, rematch readiness"]
         Dev["Developer Test entry<br/>Keyboard plus stationary opponent"]
     end
 
-    subgraph Gameplay["Match scene Ã‚Â· proposed"]
+    subgraph Gameplay["Match scene · proposed"]
         direction TB
         Match["Match root<br/>Compose one match"]
         Arena["Arena scene<br/>Surfaces, spawn markers, ring-out limits"]
@@ -104,12 +104,12 @@ This hierarchy exists on [prototype/combat-timing at 3820f96](https://github.com
 
 ```mermaid
 flowchart TB
-    Lab["CombatTimingLab Ã‚Â· Node2D<br/>prototype/timing_lab.tscn<br/>prototype/timing_lab.gd"]
+    Lab["CombatTimingLab · Node2D<br/>prototype/timing_lab.tscn<br/>prototype/timing_lab.gd"]
     UI["Status label and scenario/replay buttons<br/>Created at runtime"]
-    Measures["Measurements Ã‚Â· Node2D<br/>prototype/measurements.gd"]
-    Area["MeasuredAttackArea Ã‚Â· Area2D<br/>64 Ãƒâ€” 38 rectangle"]
-    Targets["Target0..2 Ã‚Â· CharacterBody2D<br/>28 Ãƒâ€” 50 rectangles"]
-    Platform["OneWayPlatform Ã‚Â· StaticBody2D<br/>220 Ãƒâ€” 12 one-way rectangle"]
+    Measures["Measurements · Node2D<br/>prototype/measurements.gd"]
+    Area["MeasuredAttackArea · Area2D<br/>64 × 38 rectangle"]
+    Targets["Target0..2 · CharacterBody2D<br/>28 × 50 rectangles"]
+    Platform["OneWayPlatform · StaticBody2D<br/>220 × 12 one-way rectangle"]
     Characters["PlatformCharacter / OtherCharacter<br/>CharacterBody2D"]
     Lab --> UI
     Lab --> Measures
