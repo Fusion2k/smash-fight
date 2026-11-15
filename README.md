@@ -42,15 +42,15 @@ GDScript and built-in GodotPhysics2D are accepted in #8. See [Define Godot scene
 
 ## Opening the project
 
-1. Install Godot **4.7.2** for your development PC. Use the Standard distribution and matching Standard export templates. GDScript is accepted in #8; [the #9 workflow](docs/development-workflow.md) specifies portable local discovery and future launch/check/export commands.
+1. Install Godot **4.7.2** for your development PC. Use the Standard distribution and matching Standard export templates. GDScript is accepted in #8; [the #9 workflow](docs/development-workflow.md) documents portable local discovery, delivered check/editor commands, and future play/test/export commands.
 2. Clone this repository and import the root [`project.godot`](project.godot) through Godot's Project Manager.
 3. Read the relevant GitHub issue before making changes, along with the [glossary](GLOSSARY.md) and any applicable architectural decision records under `docs/adr/`.
 
-On the current Windows PC, Godot is installed under `C:\tools\Godot4`. Other PCs may use a different location. The repository currently contains the starter project configuration and icon; gameplay scenes and a runnable match are upcoming work.
+On the current Windows PC, Godot is installed under `C:\tools\Godot4`. Other PCs may use a different location. The repository contains the launcher, engine/window foundation checks and Compatibility/1280x720 layout configuration; gameplay scenes and a runnable match are upcoming work.
 
 The separate [`prototype/combat-timing` branch](https://github.com/Fusion2k/smash-fight/tree/prototype/combat-timing) contains the runnable timing lab for #11. Its Windows launcher is **Run Combat Timing Lab.cmd** in that branch's worktree. See the [experiment evidence and instructions](docs/architecture/combat-timing-evidence.md); the main project does not run that lab.
 
-The completed [Research a portable Godot 4.7.2 development workflow](https://github.com/Fusion2k/smash-fight/issues/6) covers version checks, imports, export templates, and verification options. A shared launcher and automated gameplay test suite have not yet been established.
+The completed [Research a portable Godot 4.7.2 development workflow](https://github.com/Fusion2k/smash-fight/issues/6) covers version checks, imports, export templates, and verification options. The shared `tools/dev.ps1` launcher now delivers check/editor commands and foundation checks (#14); automated gameplay checks are still upcoming.
 
 ## GitHub task workflow
 

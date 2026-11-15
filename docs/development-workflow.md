@@ -1,29 +1,43 @@
 # Development workflow
 
-**Status: accepted specification for [#9](https://github.com/Fusion2k/smash-fight/issues/9), confirmed by the user on 2026-11-15; not an implemented launcher, export pipeline or check suite.** #8 has resolved GDScript and built-in GodotPhysics2D. The user accepted Compatibility, the logical layout/scaling policy, and the complete workflow below. Evidence comes from [#6 research](https://github.com/Fusion2k/smash-fight/blob/28981362e9541d704f6ffdf7fc4fff42bf6b3080/docs/research/godot-4-7-2-workflow.md), kept on its separate research branch.
+**Status: accepted specification for [#9](https://github.com/Fusion2k/smash-fight/issues/9), confirmed by the user on 2026-11-15; launcher/foundation checks implemented in #14, with gameplay checks and exports upcoming.** #8 has resolved GDScript and built-in GodotPhysics2D. The user accepted Compatibility, the logical layout/scaling policy, and the complete workflow below. Evidence comes from [#6 research](https://github.com/Fusion2k/smash-fight/blob/28981362e9541d704f6ffdf7fc4fff42bf6b3080/docs/research/godot-4-7-2-workflow.md), kept on its separate research branch.
 
 ## Portable setup contract
 
 Use the Standard Godot 4.7.2 official distribution with GDScript and matching Standard 4.7.2 export templates. Windows x86_64 is the initial documented development host; native Linux x86_64 is the Steam Deck delivery target. Other development hosts can import source using their matching engine asset, but are not initially verified workflows. No .NET SDK is needed by this chosen project language.
 
-A future repository launcher will resolve an explicit executable argument, then a machine-local `GODOT_BIN`, then `godot` on PATH. It will print the selected path and full version, reject a release other than `4.7.2.stable.official.ed1daf0bf`, and fail with useful setup instructions before import/run on a mismatch. `GODOT_BIN` is a project wrapper convention, not a Godot setting. No current PC installation path belongs in shared scripts. Download the official host archive and templates manually; automated engine downloads are unnecessary for this initial workflow. Record the download source and verify its published checksum when provisioning a new PC.
+The repository launcher resolves an explicit executable argument, then a machine-local `GODOT_BIN`, then `godot` on PATH. It prints the selected path and full version, reject a release other than `4.7.2.stable.official.ed1daf0bf`, and fail with useful setup instructions before import/run on a mismatch. `GODOT_BIN` is a project wrapper convention, not a Godot setting. No current PC installation path belongs in shared scripts. Download the official host archive and templates manually; automated engine downloads are unnecessary for this initial workflow. Record the download source and verify its published checksum when provisioning a new PC.
 
-On a new Windows PC: install/extract that engine and matching templates, clone the repository, set local discovery, run the planned check command, then open the project through the planned editor command. The initial setup guide must include exact prerequisites and expected success output. A clean checkout must not require copying another PC's `.godot` cache.
+On a new Windows PC: install/extract that engine and matching templates, clone the repository, set local discovery, run the check command, then open the project through the editor command. The initial setup guide must include exact prerequisites and expected success output. A clean checkout must not require copying another PC's `.godot` cache.
 
-## Planned command surface
+## Command surface
 
-These are accepted commands for future implementation, not files that currently exist. A PowerShell entry point exposes the actions below; small Windows `.cmd` wrappers may provide double-click Editor/Developer Test entry without duplicating discovery/version logic. Every action resolves the repository relative to the script, supports paths with spaces, stops on failure and returns a meaningful exit code.
+`tools/dev.ps1` supports Windows PowerShell 5.1 and PowerShell 7. `check` and `editor` are delivered in #14; `play`, `test` and `export` fail clearly until #18/#20 deliver their application/presets. Every action resolves the repository relative to the script, supports paths with spaces, validates the engine and returns a meaningful exit code. Interactive editor launch returns after starting the editor; it does not terminate the editing session on the check timeout. `-EditorSmoke` instead uses bounded headless editor startup.
 
-| Planned invocation | Contract |
+For a new Windows checkout, install/extract the official Standard engine, verify its published checksum, then run the following from the repository root (substitute your own local path). Windows PowerShell may require `powershell.exe -NoProfile -ExecutionPolicy Bypass -File` before the script path when downloaded scripts are blocked; this affects that process only.
+
+```powershell
+$env:GODOT_BIN = 'D:\Apps\Godot\Godot_v4.7.2-stable_win64_console.exe'
+./tools/dev.ps1 check
+./tools/dev.ps1 editor
+```
+
+Expected check completion is `CHECKS_PASSED foundation` and `PASS: foundation checks only`; this currently verifies the actual engine and loaded renderer/window settings, not gameplay. The launcher prints the selected executable, exact version, source HEAD (or unknown outside Git), and retained log directory. `-GodotBin <path>` overrides `GODOT_BIN`; without either it resolves `godot` on PATH. A copied `.godot` cache is unnecessary.
+
+Bounded commands use `-TimeoutSeconds` (default 120 per process). Each retains stdout/stderr and `run.json` in ignored `build/logs/<run>/`; failure also writes `failure.txt`. Nonzero exit, Godot `ERROR:`/`SCRIPT ERROR:` output even with exit zero, missing completion, wall-clock timeout or output-drain timeout fails the wrapper. On Windows timeout terminates the engine process tree. The manifest records source HEAD; local modifications may be present, so milestone evidence must name its committed source. Build output is excluded from Godot import using a generated `.gdignore`.
+
+To exercise failure propagation, run `check -CheckCase failure` (intentional assertion) and `check -CheckCase timeout -TimeoutSeconds 10` (intentional nontermination); both must return exit 1 with the corresponding failure log. `check -CheckCase engine-error` deliberately emits a Godot error and exits zero; the wrapper must still return 1. `editor -EditorSmoke` verifies bounded headless startup and exits. Use a wrong-version executable and a nonexistent explicit executable to verify discovery rejection. These commands are harness probes, not gameplay tests. Linux/PowerShell 7 execution, physical presentation, cross-PC provisioning and templates/exports remain unverified here.
+
+| Invocation | Contract |
 | --- | --- |
-| `./tools/dev.ps1 check` | Validate engine, run a bounded headless import, content validation, and focused gameplay checks as they are implemented; retain logs and fail on assertions/timeouts. |
+| `./tools/dev.ps1 check` | Delivered: validate engine, run bounded headless import and actual engine/window checks. Add content/gameplay checks as implemented; retain logs and fail on assertions/timeouts. |
 | `./tools/dev.ps1 editor` | Validate engine then open the root project in Godot's editor. |
 | `./tools/dev.ps1 play` | Run the normal application scene with join/select/gamepad flow. |
 | `./tools/dev.ps1 test` | Run the same application/Match through Developer Test: keyboard plus stationary opponent. |
 | `./tools/dev.ps1 export windows` | Validate matching templates, import/check, then export the committed Windows x86_64 preset to ignored build output. |
 | `./tools/dev.ps1 export linux` | Validate matching templates, import/check, then export the native Linux x86_64 preset to ignored build output. |
 
-Use one shared bounded process runner with retained standard output/error and an external wall-clock timeout. Godot `--quit-after` limits iterations, not elapsed time. Check failures must be observable: verify the future test runner returns failure for an intentionally failing assertion. A successful import or parser run alone does not establish combat correctness.
+Bounded commands use one shared process runner with retained standard output/error and an external wall-clock timeout. Godot `--quit-after` limits iterations, not elapsed time. Check failures must be observable: verify the test runner returns failure for an intentionally failing assertion. A successful import or parser run alone does not establish combat correctness.
 
 ## Git and build contents
 
@@ -46,7 +60,7 @@ Check the first runnable native build on actual Deck/TV early. Repeat after inpu
 
 ## Accepted renderer and presentation policy
 
-Use Compatibility as the initial renderer on Windows and native Linux. Godot's [renderer overview](https://docs.godotengine.org/en/4.7/tutorials/rendering/renderers.html) identifies Compatibility as a suitable starting point for 2D; choosing it here is an accepted project decision, not measured proof of better Deck frame times. It keeps the first playable's simple 2D presentation within that renderer's feature set. Revisit it if a concrete visual feature or measured problem justifies the change. Remove incidental Forward Plus/D3D12 choices when implementing this confirmed policy; this specification changes no project settings.
+Use Compatibility as the initial renderer on Windows and native Linux. Godot's [renderer overview](https://docs.godotengine.org/en/4.7/tutorials/rendering/renderers.html) identifies Compatibility as a suitable starting point for 2D; choosing it here is an accepted project decision, not measured proof of better Deck frame times. It keeps the first playable's simple 2D presentation within that renderer's feature set. Revisit it if a concrete visual feature or measured problem justifies the change. The incidental Forward Plus/D3D12 settings were replaced in #14.
 
 Use a 1280 x 720 logical camera/HUD design area with `canvas_items`, fractional scaling and `keep` aspect. This is a logical layout, not a fixed 720p render buffer: [Godot's scaling guidance](https://docs.godotengine.org/en/4.7/tutorials/rendering/multiple_resolutions.html) says canvas items draw at target resolution. At 1920 x 1080 the area fills the TV at 1.5x. On the Deck's [1280 x 800 display](https://www.steamdeck.com/en/tech) it leaves 40-pixel bars above and below. Preserve the same arena framing on all aspect ratios rather than revealing more stage on wider displays. World units, hitboxes and gameplay do not change with window size. This favors smooth placeholder/original 2D presentation; deliberate low-resolution pixel rendering would instead call for a different viewport policy. Actual UI readability, filtering and controller/TV presentation remain #10 checks.
 
@@ -54,4 +68,4 @@ For exports use separate executable and generated PCK together in each archive, 
 
 ## What is verified today
 
-The source research checked the installed engine version/help and successfully imported the starter project headlessly in an isolated worktree, without tracked changes. Separate #11/#13 labs have their own version-checking Windows launchers and limited timing evidence. Main still has no gameplay scenes, main scene, production launcher, test suite or export presets. No production export, second-PC setup, native Deck/TV run, frame-rate target or complete match has passed. This accepted specification makes those future responsibilities concrete without counting them as delivered tooling.
+The source research checked the installed engine version/help and successfully imported the starter project headlessly in an isolated worktree, without tracked changes. Separate #11/#13 labs have their own version-checking Windows launchers and limited timing evidence. Main now has the #14 launcher and engine/window foundation runner; it still has no gameplay scenes, main scene, gameplay check suite or export presets. No production export, second-PC setup, native Deck/TV run, frame-rate target or complete match has passed. This accepted specification makes those future responsibilities concrete without counting them as delivered tooling.
