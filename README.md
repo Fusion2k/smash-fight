@@ -1,5 +1,7 @@
 # Smash Fight
 
+**This is the throwaway `prototype/combat-timing` branch for [#11](https://github.com/Fusion2k/smash-fight/issues/11).** Double-click **Run Combat Timing Lab.cmd**, or read the [lab instructions and observed results](prototype/README.md). The root Godot project on this branch runs the lab; the project description below provides planning context, not a claim that a match is implemented.
+
 A Godot 2D local multiplayer platform fighting game inspired by Super Smash Bros. Ultimate, with original characters and art. Players build damage, launch opponents out of the arena, and compete for the last remaining stocks.
 
 The project is being scoped through GitHub Issues. Start with [Scope the first playable Smash Fight](https://github.com/Fusion2k/smash-fight/issues/1) for the current decision map, completed research, and outstanding questions.

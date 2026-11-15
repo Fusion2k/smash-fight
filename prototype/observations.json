@@ -1,0 +1,4434 @@
+{
+	"cases": [
+		{
+			"active_ticks": [
+				3
+			],
+			"attack_path": [
+				40,
+				40,
+				40,
+				220,
+				40,
+				40,
+				40,
+				40,
+				40,
+				40,
+				40,
+				40
+			],
+			"events": {
+				"Area poll": [],
+				"Area signal": [
+					{
+						"attack_id": 1,
+						"engine_frame": 9,
+						"target": 0,
+						"tick": 3
+					}
+				],
+				"Direct endpoint": [
+					{
+						"attack_id": 1,
+						"engine_frame": 8,
+						"target": 0,
+						"tick": 3
+					}
+				],
+				"Relative sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 8,
+						"target": 0,
+						"tick": 3
+					}
+				],
+				"Two-motion sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 8,
+						"target": 0,
+						"tick": 3
+					}
+				]
+			},
+			"expected": 1,
+			"explanation": "A newly enabled attack overlaps a target for exactly one full physics step.",
+			"hits": {
+				"Area poll": 0,
+				"Area signal": 1,
+				"Direct endpoint": 1,
+				"Relative sweep": 1,
+				"Two-motion sweep": 1
+			},
+			"passed": true,
+			"raw_counts": {
+				"Area poll": 0,
+				"Area signal": 1,
+				"Direct endpoint": 1,
+				"Relative sweep": 1,
+				"Two-motion sweep": 1
+			},
+			"target_paths": [
+				[
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0
+				]
+			],
+			"title": "One-step activation",
+			"trace": [
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 5,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 0
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 6,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 1
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 7,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 2
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 8,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [
+							0
+						],
+						"Relative sweep": [
+							0
+						],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 3
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 9,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 4
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 10,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 5
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 11,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 6
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 12,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 7
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 13,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 8
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 14,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 9
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 15,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 10
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 16,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 11
+				}
+			],
+			"trade": false
+		},
+		{
+			"active_ticks": [
+				3,
+				4
+			],
+			"attack_path": [
+				40,
+				40,
+				40,
+				40,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440
+			],
+			"events": {
+				"Area poll": [],
+				"Area signal": [],
+				"Direct endpoint": [],
+				"Relative sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 26,
+						"target": 0,
+						"tick": 4
+					}
+				],
+				"Two-motion sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 26,
+						"target": 0,
+						"tick": 4
+					}
+				]
+			},
+			"expected": 1,
+			"explanation": "The active attack crosses a target between endpoints: 400 px in one step.",
+			"hits": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 1,
+				"Two-motion sweep": 1
+			},
+			"passed": true,
+			"raw_counts": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 1,
+				"Two-motion sweep": 1
+			},
+			"target_paths": [
+				[
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0
+				]
+			],
+			"title": "Fast attack crossing",
+			"trace": [
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 22,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 0
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 23,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 1
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 24,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 2
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 25,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 3
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 26,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [
+							0
+						],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 4
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 27,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 5
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 28,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 6
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 29,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 7
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 30,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 8
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 31,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 9
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 32,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 10
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 33,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 11
+				}
+			],
+			"trade": false
+		},
+		{
+			"active_ticks": [
+				3,
+				4
+			],
+			"attack_path": [
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0
+			],
+			"events": {
+				"Area poll": [],
+				"Area signal": [],
+				"Direct endpoint": [],
+				"Relative sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 43,
+						"target": 0,
+						"tick": 4
+					}
+				],
+				"Two-motion sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 43,
+						"target": 0,
+						"tick": 4
+					}
+				]
+			},
+			"expected": 1,
+			"explanation": "The target crosses a stationary active attack. Both motions matter.",
+			"hits": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 1,
+				"Two-motion sweep": 1
+			},
+			"passed": true,
+			"raw_counts": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 1,
+				"Two-motion sweep": 1
+			},
+			"target_paths": [
+				[
+					440,
+					440,
+					440,
+					440,
+					40,
+					40,
+					40,
+					40,
+					40,
+					40,
+					40,
+					40
+				]
+			],
+			"title": "Fast target crossing",
+			"trace": [
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 39,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 0
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 40,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 1
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 41,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 2
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 42,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 3
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 43,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [
+							0
+						],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						40.0
+					],
+					"tick": 4
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 44,
+					"previous_targets": [
+						40.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						40.0
+					],
+					"tick": 5
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 45,
+					"previous_targets": [
+						40.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						40.0
+					],
+					"tick": 6
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 46,
+					"previous_targets": [
+						40.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						40.0
+					],
+					"tick": 7
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 47,
+					"previous_targets": [
+						40.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						40.0
+					],
+					"tick": 8
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 48,
+					"previous_targets": [
+						40.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						40.0
+					],
+					"tick": 9
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 49,
+					"previous_targets": [
+						40.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						40.0
+					],
+					"tick": 10
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 50,
+					"previous_targets": [
+						40.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						40.0
+					],
+					"tick": 11
+				}
+			],
+			"trade": false
+		},
+		{
+			"active_ticks": [
+				3
+			],
+			"attack_path": [
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0
+			],
+			"events": {
+				"Area poll": [],
+				"Area signal": [],
+				"Direct endpoint": [],
+				"Relative sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 59,
+						"target": 0,
+						"tick": 3
+					}
+				],
+				"Two-motion sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 59,
+						"target": 0,
+						"tick": 3
+					}
+				]
+			},
+			"expected": 1,
+			"explanation": "Query before and after moving the target into a one-step attack.",
+			"hits": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 1,
+				"Two-motion sweep": 1
+			},
+			"passed": true,
+			"raw_counts": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 1,
+				"Two-motion sweep": 1
+			},
+			"target_paths": [
+				[
+					440,
+					440,
+					440,
+					220,
+					440,
+					440,
+					440,
+					440,
+					440,
+					440,
+					440,
+					440
+				]
+			],
+			"title": "Target enters this step",
+			"trace": [
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 56,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 0
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 57,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 1
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 58,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 2
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 59,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [
+							0
+						],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 3
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 60,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 4
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 61,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 5
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 62,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 6
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 63,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 7
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 64,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 8
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 65,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 9
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 66,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 10
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [],
+					"engine_frame": 67,
+					"previous_targets": [
+						440.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						440.0
+					],
+					"tick": 11
+				}
+			],
+			"trade": false
+		},
+		{
+			"active_ticks": [
+				3,
+				4
+			],
+			"attack_path": [
+				40,
+				40,
+				40,
+				40,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440
+			],
+			"events": {
+				"Area poll": [],
+				"Area signal": [],
+				"Direct endpoint": [],
+				"Relative sweep": [],
+				"Two-motion sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 77,
+						"target": 0,
+						"tick": 4
+					}
+				]
+			},
+			"expected": 0,
+			"explanation": "Attack and target move equally fast, staying apart. Swept paths overlap but no hit occurs.",
+			"hits": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 0,
+				"Two-motion sweep": 1
+			},
+			"passed": true,
+			"raw_counts": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 0,
+				"Two-motion sweep": 1
+			},
+			"target_paths": [
+				[
+					180,
+					180,
+					180,
+					180,
+					580,
+					580,
+					580,
+					580,
+					580,
+					580,
+					580,
+					580
+				]
+			],
+			"title": "Parallel motion must not hit",
+			"trace": [
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 73,
+					"previous_targets": [
+						180.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						180.0
+					],
+					"tick": 0
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 74,
+					"previous_targets": [
+						180.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						180.0
+					],
+					"tick": 1
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 75,
+					"previous_targets": [
+						180.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						180.0
+					],
+					"tick": 2
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 76,
+					"previous_targets": [
+						180.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						180.0
+					],
+					"tick": 3
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 77,
+					"previous_targets": [
+						180.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						580.0
+					],
+					"tick": 4
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 78,
+					"previous_targets": [
+						580.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						580.0
+					],
+					"tick": 5
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 79,
+					"previous_targets": [
+						580.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						580.0
+					],
+					"tick": 6
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 80,
+					"previous_targets": [
+						580.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						580.0
+					],
+					"tick": 7
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 81,
+					"previous_targets": [
+						580.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						580.0
+					],
+					"tick": 8
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 82,
+					"previous_targets": [
+						580.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						580.0
+					],
+					"tick": 9
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 83,
+					"previous_targets": [
+						580.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						580.0
+					],
+					"tick": 10
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 84,
+					"previous_targets": [
+						580.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						580.0
+					],
+					"tick": 11
+				}
+			],
+			"trade": false
+		},
+		{
+			"active_ticks": [
+				3,
+				4,
+				5
+			],
+			"attack_path": [
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0
+			],
+			"events": {
+				"Area poll": [
+					{
+						"attack_id": 1,
+						"engine_frame": 94,
+						"target": 1,
+						"tick": 4
+					},
+					{
+						"attack_id": 1,
+						"engine_frame": 94,
+						"target": 2,
+						"tick": 4
+					},
+					{
+						"attack_id": 1,
+						"engine_frame": 94,
+						"target": 0,
+						"tick": 4
+					}
+				],
+				"Area signal": [
+					{
+						"attack_id": 1,
+						"engine_frame": 94,
+						"target": 1,
+						"tick": 3
+					},
+					{
+						"attack_id": 1,
+						"engine_frame": 94,
+						"target": 2,
+						"tick": 3
+					},
+					{
+						"attack_id": 1,
+						"engine_frame": 94,
+						"target": 0,
+						"tick": 3
+					}
+				],
+				"Direct endpoint": [
+					{
+						"attack_id": 1,
+						"engine_frame": 93,
+						"target": 0,
+						"tick": 3
+					},
+					{
+						"attack_id": 1,
+						"engine_frame": 93,
+						"target": 1,
+						"tick": 3
+					},
+					{
+						"attack_id": 1,
+						"engine_frame": 93,
+						"target": 2,
+						"tick": 3
+					}
+				],
+				"Relative sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 93,
+						"target": 0,
+						"tick": 3
+					},
+					{
+						"attack_id": 1,
+						"engine_frame": 93,
+						"target": 1,
+						"tick": 3
+					},
+					{
+						"attack_id": 1,
+						"engine_frame": 93,
+						"target": 2,
+						"tick": 3
+					}
+				],
+				"Two-motion sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 93,
+						"target": 0,
+						"tick": 3
+					},
+					{
+						"attack_id": 1,
+						"engine_frame": 93,
+						"target": 1,
+						"tick": 3
+					},
+					{
+						"attack_id": 1,
+						"engine_frame": 93,
+						"target": 2,
+						"tick": 3
+					}
+				]
+			},
+			"expected": 3,
+			"explanation": "One attack overlaps three targets; each should receive one hit.",
+			"hits": {
+				"Area poll": 3,
+				"Area signal": 3,
+				"Direct endpoint": 3,
+				"Relative sweep": 3,
+				"Two-motion sweep": 3
+			},
+			"passed": true,
+			"raw_counts": {
+				"Area poll": 6,
+				"Area signal": 3,
+				"Direct endpoint": 9,
+				"Relative sweep": 9,
+				"Two-motion sweep": 9
+			},
+			"target_paths": [
+				[
+					205.0,
+					205.0,
+					205.0,
+					205.0,
+					205.0,
+					205.0,
+					205.0,
+					205.0,
+					205.0,
+					205.0,
+					205.0,
+					205.0
+				],
+				[
+					235.0,
+					235.0,
+					235.0,
+					235.0,
+					235.0,
+					235.0,
+					235.0,
+					235.0,
+					235.0,
+					235.0,
+					235.0,
+					235.0
+				],
+				[
+					260.0,
+					260.0,
+					260.0,
+					260.0,
+					260.0,
+					260.0,
+					260.0,
+					260.0,
+					260.0,
+					260.0,
+					260.0,
+					260.0
+				]
+			],
+			"title": "Multiple targets",
+			"trace": [
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 90,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 0
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 91,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 1
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 92,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 2
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 93,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [
+							0,
+							1,
+							2
+						],
+						"Relative sweep": [
+							0,
+							1,
+							2
+						],
+						"Two-motion sweep": [
+							0,
+							1,
+							2
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 3
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 94,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [
+							1,
+							2,
+							0
+						],
+						"Area signal": [],
+						"Direct endpoint": [
+							0,
+							1,
+							2
+						],
+						"Relative sweep": [
+							0,
+							1,
+							2
+						],
+						"Two-motion sweep": [
+							0,
+							1,
+							2
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 4
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 95,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [
+							1,
+							2,
+							0
+						],
+						"Area signal": [],
+						"Direct endpoint": [
+							0,
+							1,
+							2
+						],
+						"Relative sweep": [
+							0,
+							1,
+							2
+						],
+						"Two-motion sweep": [
+							0,
+							1,
+							2
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 5
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 96,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 6
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 97,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 7
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 98,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 8
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 99,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 9
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 100,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 10
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1,
+						2
+					],
+					"engine_frame": 101,
+					"previous_targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						205.0,
+						235.0,
+						260.0
+					],
+					"tick": 11
+				}
+			],
+			"trade": false
+		},
+		{
+			"active_ticks": [
+				2,
+				3,
+				4,
+				5,
+				8,
+				9
+			],
+			"attack_path": [
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0
+			],
+			"events": {
+				"Area poll": [
+					{
+						"attack_id": 1,
+						"engine_frame": 110,
+						"target": 0,
+						"tick": 3
+					},
+					{
+						"attack_id": 2,
+						"engine_frame": 116,
+						"target": 0,
+						"tick": 9
+					}
+				],
+				"Area signal": [
+					{
+						"attack_id": 1,
+						"engine_frame": 110,
+						"target": 0,
+						"tick": 2
+					},
+					{
+						"attack_id": 2,
+						"engine_frame": 116,
+						"target": 0,
+						"tick": 8
+					}
+				],
+				"Direct endpoint": [
+					{
+						"attack_id": 1,
+						"engine_frame": 109,
+						"target": 0,
+						"tick": 2
+					},
+					{
+						"attack_id": 2,
+						"engine_frame": 115,
+						"target": 0,
+						"tick": 8
+					}
+				],
+				"Relative sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 109,
+						"target": 0,
+						"tick": 2
+					},
+					{
+						"attack_id": 2,
+						"engine_frame": 115,
+						"target": 0,
+						"tick": 8
+					}
+				],
+				"Two-motion sweep": [
+					{
+						"attack_id": 1,
+						"engine_frame": 109,
+						"target": 0,
+						"tick": 2
+					},
+					{
+						"attack_id": 2,
+						"engine_frame": 115,
+						"target": 0,
+						"tick": 8
+					}
+				]
+			},
+			"expected": 2,
+			"explanation": "Repeated samples count once per attack. A later attack may hit again.",
+			"hits": {
+				"Area poll": 2,
+				"Area signal": 2,
+				"Direct endpoint": 2,
+				"Relative sweep": 2,
+				"Two-motion sweep": 2
+			},
+			"passed": true,
+			"raw_counts": {
+				"Area poll": 4,
+				"Area signal": 2,
+				"Direct endpoint": 6,
+				"Relative sweep": 6,
+				"Two-motion sweep": 6
+			},
+			"target_paths": [
+				[
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0
+				]
+			],
+			"title": "Persistent overlap / new attack",
+			"trace": [
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 107,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 0
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 108,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 1
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 109,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [
+							0
+						],
+						"Relative sweep": [
+							0
+						],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 2
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 110,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [
+							0
+						],
+						"Area signal": [],
+						"Direct endpoint": [
+							0
+						],
+						"Relative sweep": [
+							0
+						],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 3
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 111,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [
+							0
+						],
+						"Area signal": [],
+						"Direct endpoint": [
+							0
+						],
+						"Relative sweep": [
+							0
+						],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 4
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 112,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [
+							0
+						],
+						"Area signal": [],
+						"Direct endpoint": [
+							0
+						],
+						"Relative sweep": [
+							0
+						],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 5
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 113,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 6
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 114,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 7
+				},
+				{
+					"active": true,
+					"attack_id": 2,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 115,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [
+							0
+						],
+						"Relative sweep": [
+							0
+						],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 8
+				},
+				{
+					"active": true,
+					"attack_id": 2,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 116,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [
+							0
+						],
+						"Area signal": [],
+						"Direct endpoint": [
+							0
+						],
+						"Relative sweep": [
+							0
+						],
+						"Two-motion sweep": [
+							0
+						]
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 9
+				},
+				{
+					"active": false,
+					"attack_id": 2,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 117,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 10
+				},
+				{
+					"active": false,
+					"attack_id": 2,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0
+					],
+					"engine_frame": 118,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0
+					],
+					"tick": 11
+				}
+			],
+			"trade": false
+		},
+		{
+			"active_ticks": [
+				3
+			],
+			"attack_path": [
+				40,
+				40,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440
+			],
+			"events": {
+				"Area poll": [],
+				"Area signal": [],
+				"Direct endpoint": [],
+				"Relative sweep": [],
+				"Two-motion sweep": []
+			},
+			"expected": 0,
+			"explanation": "Crossing during startup must not create a phantom sweep on activation.",
+			"hits": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 0,
+				"Two-motion sweep": 0
+			},
+			"passed": true,
+			"raw_counts": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 0,
+				"Two-motion sweep": 0
+			},
+			"target_paths": [
+				[
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0
+				]
+			],
+			"title": "Startup motion must not hit",
+			"trace": [
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 124,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 0
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 125,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 1
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 126,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 2
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 127,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 3
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 128,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 4
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 129,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 5
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 130,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 6
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 131,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 7
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 132,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 8
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 133,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 9
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 134,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 10
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 135,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 11
+				}
+			],
+			"trade": false
+		},
+		{
+			"active_ticks": [
+				3
+			],
+			"attack_path": [
+				40,
+				40,
+				40,
+				40,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440,
+				440
+			],
+			"events": {
+				"Area poll": [],
+				"Area signal": [],
+				"Direct endpoint": [],
+				"Relative sweep": [],
+				"Two-motion sweep": []
+			},
+			"expected": 0,
+			"explanation": "Crossing after the active window closes must not deal damage.",
+			"hits": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 0,
+				"Two-motion sweep": 0
+			},
+			"passed": true,
+			"raw_counts": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 0,
+				"Two-motion sweep": 0
+			},
+			"target_paths": [
+				[
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0
+				]
+			],
+			"title": "Deactivation must not hit",
+			"trace": [
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 141,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 0
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 142,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 1
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 143,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 2
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 40.0,
+					"direct_before_move": [],
+					"engine_frame": 144,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 40.0,
+					"targets": [
+						220.0
+					],
+					"tick": 3
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 145,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 40.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 4
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 146,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 5
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 147,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 6
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 148,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 7
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 149,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 8
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 150,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 9
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 151,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 10
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 440.0,
+					"direct_before_move": [],
+					"engine_frame": 152,
+					"previous_targets": [
+						220.0
+					],
+					"previous_x": 440.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 440.0,
+					"targets": [
+						220.0
+					],
+					"tick": 11
+				}
+			],
+			"trade": false
+		},
+		{
+			"active_ticks": [
+				3
+			],
+			"attack_path": [
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0,
+				220.0
+			],
+			"batch_forward": [
+				12,
+				12
+			],
+			"batch_reverse": [
+				12,
+				12
+			],
+			"events": {
+				"Area poll": [],
+				"Area signal": [],
+				"Direct endpoint": [],
+				"Relative sweep": [],
+				"Two-motion sweep": []
+			},
+			"expected": 2,
+			"explanation": "Resolve two native query results immediately versus collecting before interruption.",
+			"hits": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 0,
+				"Two-motion sweep": 0
+			},
+			"naive_forward": [
+				0,
+				12
+			],
+			"naive_reverse": [
+				12,
+				0
+			],
+			"native_pairs": [
+				[
+					0,
+					1
+				],
+				[
+					1,
+					0
+				]
+			],
+			"passed": true,
+			"raw_counts": {
+				"Area poll": 0,
+				"Area signal": 0,
+				"Direct endpoint": 0,
+				"Relative sweep": 0,
+				"Two-motion sweep": 0
+			},
+			"target_paths": [
+				[
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0,
+					220.0
+				],
+				[
+					250.0,
+					250.0,
+					250.0,
+					250.0,
+					250.0,
+					250.0,
+					250.0,
+					250.0,
+					250.0,
+					250.0,
+					250.0,
+					250.0
+				]
+			],
+			"title": "Simultaneous trades",
+			"trace": [
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 158,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 0
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 159,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 1
+				},
+				{
+					"active": false,
+					"attack_id": 0,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 160,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 2
+				},
+				{
+					"active": true,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 161,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 3
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 162,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 4
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 163,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 5
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 164,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 6
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 165,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 7
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 166,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 8
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 167,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 9
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 168,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 10
+				},
+				{
+					"active": false,
+					"attack_id": 1,
+					"attack_x": 220.0,
+					"direct_before_move": [
+						0,
+						1
+					],
+					"engine_frame": 169,
+					"previous_targets": [
+						220.0,
+						250.0
+					],
+					"previous_x": 220.0,
+					"sampled": {
+						"Area poll": [],
+						"Area signal": [],
+						"Direct endpoint": [],
+						"Relative sweep": [],
+						"Two-motion sweep": []
+					},
+					"sweep_start_x": 220.0,
+					"targets": [
+						220.0,
+						250.0
+					],
+					"tick": 11
+				}
+			],
+			"trade": true
+		},
+		{
+			"characters_pass": true,
+			"dropped": true,
+			"explanation": "Actual upward passage, resting landing, fresh-down drop, restored collision, and pass-through.",
+			"landed": true,
+			"passed": true,
+			"restored": true,
+			"rose_through": true,
+			"title": "One-way platform and pass-through",
+			"trace": [
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 5,
+					"y": 620.0
+				},
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 6,
+					"y": 610.0
+				},
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 7,
+					"y": 600.0
+				},
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 8,
+					"y": 590.0
+				},
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 9,
+					"y": 580.0
+				},
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 10,
+					"y": 570.0
+				},
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 11,
+					"y": 560.0
+				},
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 12,
+					"y": 550.0
+				},
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 13,
+					"y": 540.0
+				},
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 14,
+					"y": 530.0
+				},
+				{
+					"on_floor": false,
+					"phase": "rise",
+					"tick": 15,
+					"y": 520.0
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 16,
+					"y": 510.0
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 17,
+					"y": 510.333343505859
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 18,
+					"y": 511.0
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 19,
+					"y": 512.0
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 20,
+					"y": 513.333312988281
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 21,
+					"y": 515.0
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 22,
+					"y": 517.0
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 23,
+					"y": 519.333312988281
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 24,
+					"y": 522.0
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 25,
+					"y": 525.0
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 26,
+					"y": 528.333312988281
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 27,
+					"y": 532.0
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 28,
+					"y": 536.0
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 29,
+					"y": 540.333312988281
+				},
+				{
+					"on_floor": false,
+					"phase": "fall",
+					"tick": 30,
+					"y": 545.0
+				},
+				{
+					"on_floor": true,
+					"phase": "rest",
+					"tick": 31,
+					"y": 548.984375
+				},
+				{
+					"on_floor": true,
+					"phase": "drop",
+					"tick": 32,
+					"y": 548.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 33,
+					"y": 551.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 34,
+					"y": 554.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 35,
+					"y": 557.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 36,
+					"y": 560.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 37,
+					"y": 563.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 38,
+					"y": 566.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 39,
+					"y": 569.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 40,
+					"y": 572.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 41,
+					"y": 575.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 42,
+					"y": 578.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 43,
+					"y": 581.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 44,
+					"y": 584.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 45,
+					"y": 587.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 46,
+					"y": 590.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 47,
+					"y": 593.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 48,
+					"y": 596.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 49,
+					"y": 599.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 50,
+					"y": 602.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 51,
+					"y": 605.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 52,
+					"y": 608.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 53,
+					"y": 611.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "drop",
+					"tick": 54,
+					"y": 614.984375
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 55,
+					"y": 500.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 56,
+					"y": 500.333343505859
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 57,
+					"y": 501.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 58,
+					"y": 502.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 59,
+					"y": 503.333343505859
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 60,
+					"y": 505.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 61,
+					"y": 507.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 62,
+					"y": 509.333343505859
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 63,
+					"y": 512.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 64,
+					"y": 515.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 65,
+					"y": 518.333312988281
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 66,
+					"y": 522.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 67,
+					"y": 526.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 68,
+					"y": 530.333312988281
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 69,
+					"y": 535.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 70,
+					"y": 540.0
+				},
+				{
+					"on_floor": false,
+					"phase": "restore",
+					"tick": 71,
+					"y": 545.333312988281
+				}
+			]
+		}
+	],
+	"metadata": {
+		"all_checks_passed": true,
+		"godot": {
+			"build": "official",
+			"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+			"hex": 263938,
+			"major": 4,
+			"minor": 7,
+			"patch": 2,
+			"status": "stable",
+			"string": "4.7.2-stable (official)",
+			"timestamp": 0
+		},
+		"loaded_extensions": [],
+		"physics_server_class": "PhysicsServer2D",
+		"platform": "Windows",
+		"selected_backend": "GodotPhysics2D",
+		"ticks_per_second": 60
+	}
+}

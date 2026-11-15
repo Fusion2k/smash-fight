@@ -1,3 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+prototype/runtime.log
+prototype/runtime.log.*
+prototype/preview*.png
+prototype/graphical*.log
+prototype/graphical*.log.*
