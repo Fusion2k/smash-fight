@@ -32,7 +32,7 @@ The agreed movement, attack, defense, recovery, and match rules are specified in
 ## Design direction
 
 - Give scenes and gameplay modules clear responsibilities and small interfaces. Keep ordinary changes local and avoid monolithic scenes or scripts.
-- Keep each character's modifiable stats together in a human-editable character file. The format and schema are still to be chosen.
+- Keep each character's physics tuning and per-attack damage in one human-editable JSON file referenced from Godot's editor. Author graphics-dependent properties, including hitboxes, hurtboxes, sizes, offsets, attack timing, and launch direction/strength, in the editor. The accepted schema and validation contract are specified in [character authoring](docs/architecture/character-authoring.md) and #7.
 - Keep character definitions separate from mutable match state. Two instances of the same character must be able to act independently.
 - Keep the project portable between development PCs; resolve the Godot executable locally rather than embedding one machine's installation path.
 
@@ -45,6 +45,8 @@ See [Define Godot scene responsibilities and gameplay module interfaces](https:/
 3. Read the relevant GitHub issue before making changes, along with the [glossary](GLOSSARY.md) and any applicable architectural decision records under `docs/adr/`.
 
 On the current Windows PC, Godot is installed under `C:\tools\Godot4`. Other PCs may use a different location. The repository currently contains the starter project configuration and icon; gameplay scenes and a runnable match are upcoming work.
+
+The separate [`prototype/combat-timing` branch](https://github.com/Fusion2k/smash-fight/tree/prototype/combat-timing) contains the runnable timing lab for #11. Its Windows launcher is **Run Combat Timing Lab.cmd** in that branch's worktree. See the [experiment evidence and instructions](docs/architecture/combat-timing-evidence.md); the main project does not run that lab.
 
 The completed [Research a portable Godot 4.7.2 development workflow](https://github.com/Fusion2k/smash-fight/issues/6) covers version checks, imports, export templates, and verification options. A shared launcher and automated gameplay test suite have not yet been established.
 

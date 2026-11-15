@@ -1,28 +1,38 @@
 # State and content
 
-**Status: agreed ownership constraints; exact module interfaces and data format are pending.** Sources: [planning constraints, #1](https://github.com/Fusion2k/smash-fight/issues/1), [combat, #2](https://github.com/Fusion2k/smash-fight/issues/2), [character direction, #3](https://github.com/Fusion2k/smash-fight/issues/3), and [player slots, #4](https://github.com/Fusion2k/smash-fight/issues/4).
+**Status: authoring responsibilities, schema, and validation accepted in #7; implementation interfaces pending #8.** Sources: [planning constraints, #1](https://github.com/Fusion2k/smash-fight/issues/1), [combat, #2](https://github.com/Fusion2k/smash-fight/issues/2), [character direction, #3](https://github.com/Fusion2k/smash-fight/issues/3), [player slots, #4](https://github.com/Fusion2k/smash-fight/issues/4), and [character authoring, #7](https://github.com/Fusion2k/smash-fight/issues/7).
 
 ## Same character, independent players
 
 ```mermaid
 flowchart TB
-    Definition["One editable character definition<br/>Tunable stats and move values<br/>Format pending #7"]
+    Definition["One JSON per character<br/>Physics tuning and attack damage<br/>schema_version"]
+    Editor["Editor-authored character content<br/>Graphics, collision geometry,<br/>attack timing and launch parameters"]
+    Editor -. "references JSON in Godot" .-> Definition
     SlotA["Player slot 1"] --> StateA["Character instance A<br/>Own damage, stocks, motion,<br/>attack phase and airborne resources"]
     SlotB["Player slot 2"] --> StateB["Character instance B<br/>Own damage, stocks, motion,<br/>attack phase and airborne resources"]
     Definition -. "supplies tuning" .-> StateA
     Definition -. "supplies tuning" .-> StateB
+    Editor -. "supplies graphics and geometry" .-> StateA
+    Editor -. "supplies graphics and geometry" .-> StateB
     PadA["Assigned controller A"] --> SlotA
     PadB["Assigned controller B"] --> SlotB
     Replacement["Explicit replacement<br/>when slot 2 has no controller"] -.-> SlotB
     classDef definition fill:#fef3c7,color:#78350f,stroke:#f59e0b;
     classDef player fill:#dbeafe,color:#1e3a8a,stroke:#3b82f6;
     classDef runtime fill:#dcfce7,color:#14532d,stroke:#22c55e;
-    class Definition definition;
+    class Definition,Editor definition;
     class SlotA,SlotB,PadA,PadB,Replacement player;
     class StateA,StateB runtime;
 ```
 
-This diagram shows independent state, not a decision that every listed value resides in a single character script. #8 must decide which module owns stocks, outcomes, and character runtime behavior. #7 must decide how definitions are loaded, validated, and protected from accidental runtime mutation; shared versus copied definition objects remains an implementation choice.
+This diagram shows independent state, not a decision that every listed value resides in a single character script. #7 fixes fresh validated tuning snapshots at match/test restart and independent mutable instance state. #8 must decide which module owns stocks, outcomes, character runtime behavior, loading, and validation; shared versus copied read-only definition objects remains an implementation choice.
+
+## Authoring responsibilities
+
+The user clarified that JSON contains character physics tuning **and per-attack damage**. Hitboxes, hurtboxes, dimensions, offsets, attack timing, and attack launch direction/strength are authored in Godot's editor. The editor-authored character content references its JSON while working in Godot. See [ADR 0002](../adr/0002-physics-json-and-editor-authored-geometry.md) and the [accepted authoring specification](character-authoring.md). The JSON and editor-authored content own different data, without duplicating geometry or attack values between them.
+
+JSON edits apply when starting the next match or restarting Developer Test. Invalid characters are unavailable with clear file/field errors rather than silent fallback stats. First-playable tuning happens in the source checkout; exported-game modding and live match reload are deferred. Physics uses world units/second and world units/second squared, with positive relative mass. The accepted #7 contract requires all fields and seven damage entries, rejects unknown fields/invalid values/unsupported versions, and keeps mutable instance state separate from stable match settings.
 
 Controller identity does not define player identity. See [ADR 0001](../adr/0001-player-slots-and-controller-assignment.md).
 
@@ -54,7 +64,10 @@ Differences use timing, reach, damage, launch strength, and recovery movement wi
 
 | Change | Required locality | Decision still responsible |
 | --- | --- | --- |
-| Tune one character or attack | Its editable character definition, without changing another character | #7 |
+| Tune character movement or mass | Its physics JSON, without changing another character | #7 |
+| Change hit/hurt geometry, sizes, or offsets | Editor-authored character content alongside graphics | #7 and #8 |
+| Tune attack damage | The character's JSON, keyed by the shared move IDs | #7 |
+| Tune attack timing or launch direction/strength | Editor-authored move data alongside animation | #7 and #8 |
 | Run two copies of Zip | Independent mutable match state with shared character identity | #7 and #8 |
 | Add Bramble | Express ordinary differences without inventing a new combat subsystem | #3, #7, and #8 |
 | Change arena surfaces or ring-out layout | Arena content, rather than character-specific rules | #8 |

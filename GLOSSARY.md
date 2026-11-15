@@ -25,11 +25,23 @@ One of a character's lives during a match, lost when the character leaves the ar
 **Damage**:
 The accumulated percentage that increases a character's vulnerability to knockback.
 
+**Attack damage**:
+The increase in a struck character's damage caused by an attack, measured in percentage points.
+
+**Mass**:
+A character's resistance to being launched by a hit; greater mass reduces knockback from an otherwise equivalent hit.
+
 **Knockback**:
 The launch caused by a hit, whose strength increases with the struck character's damage.
 
 **Attack**:
 A character's offensive action, performed on the ground or in the air.
+
+**Hitbox**:
+The region of an attack that can strike an opponent.
+
+**Hurtbox**:
+The region of a character that an opponent's attack can strike.
 
 **Air jump**:
 A jump performed while a character is already airborne.
