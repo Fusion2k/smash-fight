@@ -27,7 +27,7 @@ The SteamOS/native Linux delivery path and 1080p/60 FPS goal are agreed targets.
 - Responsive movement and combat, with basic player/damage/stock displays and enough feedback to judge game feel.
 - Placeholder art where useful during development.
 
-Detailed movement, attacks, defense, recovery, and match rules are being specified in [Define first-playable movement and combat rules](https://github.com/Fusion2k/smash-fight/issues/2).
+The agreed movement, attack, defense, recovery, and match rules are specified in [Define first-playable movement and combat rules](https://github.com/Fusion2k/smash-fight/issues/2). The agreed controls, controller ownership, selection, pause/reconnect, and developer keyboard path are specified in [Define gamepad ownership and the local match flow](https://github.com/Fusion2k/smash-fight/issues/4). These are specifications; gameplay implementation and playtest validation are still upcoming.
 
 ## Design direction
 
@@ -36,7 +36,7 @@ Detailed movement, attacks, defense, recovery, and match rules are being specifi
 - Keep character definitions separate from mutable match state. Two instances of the same character must be able to act independently.
 - Keep the project portable between development PCs; resolve the Godot executable locally rather than embedding one machine's installation path.
 
-See [Define Godot scene responsibilities and gameplay module interfaces](https://github.com/Fusion2k/smash-fight/issues/8) and [Choose the character file schema and tuning workflow](https://github.com/Fusion2k/smash-fight/issues/7) for the decisions behind these areas.
+See [Define Godot scene responsibilities and gameplay module interfaces](https://github.com/Fusion2k/smash-fight/issues/8) and [Choose the character file schema and tuning workflow](https://github.com/Fusion2k/smash-fight/issues/7) for the decisions behind these areas. The evolving [architecture documents](docs/architecture/README.md) include a [scene map](docs/architecture/scene-map.md), match-flow and combat diagrams, state/content constraints, and linked ADRs. Proposed structure is labeled until the relevant decision is resolved and implementation exists.
 
 ## Opening the project
 
@@ -86,6 +86,9 @@ For CLI work, use `gh` and explicitly target `--repo Fusion2k/smash-fight`. The 
 ## Reference documentation
 
 - [Project glossary](GLOSSARY.md)
+- [Architecture documents and diagrams](docs/architecture/README.md)
+- [Scene map](docs/architecture/scene-map.md)
+- [Player-slot identity decision](docs/adr/0001-player-slots-and-controller-assignment.md)
 - [Godot 4.7 documentation](https://docs.godotengine.org/en/4.7/)
 - [Godot 4.7.2 download archive](https://godotengine.org/download/archive/4.7.2-stable/)
 - [Valve Steam Deck specifications](https://www.steamdeck.com/en/tech)
