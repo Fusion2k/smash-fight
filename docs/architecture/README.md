@@ -9,6 +9,7 @@ The main working tree currently contains the starter Godot project, without game
 | Document | Purpose | Current status |
 | --- | --- | --- |
 | [Scene map](scene-map.md) | Godot scene composition, scene responsibilities, and implementation status | Proposed production tree plus implemented timing-lab tree |
+| [Module interfaces](module-interfaces.md) | Ownership, concrete interface candidate, editor authoring and step schedule | #8 draft; core technology, ownership, Resources, clocks and geometry scope accepted; final interfaces/schedule under review |
 | [Match flow](match-flow.md) | Joining, selection, match results, pause, and controller replacement | Agreed behavior from #2 and #4; not implemented |
 | [Combat lifecycle](combat-lifecycle.md) | Attack phases, hit response, and timing constraints | Agreed rules from #2; #11 evidence accepted for architecture review |
 | [Combat timing evidence](combat-timing-evidence.md) | Reproducible fixture results, limitations, and candidate approach | Eleven scenarios measured; user reported "prototype looks good" |

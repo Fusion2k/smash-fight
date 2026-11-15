@@ -1,8 +1,8 @@
 # Scene map
 
-**Status: proposed production composition for [#8](https://github.com/Fusion2k/smash-fight/issues/8), with an implemented timing-lab map below.** The main working tree currently has no gameplay scene files or configured main scene. Production names below are descriptive working names, not agreed filenames or scripting-language choices. The throwaway lab lives on a separate branch.
+**Status: production composition proposed in [#8](https://github.com/Fusion2k/smash-fight/issues/8); contact-time scheduling still needs focused evidence.** The main working tree currently has no gameplay scene files or configured main scene. GDScript, GodotPhysics2D, ownership, Resource authoring, simulation timing, hit-pause rules and fixed rectangular combat geometry are accepted. Production paths below are proposed implementation targets. The implemented timing lab lives on a separate branch.
 
-This view translates the agreed [match flow](https://github.com/Fusion2k/smash-fight/issues/4), [combat scope](https://github.com/Fusion2k/smash-fight/issues/2), and confirmed [arena direction](https://github.com/Fusion2k/smash-fight/issues/3) into a scene-composition candidate. It does not settle where gameplay state or physics processing lives.
+This view translates the agreed [match flow](https://github.com/Fusion2k/smash-fight/issues/4), [combat scope](https://github.com/Fusion2k/smash-fight/issues/2), and confirmed [arena direction](https://github.com/Fusion2k/smash-fight/issues/3) into a scene-composition candidate. During #8 on 2026-11-15, the user accepted GDScript and the ownership split: application flow owns slots/controllers, Match owns stocks/results and simulation order, Character owns movement/combat state, and a catalog owns content validation. The [module-interface draft](module-interfaces.md) makes this concrete; its remaining proposals are under review.
 
 ## Composition candidate
 
@@ -29,7 +29,6 @@ flowchart TB
         Match --> Arena
         Match --> Characters
         Match --> HUD
-        Match --> Overlay
         Main["Solid main surface"]
         Platforms["Two elevated one-way platforms"]
         Markers["Start and respawn markers"]
@@ -50,6 +49,7 @@ flowchart TB
     App -.-> Results
     App -.-> Dev
     App -.-> Match
+    App --> Overlay
 
     classDef application fill:#164e63,color:#ffffff,stroke:#22d3ee,stroke-width:2px;
     classDef flow fill:#ede9fe,color:#3b0764,stroke:#8b5cf6;
@@ -67,20 +67,34 @@ flowchart TB
 
 | Scene role | Requirement it must support | Implementation status |
 | --- | --- | --- |
-| Application/frontend | Join, independent selection, readiness, results, and Developer Test entry | Proposed; no scene path yet |
-| Match composition | Complete restartable matches, pause, controller loss, and same-step outcomes | Proposed; state ownership pending #8 |
+| Application/frontend | Join, independent selection, readiness, results, and Developer Test entry | Proposed paths below; scenes not implemented |
+| Match composition | Complete restartable matches, pause, controller loss, and same-step outcomes | Ownership accepted; concrete scene/interface under final review in #8 |
 | Arena | Main surface, two one-way platforms reachable by both characters' jumps, fixed view, safe starts, respawn positions, and ring-out limits | Topology and recovery expectations agreed in #3; dimensions and scene layout pending |
-| Character instance | Independent movement, damage, attack state, and airborne resources for every player slot | Authoring agreed in #7 and timing evidence completed in #11; production script/module composition pending #8 |
-| HUD/presentation | Distinguishable players, damage/stocks, attack phases, and hit feedback | Requirement agreed; scene paths pending |
-| Pause/countdown presentation | Frozen match state, explicit missing-slot replacement, and three-second resume countdown | Behavior agreed in #4; scene ownership pending #8 |
+| Character instance | Independent movement, damage, attack state, and airborne resources for every player slot | Authoring agreed in #7 and timing evidence completed in #11; ownership/Resources/geometry accepted in #8; concrete composition under final review |
+| HUD/presentation | Distinguishable players, damage/stocks, attack phases, and hit feedback | Requirement agreed; proposed paths below |
+| Pause/countdown presentation | Frozen match state, explicit missing-slot replacement, and three-second resume countdown | Behavior agreed in #4; application-owned overlay proposed below |
 
-Controller assignment, character-file validation, combat resolution, and match rules need explicit module responsibilities in #8. Their logical roles do not each require a separate node or scene. Likewise, this diagram does not prescribe autoloads, signals, inheritance, collision-node types, or a hit-query method.
+### Proposed concrete scenes
+
+| Scene path | Composition and responsibility |
+| --- | --- |
+| `app/app.tscn` | Application root; active frontend or Match child; flow overlay in a CanvasLayer that can process while gameplay is frozen. Owns slot/controller flow. |
+| `frontend/join_select.tscn` | Join/select/ready view driven by application-owned slots. |
+| `frontend/results.tscn` | Winner/draw and rematch/return commands. |
+| `frontend/flow_overlay.tscn` | Start/resume countdown, pause and missing-controller UI, driven by application flow. Composed by the application so it can keep processing while Match is gated off. |
+| `match/match.tscn` | Match root script, replaceable Arena instance, a character container populated from slot IDs, and HUD. Owns stocks, respawn scheduling, the step callback and result calculation. |
+| `match/match_hud.tscn` | Reads a match view; rows come from slot IDs rather than hardcoded P1/P2 character nodes. |
+| `arenas/first_arena.tscn` | StaticBody2D surfaces, two one-way platforms, Marker2D starts/respawns, editor-authored ring-out rectangle and fixed Camera2D. |
+| `characters/character.tscn` | Shared CharacterBody2D behavior, surface CollisionShape2D, editor-authored rectangular hurtboxes and visual child. No independent gameplay physics callback. |
+| `characters/zip/zip.tscn`, `characters/bramble/bramble.tscn` | Character scenes based on shared character behavior, with original silhouettes, editor geometry and visuals. Corresponding CharacterDefinition and MoveDefinition Resources supply authored content. |
+
+Developer Test uses the same Match scene with keyboard and stationary input adapters. It needs no second combat implementation or special arena. The input adapters, character catalog, hit detection and hit resolution are script modules rather than empty scene nodes. The [module-interface draft](module-interfaces.md) specifies communication and state ownership; gameplay uses explicit ordered calls and presentation can subscribe to events.
 
 [ADR 0002](../adr/0002-physics-json-and-editor-authored-geometry.md) fixes the authoring split: character physics tuning and attack damage come from JSON referenced by editor-authored character content. Geometry, attack timing, and launch direction/strength are edited in Godot. Production hit/hurt shapes must use that editor-authored source instead of duplicating dimensions in JSON. See [character authoring](character-authoring.md) for the accepted schema and reference workflow. The #11 lab's constant rectangle fixtures are experimental inputs, not a character-file schema.
 
 ## Physics backend status
 
-[Research #12](https://github.com/Fusion2k/smash-fight/issues/12) evaluated GodotPhysics2D and Godot Rapier 2D before the timing experiment in #11. Its [cited report](https://github.com/Fusion2k/smash-fight/blob/1fb7589/docs/research/physics-backend-evaluation.md) recommends GodotPhysics2D as the initial baseline and retains Rapier v0.36.1 as a credible alternative if a relevant problem is demonstrated. Box2D is deferred at the user's request. No backend switch has been made, and this scene map does not assume one. The current `project.godot` has no custom 2D-backend selection; its Jolt setting is specifically `3d/physics_engine`.
+[Research #12](https://github.com/Fusion2k/smash-fight/issues/12) evaluated GodotPhysics2D and Godot Rapier 2D before the timing experiment in #11. Its [cited report](https://github.com/Fusion2k/smash-fight/blob/1fb7589/docs/research/physics-backend-evaluation.md) recommends GodotPhysics2D as the initial baseline and retains Rapier v0.36.1 as a credible alternative if a relevant problem is demonstrated. During #8 on 2026-11-15, the user accepted GodotPhysics2D with explicit shape snapshots and batched hit collection. Box2D remains deferred. No project configuration change or production validation is claimed. The current `project.godot` has no custom 2D-backend selection; its Jolt setting is specifically `3d/physics_engine`.
 
 Backend compatibility and packaging evidence will inform #8 and #9. The initial GodotPhysics2D fixtures now record short-window hits, query-freshness differences, one-way-platform movement, and simultaneous outcomes as described below. The user reported "prototype looks good" after reviewing the lab. Production gameplay coverage, other backends, and target-platform verification remain outstanding.
 

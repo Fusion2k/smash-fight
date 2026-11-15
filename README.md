@@ -40,7 +40,7 @@ See [Define Godot scene responsibilities and gameplay module interfaces](https:/
 
 ## Opening the project
 
-1. Install Godot **4.7.2** for your development PC. The scripting language and Standard/.NET distribution choice remain open.
+1. Install Godot **4.7.2** for your development PC. GDScript is the accepted scripting language from #8; the portable setup and distribution workflow will be finalized in #9.
 2. Clone this repository and import the root [`project.godot`](project.godot) through Godot's Project Manager.
 3. Read the relevant GitHub issue before making changes, along with the [glossary](GLOSSARY.md) and any applicable architectural decision records under `docs/adr/`.
 
