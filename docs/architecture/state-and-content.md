@@ -1,6 +1,6 @@
 # State and content
 
-**Status: authoring responsibilities, schema, and validation accepted in #7; implementation interfaces pending #8.** Sources: [planning constraints, #1](https://github.com/Fusion2k/smash-fight/issues/1), [combat, #2](https://github.com/Fusion2k/smash-fight/issues/2), [character direction, #3](https://github.com/Fusion2k/smash-fight/issues/3), [player slots, #4](https://github.com/Fusion2k/smash-fight/issues/4), and [character authoring, #7](https://github.com/Fusion2k/smash-fight/issues/7).
+**Status: authoring responsibilities, schema, and validation accepted in #7; ownership and implementation interfaces accepted in #8; implementation unverified.** Sources: [planning constraints, #1](https://github.com/Fusion2k/smash-fight/issues/1), [combat, #2](https://github.com/Fusion2k/smash-fight/issues/2), [character direction, #3](https://github.com/Fusion2k/smash-fight/issues/3), [player slots, #4](https://github.com/Fusion2k/smash-fight/issues/4), and [character authoring, #7](https://github.com/Fusion2k/smash-fight/issues/7).
 
 ## Same character, independent players
 
@@ -26,7 +26,7 @@ flowchart TB
     class StateA,StateB runtime;
 ```
 
-Match owns stocks by slot; Character owns damage, motion and action state. This diagram shows independent state, not a decision that every listed value resides in a single character script. #7 fixes fresh validated tuning snapshots at match/test restart and independent mutable instance state. #8 must decide which module owns stocks, outcomes, character runtime behavior, loading, and validation; shared versus copied read-only definition objects remains an implementation choice.
+Match owns stocks by slot; Character owns damage, motion and action state. This diagram shows independent state, not a decision that every listed value resides in a single character script. #7 fixes fresh validated tuning snapshots at match/test restart and independent mutable instance state. #8 assigns slots/controllers to Application, stocks/outcomes to Match, movement/combat state to Character, and loading/validation to the catalog. Prepared definitions are read-only with mutable shape data copied; every Character receives fresh runtime state. See [module interfaces](module-interfaces.md) for the accepted Resource and interval contracts.
 
 ## Authoring responsibilities
 
@@ -74,4 +74,4 @@ Differences use timing, reach, damage, launch strength, and recovery movement wi
 | Replace a disconnected gamepad | The missing slot's assignment, preserving player and match state | #4 and #8 |
 | Grow from two to four slots | Player-count-aware ownership and composition | #8 and later hardware checks |
 
-These are constraints to assess the eventual interfaces against. The architecture should hide complexity behind small interfaces that keep ordinary changes local; exact scene paths, methods, failure behavior, and verification surfaces are part of #8's deliverable.
+These constraints are addressed by the accepted [module interfaces](module-interfaces.md) and [scene map](scene-map.md). Implementation must verify locality and isolation through those interfaces; no production check has passed yet.

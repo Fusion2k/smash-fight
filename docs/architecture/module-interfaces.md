@@ -1,6 +1,6 @@
 # Module interfaces
 
-**Status: design draft for [#8](https://github.com/Fusion2k/smash-fight/issues/8), not implemented.** Accepted choices: GDScript, GodotPhysics2D with the #11 shape-snapshot baseline, the ownership split below, custom Resources with an Inspector JSON picker, simulation-owned attack timing, per-character hit pause with frozen input-buffer expiry, and fixed rectangular combat shapes. Distinct contact times resolve sequentially; true simultaneous contacts add damage and sum knockback vectors. The concrete interfaces and production schedule below await final shared-understanding review. #13 is resolved with the new human reaction, "looks ok, keep going", on 2026-11-15; its scoped evidence supports this design, while integrated native behavior still requires implementation and acceptance checks. Proposed paths describe the intended implementation; they do not exist yet.
+**Status: accepted architecture in [#8](https://github.com/Fusion2k/smash-fight/issues/8), confirmed by the user on 2026-11-15; not implemented.** The accepted design covers GDScript, GodotPhysics2D, scene/module ownership, Resource authoring with an Inspector JSON picker, simulation-owned timing, local hit pause, fixed rectangular combat shapes, native interval prediction/commit and chronological contact groups. The final "yes" confirms the exact event-tie policy and complete shared understanding. Proposed paths below are implementation targets, not existing scenes. #11/#13 supply scoped evidence; integrated native behavior, gameplay, performance and hardware acceptance remain unverified and belong to #10.
 
 ## Ownership and interfaces
 
@@ -30,9 +30,9 @@ At match start the catalog validates the JSON and editor data together, then cre
 
 Integer simulation steps own attack phase and active-window timing. Visual animation follows the current move and phase progress. Animation tracks cannot enable hitboxes or apply damage; display frame rate cannot change a one-step active window. Hit pause holds the corresponding visual pose. The prototype does not establish the production animation implementation.
 
-## Revised proposed step order
+## Accepted step order
 
-Use chronological contact groups. One simulation step is not automatically one simultaneous-hit group. Attack phase durations remain integer steps; collision contacts may occur at different fractions within a step. The following is a production design candidate informed by #11/#13; its integrated checks belong in #10.
+Use chronological contact groups. One simulation step is not automatically one simultaneous-hit group. Attack phase durations remain integer steps; collision contacts may occur at different fractions within a step. The following is a accepted production design informed by #11/#13; its integrated checks belong in #10.
 
 ```mermaid
 flowchart TB
@@ -42,7 +42,7 @@ flowchart TB
     Prepare --> Motion["Describe eligible motion / geometry for remaining interval"]
     Motion --> Contact{"Next surface / combat / ring-out event?"}
     Contact -->|Yes| Advance["Commit all characters to earliest time; gather ties"]
-    Advance --> Resolve["Resolve surface eligibility and combat under reviewed tie rule"]
+    Advance --> Resolve["Resolve surface eligibility and combat under accepted tie rule"]
     Resolve --> Apply["Apply group; update history; invalidate changed future contacts"]
     Apply --> Motion
     Contact -->|No| Finish["Advance remaining interval"]
@@ -79,11 +79,11 @@ For distinct hits, hit 1 applies its damage and changes the target's launch velo
 
 For a true tie against one target, add the accepted attacks' damage together and vector-sum their knockback. Equal right/up and left/up launches cancel horizontally and reinforce upward; unequal horizontal strengths retain a horizontal remainder. There is no strongest-hit selection or slot-order tie-break. Mutual attacks against different targets can still trade, and one attack can still hit several opponents once each.
 
-Proposed numeric convention for a tied group: compute each launch contribution using the same damage after adding that group's damage, then sum the vectors. Compute the resulting hitstun once from the combined launch under the shared tunable rule. Contact-time equality needs a documented numerical tolerance rather than grouping the entire step. The lab exercised provisional post-group scaling and a 1e-7 normalized-step tolerance. Their production adoption, hitstun combination and within-step native advancement remain review/integration work.
+Proposed numeric convention for a tied group: compute each launch contribution using the same damage after adding that group's damage, then sum the vectors. Compute the resulting hitstun once from the combined launch under the shared tunable rule. Contact-time equality needs a documented numerical tolerance rather than grouping the entire step. The lab exercised provisional post-group scaling and a 1e-7 normalized-step tolerance. These numeric conventions remain provisional; within-step native advancement follows the accepted contract below and still requires integrated verification.
 
 The first playable has two slots, so a target has at most one opponent. Keep contact grouping and resolution behind combat interfaces that can support four slots. Four-player content and physical acceptance remain later work. The #11 constant-rectangle boolean sweeps do not establish chronological contact detection, near-tie discrimination, combined-force launches or re-simulation after an earlier hit.
 
-The resolved [#13 experiment](contact-chronology-evidence.md) records these contact-time cases in fifteen analytic fixtures executed in Godot, plus separate native wall/floor probes. Its human reaction supports the gameplay interpretation. The integrated contract below remains a proposed production design.
+The resolved [#13 experiment](contact-chronology-evidence.md) records these contact-time cases in fifteen analytic fixtures executed in Godot, plus separate native wall/floor probes. Its human reaction supports the gameplay interpretation. The integrated contract below is accepted architecture; its native implementation remains unverified.
 
 ## Ordinary changes
 
@@ -97,9 +97,9 @@ The resolved [#13 experiment](contact-chronology-evidence.md) records these cont
 | Replace a controller | Application's missing-slot assignment; same slot and character state persist. |
 | Grow to four | Configure slot/character collections and UI layout; no fixed P1/P2 combat fields or pair-only detector. Chronological hits, true ties, combined-force balance, content and physical-controller acceptance still need validation. |
 
-Verification through these interfaces and human game-feel checks will be specified in #10. No gameplay, performance, controller or Steam Deck acceptance is claimed by this draft.
+Verification through these interfaces and human game-feel checks will be specified in #10. No gameplay, performance, controller or Steam Deck acceptance is claimed by this architecture.
 
-## Proposed native interval contract
+## Native interval contract
 
 Match owns a normalized cursor in [0,1] for one fixed step. Character preparation samples input and applies movement acceleration/gravity once, producing a velocity that is constant until a collision or state transition changes it. Re-predicting after an event must not apply acceleration again. Attack phase and other whole-step counters advance only in finalization, subject to their freeze rules; phase transitions at step start determine that step's eligible interval.
 
@@ -115,12 +115,13 @@ Zero-time contacts cannot cause an infinite loop: accepted attacks enter target 
 
 The contract deliberately avoids requiring Match to know native motion-query details or collision margins. Character owns prediction/commit agreement and movement; detection owns swept rectangular contact fractions; resolution owns damage/launch formulas. Their implementation may refine private helpers without changing callers. No claim is made that a particular native query already satisfies this contract.
 
-## Remaining review frontier
+## Confirmed event ties and shared understanding
 
-One new gameplay policy and the complete architecture handoff need confirmation before #8 can resolve:
+The user confirmed the complete architecture and this exact-tie policy with "yes" on 2026-11-15:
 
-- **Exact landing/surface and combat ties:** recommend collecting combat eligibility immediately before the tied surface transition, resolving that combat group, then applying surface constraints to the resulting launch and ending a landed aerial attack. Thus a hit exactly on landing still connects, while a later hit does not; a wall stops launch into it. Ring-out removes the character first at an exact tie. Alternative: surface/landing transitions first, which can cancel an exactly coincident aerial hit. This policy is about exact event ties, not the accepted distinct-time ordering.
-- **Complete shared understanding:** recommend the scene map, ownership, interval interfaces, explicit ordered calls and simulation-driven visuals as the architecture for #8, incorporating the tie policy above. Zip/Bramble use the shared lifecycle through data; a future genuinely new mechanic is an explicit Character action extension with its own content and verification contract, not executable JSON, slot-specific branching in Match or a speculative plugin system. #9 decides rendering/setup/export; #10 decides acceptance.
+- At an exact landing/surface and combat tie, collect combat eligibility immediately before the surface transition and resolve the simultaneous combat group before ending the landed aerial attack. A hit exactly at landing connects; later attack contacts do not. Then apply surface constraints to the resulting launch, including a pending launch held during local hit pause, so a floor or wall stops launch into it. Landing does not clear hitstun.
+- At an exact ring-out/combat tie, ring-out removes that character first; it cannot contribute or receive combat in that group. Retain all other characters' remaining motion and the same-step final-stock draw rule.
+- Scene composition, ownership, interval interfaces, explicit ordered calls and simulation-driven visuals are the implementation handoff. Zip/Bramble use the shared lifecycle through data; a future genuinely new mechanic is an explicit Character action extension with its own content and verification contract. #9 decides rendering/setup/export; #10 decides acceptance.
 
 Existing rules imply that later valid hits add damage and update the pending launch during local pause. Stronger resulting launches produce longer capped hitstun; use net summed launch for a true tie, so cancellation reduces launch/hitstun while damage and hit pause remain. Shared post-group damage, target mass scaling, whole-step counter convention and the lab's 1e-7 normalized-step tie tolerance are provisional engineering conventions. Numeric balance remains tunable, with near-tie/coordinate-scale and pause-release checks in implementation. These do not require another gameplay decision round unless review reveals a mismatch.
 

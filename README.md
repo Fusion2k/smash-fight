@@ -36,7 +36,7 @@ The agreed movement, attack, defense, recovery, and match rules are specified in
 - Keep character definitions separate from mutable match state. Two instances of the same character must be able to act independently.
 - Keep the project portable between development PCs; resolve the Godot executable locally rather than embedding one machine's installation path.
 
-See [Define Godot scene responsibilities and gameplay module interfaces](https://github.com/Fusion2k/smash-fight/issues/8) and [Choose the character file schema and tuning workflow](https://github.com/Fusion2k/smash-fight/issues/7) for the decisions behind these areas. The evolving [architecture documents](docs/architecture/README.md) include a [scene map](docs/architecture/scene-map.md), match-flow and combat diagrams, state/content constraints, and linked ADRs. Proposed structure is labeled until the relevant decision is resolved and implementation exists.
+GDScript and built-in GodotPhysics2D are accepted in #8. See [Define Godot scene responsibilities and gameplay module interfaces](https://github.com/Fusion2k/smash-fight/issues/8) and [Choose the character file schema and tuning workflow](https://github.com/Fusion2k/smash-fight/issues/7) for the decisions behind these areas. The evolving [architecture documents](docs/architecture/README.md) include a [scene map](docs/architecture/scene-map.md), match-flow and combat diagrams, state/content constraints, and linked ADRs. The user confirmed #8's complete architecture on 2026-11-15, including native interval prediction/commit and chronological event ties. Scene paths are accepted implementation targets; gameplay scenes, integrated native scheduling and acceptance remain upcoming work.
 
 ## Opening the project
 

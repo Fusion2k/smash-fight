@@ -1,25 +1,25 @@
 # Scene map
 
-**Status: production composition proposed in [#8](https://github.com/Fusion2k/smash-fight/issues/8); contact-time evidence is resolved; production schedule and final gameplay tie rules await review.** The main working tree currently has no gameplay scene files or configured main scene. GDScript, GodotPhysics2D, ownership, Resource authoring, simulation timing, hit-pause rules and fixed rectangular combat geometry are accepted. Production paths below are proposed implementation targets. The implemented timing lab lives on a separate branch.
+**Status: accepted production composition in [#8](https://github.com/Fusion2k/smash-fight/issues/8), confirmed on 2026-11-15; not implemented.** The main working tree has no gameplay scenes or configured main scene. Paths below are accepted implementation targets; actual scene paths will replace them as implementation lands. The timing labs remain separate experimental branches. Native scheduling and complete-match acceptance remain unverified.
 
-This view translates the agreed [match flow](https://github.com/Fusion2k/smash-fight/issues/4), [combat scope](https://github.com/Fusion2k/smash-fight/issues/2), and confirmed [arena direction](https://github.com/Fusion2k/smash-fight/issues/3) into a scene-composition candidate. During #8 on 2026-11-15, the user accepted GDScript and the ownership split: application flow owns slots/controllers, Match owns stocks/results and simulation order, Character owns movement/combat state, and a catalog owns content validation. The [module-interface draft](module-interfaces.md) makes this concrete; its remaining proposals are under review.
+This view translates the agreed [match flow](https://github.com/Fusion2k/smash-fight/issues/4), [combat scope](https://github.com/Fusion2k/smash-fight/issues/2), and confirmed [arena direction](https://github.com/Fusion2k/smash-fight/issues/3) into an accepted scene composition. During #8 on 2026-11-15, the user accepted GDScript and the ownership split: application flow owns slots/controllers, Match owns stocks/results and simulation order, Character owns movement/combat state, and a catalog owns content validation. The [module interfaces](module-interfaces.md) record the accepted contract.
 
-## Composition candidate
+## Accepted composition
 
-Solid lines show proposed parent/child composition. Dashed lines show phase-dependent views: the diagram does not require every menu and match view to remain loaded at once. Every node is currently proposed.
+Solid lines show accepted parent/child composition. Dashed lines show phase-dependent views: the diagram does not require every menu and match view to remain loaded at once. Every production node remains unimplemented.
 
 ```mermaid
 flowchart TB
     App["Application root<br/>Active flow and view composition"]
 
-    subgraph Frontend["Frontend views · active as needed"]
+    subgraph Frontend["Frontend views Ã‚Â· active as needed"]
         direction LR
         Join["Join and character select<br/>Slots, picks, ready status"]
         Results["Results<br/>Winner or draw, rematch readiness"]
         Dev["Developer Test entry<br/>Keyboard plus stationary opponent"]
     end
 
-    subgraph Gameplay["Match scene · proposed"]
+    subgraph Gameplay["Match scene Ã‚Â· proposed"]
         direction TB
         Match["Match root<br/>Compose one match"]
         Arena["Arena scene<br/>Surfaces, spawn markers, ring-out limits"]
@@ -63,18 +63,18 @@ flowchart TB
     class HUD,Overlay,Camera,Visual presentation;
 ```
 
-## Responsibilities to settle
+## Accepted responsibilities
 
 | Scene role | Requirement it must support | Implementation status |
 | --- | --- | --- |
 | Application/frontend | Join, independent selection, readiness, results, and Developer Test entry | Proposed paths below; scenes not implemented |
-| Match composition | Complete restartable matches, pause, controller loss, and same-step outcomes | Ownership accepted; concrete scene/interface under final review in #8 |
+| Match composition | Complete restartable matches, pause, controller loss, and same-step outcomes | Accepted in #8; not implemented |
 | Arena | Main surface, two one-way platforms reachable by both characters' jumps, fixed view, safe starts, respawn positions, and ring-out limits | Topology and recovery expectations agreed in #3; dimensions and scene layout pending |
-| Character instance | Independent movement, damage, attack state, and airborne resources for every player slot | Authoring agreed in #7 and timing evidence completed in #11; ownership/Resources/geometry accepted in #8; concrete composition under final review |
-| HUD/presentation | Distinguishable players, damage/stocks, attack phases, and hit feedback | Requirement agreed; proposed paths below |
-| Pause/countdown presentation | Frozen match state, explicit missing-slot replacement, and three-second resume countdown | Behavior agreed in #4; application-owned overlay proposed below |
+| Character instance | Independent movement, damage, attack state, and airborne resources for every player slot | Authoring agreed in #7 and timing evidence completed in #11; ownership/Resources/geometry accepted in #8; composition accepted; not implemented |
+| HUD/presentation | Distinguishable players, damage/stocks, attack phases, and hit feedback | Requirement agreed; accepted paths below; not implemented |
+| Pause/countdown presentation | Frozen match state, explicit missing-slot replacement, and three-second resume countdown | Behavior agreed in #4; application-owned overlay accepted below; not implemented |
 
-### Proposed concrete scenes
+### Accepted scene targets
 
 | Scene path | Composition and responsibility |
 | --- | --- |
@@ -88,7 +88,7 @@ flowchart TB
 | `characters/character.tscn` | Shared CharacterBody2D behavior, surface CollisionShape2D, editor-authored rectangular hurtboxes and visual child. No independent gameplay physics callback. |
 | `characters/zip/zip.tscn`, `characters/bramble/bramble.tscn` | Character scenes based on shared character behavior, with original silhouettes, editor geometry and visuals. Corresponding CharacterDefinition and MoveDefinition Resources supply authored content. |
 
-Developer Test uses the same Match scene with keyboard and stationary input adapters. It needs no second combat implementation or special arena. The input adapters, character catalog, hit detection and hit resolution are script modules rather than empty scene nodes. The [module-interface draft](module-interfaces.md) specifies communication and state ownership; gameplay uses explicit ordered calls and presentation can subscribe to events.
+Developer Test uses the same Match scene with keyboard and stationary input adapters. It needs no second combat implementation or special arena. The input adapters, character catalog, hit detection and hit resolution are script modules rather than empty scene nodes. The [module interfaces](module-interfaces.md) specifies communication and state ownership; gameplay uses explicit ordered calls and presentation can subscribe to events.
 
 [ADR 0002](../adr/0002-physics-json-and-editor-authored-geometry.md) fixes the authoring split: character physics tuning and attack damage come from JSON referenced by editor-authored character content. Geometry, attack timing, and launch direction/strength are edited in Godot. Production hit/hurt shapes must use that editor-authored source instead of duplicating dimensions in JSON. See [character authoring](character-authoring.md) for the accepted schema and reference workflow. The #11 lab's constant rectangle fixtures are experimental inputs, not a character-file schema.
 
@@ -100,16 +100,16 @@ Backend compatibility and packaging evidence will inform #8 and #9. The initial 
 
 ## Implemented #11 timing lab
 
-This hierarchy exists on [prototype/combat-timing at 3820f96](https://github.com/Fusion2k/smash-fight/tree/3820f96). Read the [experiment instructions](https://github.com/Fusion2k/smash-fight/blob/3820f96/prototype/README.md) and [measured evidence](combat-timing-evidence.md). It is separate from the proposed production composition above.
+This hierarchy exists on [prototype/combat-timing at 3820f96](https://github.com/Fusion2k/smash-fight/tree/3820f96). Read the [experiment instructions](https://github.com/Fusion2k/smash-fight/blob/3820f96/prototype/README.md) and [measured evidence](combat-timing-evidence.md). It is separate from the accepted production composition above.
 
 ```mermaid
 flowchart TB
-    Lab["CombatTimingLab · Node2D<br/>prototype/timing_lab.tscn<br/>prototype/timing_lab.gd"]
+    Lab["CombatTimingLab Ã‚Â· Node2D<br/>prototype/timing_lab.tscn<br/>prototype/timing_lab.gd"]
     UI["Status label and scenario/replay buttons<br/>Created at runtime"]
-    Measures["Measurements · Node2D<br/>prototype/measurements.gd"]
-    Area["MeasuredAttackArea · Area2D<br/>64 × 38 rectangle"]
-    Targets["Target0..2 · CharacterBody2D<br/>28 × 50 rectangles"]
-    Platform["OneWayPlatform · StaticBody2D<br/>220 × 12 one-way rectangle"]
+    Measures["Measurements Ã‚Â· Node2D<br/>prototype/measurements.gd"]
+    Area["MeasuredAttackArea Ã‚Â· Area2D<br/>64 Ãƒâ€” 38 rectangle"]
+    Targets["Target0..2 Ã‚Â· CharacterBody2D<br/>28 Ãƒâ€” 50 rectangles"]
+    Platform["OneWayPlatform Ã‚Â· StaticBody2D<br/>220 Ãƒâ€” 12 one-way rectangle"]
     Characters["PlatformCharacter / OtherCharacter<br/>CharacterBody2D"]
     Lab --> UI
     Lab --> Measures
@@ -137,10 +137,10 @@ Dashed edges are fixture-dependent children. Each physics object has a `Collisio
 - Change the arena: keep geometry, start/respawn markers, and ring-out limits local to its content definition/scene.
 - Grow to four players: compose instances from player slots; scene responsibilities must not assume exactly two hardcoded character children. Four-player content and hardware acceptance remain later work.
 
-These are review questions for #8, not claims that the candidate architecture has passed them. Replace this candidate with the agreed scene tree, actual paths, and interfaces as those decisions and implementation land.
+These are verification requirements for the accepted architecture, not passed checks. Replace implementation targets with actual scene paths as implementation lands.
 
 ## #13 contact chronology extension
 
 A separate [throwaway extension](https://github.com/Fusion2k/smash-fight/blob/f7a36da/chronology/README.md) on `prototype/contact-chronology` adds `chronology/lab.tscn` (Control), a replay UI in `chronology/lab.gd`, and a pure analytic scheduler in `chronology/model.gd`. The root temporarily creates native CharacterBody2D/StaticBody2D rectangle pairs to measure two surface boundaries, then releases them. Replay drawings are model traces, not native character motion. The original #11 tree above remains preserved.
 
-See [contact chronology evidence](contact-chronology-evidence.md) for fifteen completed fixtures, numerical proposals and limits. Imported surface boundaries were not re-queried after changed trajectories. The proposed [production interval contract](module-interfaces.md#proposed-native-interval-contract) requires native prediction/commit agreement and fresh queries after every event; implementation verification belongs in #10. The user reported "looks ok, keep going" on 2026-11-15, completing #13's human reaction. Automated visual QA remains unverified; the reaction does not establish integrated native gameplay.
+See [contact chronology evidence](contact-chronology-evidence.md) for fifteen completed fixtures, numerical proposals and limits. Imported surface boundaries were not re-queried after changed trajectories. The accepted [production interval contract](module-interfaces.md#native-interval-contract) requires native prediction/commit agreement and fresh queries after every event; implementation verification belongs in #10. The user reported "looks ok, keep going" on 2026-11-15, completing #13's human reaction. Automated visual QA remains unverified; the reaction does not establish integrated native gameplay.
