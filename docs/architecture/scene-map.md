@@ -138,3 +138,9 @@ Dashed edges are fixture-dependent children. Each physics object has a `Collisio
 - Grow to four players: compose instances from player slots; scene responsibilities must not assume exactly two hardcoded character children. Four-player content and hardware acceptance remain later work.
 
 These are review questions for #8, not claims that the candidate architecture has passed them. Replace this candidate with the agreed scene tree, actual paths, and interfaces as those decisions and implementation land.
+
+## #13 contact chronology extension
+
+A separate [throwaway extension](https://github.com/Fusion2k/smash-fight/blob/f7a36da/chronology/README.md) on `prototype/contact-chronology` adds `chronology/lab.tscn` (Control), a replay UI in `chronology/lab.gd`, and a pure analytic scheduler in `chronology/model.gd`. The root temporarily creates native CharacterBody2D/StaticBody2D rectangle pairs to measure two surface boundaries, then releases them. Replay drawings are model traces, not native character motion. The original #11 tree above remains preserved.
+
+See [contact chronology evidence](contact-chronology-evidence.md) for fifteen completed fixtures, numerical proposals and limits. Imported surface boundaries are not re-queried after changed trajectories; production movement/schedule design is still pending. New human feedback and visual QA remain outstanding; #11 feedback does not validate this extension.

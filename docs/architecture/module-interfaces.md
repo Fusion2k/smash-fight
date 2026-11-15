@@ -98,3 +98,6 @@ The next focused experiment should record contact fractions, resolved damage/vel
 | Grow to four | Configure slot/character collections and UI layout; no fixed P1/P2 combat fields or pair-only detector. Chronological hits, true ties, combined-force balance, content and physical-controller acceptance still need validation. |
 
 Verification through these interfaces and human game-feel checks will be specified in #10. No gameplay, performance, controller or Steam Deck acceptance is claimed by this draft.
+
+
+Focused follow-up [#13](https://github.com/Fusion2k/smash-fight/issues/13) now records [fifteen contact-chronology fixtures](contact-chronology-evidence.md). The analytic scheduler supports chronological groups and re-evaluation in those cases; separately probed native surface boundaries do not settle integrated arena/combat advancement. Numeric conventions, human review and production interfaces remain pending.
