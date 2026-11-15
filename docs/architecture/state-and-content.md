@@ -9,8 +9,8 @@ flowchart TB
     Definition["One JSON per character<br/>Physics tuning and attack damage<br/>schema_version"]
     Editor["Editor-authored character content<br/>Graphics, collision geometry,<br/>attack timing and launch parameters"]
     Editor -. "references JSON in Godot" .-> Definition
-    SlotA["Player slot 1"] --> StateA["Character instance A<br/>Own damage, stocks, motion,<br/>attack phase and airborne resources"]
-    SlotB["Player slot 2"] --> StateB["Character instance B<br/>Own damage, stocks, motion,<br/>attack phase and airborne resources"]
+    SlotA["Player slot 1"] --> StateA["Character instance A<br/>Own damage, motion,<br/>attack phase and airborne resources"]
+    SlotB["Player slot 2"] --> StateB["Character instance B<br/>Own damage, motion,<br/>attack phase and airborne resources"]
     Definition -. "supplies tuning" .-> StateA
     Definition -. "supplies tuning" .-> StateB
     Editor -. "supplies graphics and geometry" .-> StateA
@@ -26,7 +26,7 @@ flowchart TB
     class StateA,StateB runtime;
 ```
 
-This diagram shows independent state, not a decision that every listed value resides in a single character script. #7 fixes fresh validated tuning snapshots at match/test restart and independent mutable instance state. #8 must decide which module owns stocks, outcomes, character runtime behavior, loading, and validation; shared versus copied read-only definition objects remains an implementation choice.
+Match owns stocks by slot; Character owns damage, motion and action state. This diagram shows independent state, not a decision that every listed value resides in a single character script. #7 fixes fresh validated tuning snapshots at match/test restart and independent mutable instance state. #8 must decide which module owns stocks, outcomes, character runtime behavior, loading, and validation; shared versus copied read-only definition objects remains an implementation choice.
 
 ## Authoring responsibilities
 

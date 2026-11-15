@@ -9,7 +9,7 @@ The main working tree currently contains the starter Godot project, without game
 | Document | Purpose | Current status |
 | --- | --- | --- |
 | [Scene map](scene-map.md) | Godot scene composition, scene responsibilities, and implementation status | Proposed production tree plus implemented timing-lab tree |
-| [Module interfaces](module-interfaces.md) | Ownership, concrete interface candidate, editor authoring and step schedule | #8 draft; core technology, ownership, Resources, clocks and geometry scope accepted; final interfaces/schedule under review |
+| [Module interfaces](module-interfaces.md) | Ownership, concrete interface candidate, editor authoring and step schedule | #8 draft; core technology, ownership, Resources, clocks and geometry scope accepted; native prediction/commit draft ready; exact event ties and final shared understanding under review |
 | [Match flow](match-flow.md) | Joining, selection, match results, pause, and controller replacement | Agreed behavior from #2 and #4; not implemented |
 | [Combat lifecycle](combat-lifecycle.md) | Attack phases, hit response, and timing constraints | Agreed rules from #2; #11 evidence accepted for architecture review |
 | [Contact chronology evidence](contact-chronology-evidence.md) | Contact fractions, true ties and re-evaluated motion | #13 resolved: fifteen analytic fixtures plus separate native surface probes; human reaction recorded; integration unverified |
@@ -42,3 +42,5 @@ The cited [physics-backend evaluation](https://github.com/Fusion2k/smash-fight/b
 When a decision changes scene composition, update the scene map and its status table in the same change. When scenes are implemented, replace proposed labels with actual repository paths and document their small interfaces. Update flow and ownership views when their behavior changes, and link the deciding issue or ADR.
 
 Use ADRs for consequential architectural trade-offs, rather than every tuning or content choice. Keep domain definitions in the root [glossary](../../GLOSSARY.md). Do not present proposed scene names, untested timing behavior, or target-platform performance as established results.
+
+The #8 production draft includes [native interval prediction/commit and its integration checks](module-interfaces.md#proposed-native-interval-contract), with [proposed ADR 0003](../adr/0003-match-owned-chronological-simulation.md) recording the orchestration trade-off. #13 is resolved; #8 awaits final gameplay tie-policy and shared-understanding review, not another prerequisite experiment.
