@@ -10,6 +10,7 @@ The main working tree currently contains the starter Godot project, without game
 | --- | --- | --- |
 | [Scene map](scene-map.md) | Godot scene composition, scene responsibilities, and implementation status | Accepted production targets (unimplemented) plus separate implemented timing-lab tree |
 | [Module interfaces](module-interfaces.md) | Ownership, accepted interfaces, editor authoring and step schedule | #8 accepted on 2026-11-15, including native prediction/commit and exact event ties; integration unverified |
+| [First-playable acceptance](../first-playable-acceptance.md) | Real-interface, physical/hardware acceptance and staged implementation handoff | #10 review draft; no production acceptance claimed |
 | [Development workflow](../development-workflow.md) | Portable engine, planned commands, rendering and native delivery | #9 accepted on 2026-11-15; tooling and exports not implemented |
 | [Match flow](match-flow.md) | Joining, selection, match results, pause, and controller replacement | Agreed behavior from #2 and #4; not implemented |
 | [Combat lifecycle](combat-lifecycle.md) | Attack phases, hit response, and timing constraints | Accepted #2/#8 rules and schedule; integrated native behavior unverified |

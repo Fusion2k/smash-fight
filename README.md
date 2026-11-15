@@ -29,6 +29,8 @@ The SteamOS/native Linux delivery path and 1080p/60 FPS goal are agreed targets.
 
 The agreed movement, attack, defense, recovery, and match rules are specified in [Define first-playable movement and combat rules](https://github.com/Fusion2k/smash-fight/issues/2). The agreed controls, controller ownership, selection, pause/reconnect, and developer keyboard path are specified in [Define gamepad ownership and the local match flow](https://github.com/Fusion2k/smash-fight/issues/4). These are specifications; gameplay implementation and playtest validation are still upcoming.
 
+The [first-playable acceptance and implementation handoff](docs/first-playable-acceptance.md) is the review draft for #10. It proposes observable automated and human checks plus dependent implementation issues; it remains unaccepted and does not claim a playable build.
+
 ## Design direction
 
 - Give scenes and gameplay modules clear responsibilities and small interfaces. Keep ordinary changes local and avoid monolithic scenes or scripts.
