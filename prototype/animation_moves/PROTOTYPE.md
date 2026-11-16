@@ -63,6 +63,8 @@ and dragged in the editor.
 ```
 
 Or double-click `Run Animation Moves Prototype.cmd`. `GODOT_BIN` overrides the engine path.
+The runner performs a quick headless editor import first, because `--script` runs do not
+register global classes (`Character`, `HitDetection`) on a fresh checkout.
 
 `lab_capture.png` and `lab_contact_capture.png` are real 1280x720 renders from the
 interactive scene; the latter was captured by clicking "Run to end" through the UI.

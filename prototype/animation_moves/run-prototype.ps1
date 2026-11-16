@@ -8,6 +8,10 @@ if (-not (Test-Path $godot)) {
     throw "Godot 4.7.2 console executable not found: $godot. Set GODOT_BIN."
 }
 
+# Register global classes (Character, HitDetection) in a fresh checkout before
+# running a --script, which does not perform an editor import itself.
+& $godot --headless --path $projectRoot --editor --quit | Out-Null
+
 if ($Trace) {
     & $godot --headless --path $projectRoot --script res://prototype/animation_moves/lab_trace.gd
 } else {
