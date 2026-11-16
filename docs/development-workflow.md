@@ -22,7 +22,7 @@ $env:GODOT_BIN = 'D:\Apps\Godot\Godot_v4.7.2-stable_win64_console.exe'
 ./tools/dev.ps1 editor
 ```
 
-Expected check completion includes `CHECKS_PASSED foundation`, `CHECKS_PASSED catalog (N checks)` and `PASS: foundation and catalog checks`. The foundation process also prints `CHECKS_PASSED movement (96 checks)`. This verifies engine/window configuration, production content and native Character movement. Complete gameplay and hardware acceptance remain upcoming. The launcher prints the selected executable, exact version, source HEAD (or unknown outside Git), and retained log directory. `-GodotBin <path>` overrides `GODOT_BIN`; without either it resolves `godot` on PATH. A copied `.godot` cache is unnecessary.
+Expected check completion includes `CHECKS_PASSED foundation`, `CHECKS_PASSED catalog (N checks)` and `PASS: foundation and catalog checks`. The foundation process also prints `CHECKS_PASSED movement (96 checks)`. This verifies engine/window configuration, production content and native Character movement; the full `check` suite now also covers chronological combat, presentation, catalog and application flow (450 checks). Complete gameplay software is delivered; physical, human and hardware acceptance remain pending. The launcher prints the selected executable, exact version, source HEAD (or unknown outside Git), and retained log directory. `-GodotBin <path>` overrides `GODOT_BIN`; without either it resolves `godot` on PATH. A copied `.godot` cache is unnecessary.
 
 Bounded commands use `-TimeoutSeconds` (default 120 per process). Each retains stdout/stderr and `run.json` in ignored `build/logs/<run>/`; failure also writes `failure.txt`. Nonzero exit, Godot `ERROR:`/`SCRIPT ERROR:` output even with exit zero, missing completion, wall-clock timeout or output-drain timeout fails the wrapper. On Windows timeout terminates the engine process tree. The manifest records source HEAD; local modifications may be present, so milestone evidence must name its committed source. Build output is excluded from Godot import using a generated `.gdignore`.
 
@@ -30,7 +30,7 @@ To exercise failure propagation, run `check -CheckCase failure` (intentional ass
 
 | Invocation | Contract |
 | --- | --- |
-| `./tools/dev.ps1 check` | Delivered: validate engine, run bounded headless import and actual engine/window checks. Add content/gameplay checks as implemented; retain logs and fail on assertions/timeouts. |
+| `./tools/dev.ps1 check` | Delivered: validate engine, run bounded headless import and all production checks (foundation, movement, combat, presentation, catalog, application). Retain logs and fail on assertions/timeouts. |
 | `./tools/dev.ps1 editor` | Validate engine then open the root project in Godot's editor. |
 | `./tools/dev.ps1 play` | Run the normal application scene with join/select/gamepad flow. |
 | `./tools/dev.ps1 test` | Run the same application/Match through Developer Test: keyboard plus stationary opponent. |

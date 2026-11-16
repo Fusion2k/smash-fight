@@ -1,6 +1,6 @@
 # Character authoring
 
-**Status: accepted specification from [#7](https://github.com/Fusion2k/smash-fight/issues/7).** The user confirmed the complete schema, validation rules, and shared understanding. The production Resources, catalog, authored Zip/Bramble pairs and content snapshot checks are implemented in #15. See the concrete authoring interface below; shared Character movement is implemented in #16; Match/combat behavior and hardware acceptance remain upcoming.
+**Status: accepted specification from [#7](https://github.com/Fusion2k/smash-fight/issues/7).** The user confirmed the complete schema, validation rules, and shared understanding. The production Resources, catalog, authored Zip/Bramble pairs and content snapshot checks are implemented in #15. See the concrete authoring interface below; shared Character movement is implemented in #16, Match/combat behavior in #17 and application flow in #18, with authored poses/presentation in #19. Physical and human acceptance remains pending.
 
 ## Authoring responsibilities
 

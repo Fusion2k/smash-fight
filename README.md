@@ -17,7 +17,7 @@ The first-playable specification is accepted; implementation is tracked through 
 
 Windows is the initial iteration environment. Final platform acceptance will also require testing on the actual Steam Deck and TV setup, including external controllers, presentation, and performance.
 
-The SteamOS/native Linux delivery path and 1080p/60 FPS goal are agreed targets. #9 accepts Compatibility and a 1280 ? 720 logical layout rendered at actual display resolution with fractional `canvas_items` scaling and fixed 16:9 framing; the 1080p TV fills the layout, while taller displays letterbox it. The accepted workflow is documented in [Development workflow](docs/development-workflow.md). See [Choose the cross-PC setup and daily development workflow](https://github.com/Fusion2k/smash-fight/issues/9) and [Define first-playable acceptance checks and the implementation handoff](https://github.com/Fusion2k/smash-fight/issues/10).
+The SteamOS/native Linux delivery path and 1080p/60 FPS goal are agreed targets. #9 accepts Compatibility and a 1280 × 720 logical layout rendered at actual display resolution with fractional `canvas_items` scaling and fixed 16:9 framing; the 1080p TV fills the layout, while taller displays letterbox it. The accepted workflow is documented in [Development workflow](docs/development-workflow.md). See [Choose the cross-PC setup and daily development workflow](https://github.com/Fusion2k/smash-fight/issues/9) and [Define first-playable acceptance checks and the implementation handoff](https://github.com/Fusion2k/smash-fight/issues/10).
 
 ## First playable
 
