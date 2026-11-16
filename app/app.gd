@@ -25,6 +25,8 @@ var _title: Label
 var _details: Label
 var _buttons: VBoxContainer
 var _player_labels: Array[Label] = []
+var _cards: Array[Label] = []
+var _help: Label
 var _verify_ticks := -1
 var _capture_phase := ""
 var _capture := ""
@@ -289,12 +291,12 @@ func _make_ui() -> void:
 	var layer := CanvasLayer.new()
 	add_child(layer)
 	_hud = Label.new()
-	_hud.position = Vector2(40, 20)
+	_hud.position = Vector2(40, 18)
 	_hud.add_theme_font_size_override("font_size", 23)
 	layer.add_child(_hud)
 	_overlay = PanelContainer.new()
-	_overlay.position = Vector2(240, 145)
-	_overlay.size = Vector2(800, 410)
+	_overlay.position = Vector2(240, 210)
+	_overlay.size = Vector2(800, 390)
 	layer.add_child(_overlay)
 	var margin := MarginContainer.new()
 	for edge in ["margin_left", "margin_top", "margin_right", "margin_bottom"]:
@@ -318,7 +320,30 @@ func _make_ui() -> void:
 	_button("Resume", resume)
 	_button("Return to character select", return_to_selection)
 	_button("Retry character files", retry_content)
+	_help = Label.new()
+	_help.position = Vector2(40, 672)
+	_help.add_theme_font_size_override("font_size", 20)
+	_help.add_theme_color_override("font_color", Color("a5b9ca"))
+	layer.add_child(_help)
 	for index in capacity:
+		var panel := PanelContainer.new()
+		panel.position = Vector2(40 + index * 920, 62)
+		panel.custom_minimum_size = Vector2(280, 108)
+		var style := StyleBoxFlat.new()
+		style.bg_color = Color("1b2c3e")
+		style.border_color = COLORS[index]
+		style.border_width_left = 5
+		style.content_margin_left = 18
+		style.content_margin_right = 18
+		style.content_margin_top = 8
+		style.content_margin_bottom = 8
+		panel.add_theme_stylebox_override("panel", style)
+		layer.add_child(panel)
+		var card := Label.new()
+		card.add_theme_font_size_override("font_size", 26)
+		card.add_theme_color_override("font_color", COLORS[index])
+		panel.add_child(card)
+		_cards.append(card)
 		var marker := Label.new()
 		marker.add_theme_color_override("font_color", COLORS[index % COLORS.size()])
 		marker.add_theme_font_size_override("font_size", 19)
@@ -337,7 +362,6 @@ func _process(_delta: float) -> void:
 	if game == null:
 		return
 	_present()
-	queue_redraw()
 	if _verify_ticks == 0:
 		_verify_ticks = -1
 		var prepared := catalog.prepare_match(definitions)
@@ -373,15 +397,38 @@ func _present() -> void:
 			if index < game.characters.size():
 				var body: Character = game.characters[index]
 				var view := body.view()
-				marker.position = body.global_position + Vector2(-36, -80)
-				marker.text = "P%d%s" % [slot.id + 1, "  SAFE" if view.protection > 0 else ""]
+				var left_side := true
+				for other in state.characters:
+					if other.slot_id != body.slot_id and not state.removed.has(other.slot_id):
+						left_side = view.position.x < other.position.x or (view.position.x == other.position.x and body.slot_id < other.slot_id)
+				marker.size.x = 180
+				marker.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if left_side else HORIZONTAL_ALIGNMENT_LEFT
+				marker.position = body.global_position + Vector2(-192 if left_side else 12, -82)
+				marker.text = "P%d%s" % [slot.id + 1, "\nSAFE" if view.protection > 0 else ""]
 				body.visible = marker.visible
-				body.modulate = Color(1.8, 1.8, 1.8) if view.hit_pause > 0 else (Color(0.55, 0.85, 1.0, 0.6 + 0.4 * sin(view.protection)) if view.protection > 0 else Color.WHITE)
+				var visual := body.get_node_or_null("Visual") as FighterVisual
+				if visual != null:
+					visual.present(view, COLORS[slot.id % COLORS.size()], body.prepared.move(StringName(view.move_id)))
 				if view.hitstun > 0:
-					marker.text += "  LAUNCH"
+					marker.text += "\nLAUNCH"
 				elif action != "idle":
-					marker.text += "  " + action.to_upper()
-	_hud.text = "SMASH FIGHT" + ("  /  DEVELOPER TEST" if developer else "") + "\n" + "\n".join(lines)
+					marker.text += "\n" + action.to_upper()
+				elif view.recovery_locked:
+					marker.text += "\nLAND TO ACT"
+				elif not view.grounded and not view.recovery_available:
+					marker.text += "\nRECOVERY USED"
+		var status := "READY" if slot.ready else ("CONTROLLER MISSING" if not slot.connected else "")
+		if state.respawns.has(slot.id):
+			status = "RETURNING..."
+		elif stock == 0:
+			status = "OUT"
+		if index < _cards.size():
+			_cards[index].text = "P%d  %s\n%.0f%%   |   %d stocks%s" % [slot.id + 1, definitions[slot.selection].display_name, damage, stock, ("\n" + status) if not status.is_empty() else ""]
+	for index in _cards.size():
+		_cards[index].get_parent().visible = index < slots.size()
+	_hud.text = "SMASH FIGHT" + ("  /  DEVELOPER TEST" if developer else "")
+	_help.text = ("WASD move / aim  |  Space jump  |  J attack  |  K recovery  |  Esc pause" if keyboard else "Stick move / aim  |  Bottom jump  |  Left attack  |  Top recovery  |  Start pause") if phase == "playing" else ""
+
 	_overlay.visible = phase != "playing"
 	for index in _buttons.get_child_count():
 		_buttons.get_child(index).visible = (phase == "join" and index <= 1) or (phase == "paused" and index in [2, 3]) or (phase in ["results", "error"] and index == 3) or (phase == "select" and index == 4)
@@ -406,25 +453,3 @@ func _present() -> void:
 		"error":
 			_title.text = "Match stopped"
 			_details.text = "The match paused after a problem. Return to character select and start again.\nA diagnostic was saved for the developer."
-
-func _draw() -> void:
-	if game == null or phase not in ["playing", "countdown", "paused", "resume"]:
-		return
-	var removed: Dictionary = game.view().removed
-	for body in game.characters:
-		var state := body.view()
-		if removed.has(body.slot_id):
-			continue
-		var color: Color = COLORS[body.slot_id % COLORS.size()]
-		if state.protection > 0:
-			draw_arc(body.position, 46, 0, TAU, 40, color, 3)
-		if state.phase == "active":
-			var move := body.prepared.move(StringName(state.move_id))
-			var size: Vector2 = move.hitbox.size
-			var offset: Vector2 = move.hitbox_offset
-			offset.x *= state.facing
-			draw_rect(Rect2(body.position + offset - size / 2, size), Color(color, 0.25), true)
-			draw_rect(Rect2(body.position + offset - size / 2, size), color, false, 2)
-		if state.hitstun > 0:
-			var launch: Vector2 = state.pending_launch if state.pending_launch != Vector2.ZERO else state.velocity
-			draw_line(body.position, body.position + launch.normalized() * 65, color, 4)

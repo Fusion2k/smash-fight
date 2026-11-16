@@ -34,6 +34,9 @@ func instantiate_scene() -> CharacterBody2D:
 	return instance
 
 static func copy_scene_shapes(node: Node) -> void:
+	# Snapshot/instance boundary: visuals detach their own editor Resources.
+	if node is FighterVisual:
+		node.detach_visual_content()
 	if node is CollisionShape2D and node.shape != null:
 		node.shape = node.shape.duplicate(true)
 	for child in node.get_children():

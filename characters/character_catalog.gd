@@ -32,7 +32,7 @@ func prepare_match(definitions: Array) -> Dictionary:
 		if definition.display_name.strip_edges().is_empty():
 			errors.append(source + ": display_name: required")
 		var moves := _read_moves(definition.moves, source, errors)
-		var content := _read_scene(definition.character_scene, source, errors)
+		var content := _read_scene(definition.character_scene, source, errors, moves)
 		if errors.size() == before:
 			prepared.append(PreparedCharacter.new({"character_id": definition.character_id, "display_name": definition.display_name}, settings, moves, content.geometry, content.scene))
 	# Atomic selection: even one invalid slot prevents a match from starting.
@@ -126,7 +126,7 @@ func _validate_shape(shape: Shape2D, field: String, errors: Array[String]) -> vo
 	elif not shape.size.is_finite() or shape.size.x <= 0 or shape.size.y <= 0:
 		errors.append(field + ".size: expected positive finite dimensions")
 
-func _read_scene(scene: PackedScene, source: String, errors: Array[String]) -> Dictionary:
+func _read_scene(scene: PackedScene, source: String, errors: Array[String], moves: Dictionary) -> Dictionary:
 	var result := {"geometry": {}, "scene": null}
 	if scene == null or not scene.can_instantiate():
 		errors.append(source + ": character_scene: required instantiable scene")
@@ -150,7 +150,11 @@ func _read_scene(scene: PackedScene, source: String, errors: Array[String]) -> D
 				errors.append(source + ": character_scene.Hurtboxes: expected CollisionShape2D children")
 			else:
 				_read_scene_shape(child, instance, source, result.geometry, errors)
-	# Pack detached native shapes so saved editor edits cannot change this snapshot.
+	var visual := instance.get_node_or_null("Visual") as FighterVisual
+	if visual != null:
+		for error in visual.validate_content(moves):
+			errors.append(source + ": " + error)
+	# Pack detached native shapes/artwork so editor edits cannot change this snapshot.
 	PreparedCharacter.copy_scene_shapes(instance)
 	var snapshot := PackedScene.new()
 	if snapshot.pack(instance) != OK:

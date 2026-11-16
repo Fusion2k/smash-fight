@@ -109,6 +109,7 @@ For CLI work, use `gh` and explicitly target `--repo Fusion2k/smash-fight`. The 
 - [Project glossary](GLOSSARY.md)
 - [Architecture documents and diagrams](docs/architecture/README.md)
 - [Scene map](docs/architecture/scene-map.md)
+- [Zip/Bramble feedback candidate and human playtest procedure](docs/evidence/19-character-feedback.md)
 - [Player-slot identity decision](docs/adr/0001-player-slots-and-controller-assignment.md)
 - [Godot 4.7 documentation](https://docs.godotengine.org/en/4.7/)
 - [Godot 4.7.2 download archive](https://godotengine.org/download/archive/4.7.2-stable/)

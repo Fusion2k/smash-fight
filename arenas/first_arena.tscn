@@ -19,7 +19,7 @@ shape = SubResource("Main")
 
 [node name="Visual" type="Polygon2D" parent="Main"]
 polygon = PackedVector2Array(-400, -20, 400, -20, 400, 20, -400, 20)
-color = Color(0.22, 0.3, 0.4, 1)
+color = Color(0.24, 0.36, 0.40, 1)
 
 [node name="LeftPlatform" type="StaticBody2D" parent="."]
 position = Vector2(440, 400)
@@ -31,7 +31,7 @@ one_way_collision_margin = 1.0
 
 [node name="Visual" type="Polygon2D" parent="LeftPlatform"]
 polygon = PackedVector2Array(-100, -6, 100, -6, 100, 6, -100, 6)
-color = Color(0.35, 0.5, 0.6, 1)
+color = Color(0.43, 0.66, 0.66, 1)
 
 [node name="RightPlatform" type="StaticBody2D" parent="."]
 position = Vector2(840, 400)
@@ -43,7 +43,7 @@ one_way_collision_margin = 1.0
 
 [node name="Visual" type="Polygon2D" parent="RightPlatform"]
 polygon = PackedVector2Array(-100, -6, 100, -6, 100, 6, -100, 6)
-color = Color(0.35, 0.5, 0.6, 1)
+color = Color(0.43, 0.66, 0.66, 1)
 
 [node name="Starts" type="Node2D" parent="."]
 [node name="Left" type="Marker2D" parent="Starts"]
@@ -68,3 +68,22 @@ position = Vector2(1080, 880)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
+
+[node name="MainRim" type="Line2D" parent="Main"]
+points = PackedVector2Array(-400, -20, 400, -20)
+width = 5.0
+default_color = Color(0.65, 0.85, 0.74, 1)
+
+[node name="FloatingRock" type="Polygon2D" parent="Main"]
+polygon = PackedVector2Array(-400, 20, 400, 20, 330, 38, 240, 33, 170, 62, 60, 42, -40, 68, -170, 40, -290, 45)
+color = Color(0.16, 0.25, 0.31, 1)
+
+[node name="LeftRim" type="Line2D" parent="LeftPlatform"]
+points = PackedVector2Array(-100, -6, 100, -6)
+width = 3.0
+default_color = Color(0.73, 0.9, 0.8, 1)
+
+[node name="RightRim" type="Line2D" parent="RightPlatform"]
+points = PackedVector2Array(-100, -6, 100, -6)
+width = 3.0
+default_color = Color(0.73, 0.9, 0.8, 1)

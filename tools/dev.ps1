@@ -101,7 +101,7 @@ try {
             if ($catalog -notmatch '(?m)^CHECKS_PASSED catalog \(\d+ checks\)\r?$') { throw 'Catalog runner did not report completion.' }
             $flow = Invoke-Bounded 'application' @('--headless','--path',$root,'--script','res://checks/application.gd')
             if ($flow -notmatch '(?m)^CHECKS_PASSED application \(\d+ checks\)\r?$') { throw 'Application runner did not report completion.' }
-            Write-Host 'PASS: foundation, movement, combat, catalog and application checks. Physical acceptance remains unverified.'
+            Write-Host 'PASS: foundation, movement, combat, presentation, catalog and application checks. Physical acceptance remains unverified.'
         }
         'editor' {
             $editorArgs = @('--path',$root,'--editor')

@@ -1,12 +1,73 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1"]
+
+[ext_resource type="Script" path="res://presentation/fighter_visual.gd" id="2"]
+
+[ext_resource type="Script" path="res://presentation/fighter_pose.gd" id="3"]
 
 [sub_resource type="RectangleShape2D" id="Surface"]
 size = Vector2(46, 60)
 
 [sub_resource type="RectangleShape2D" id="Hurt"]
 size = Vector2(48, 62)
+
+
+[sub_resource type="Resource" id="Pose_ground_neutral"]
+script = ExtResource("3")
+pose_name = &"ground_neutral"
+startup = Transform2D(0.362358, -0.932039, 0.932039, 0.362358, -7, -5)
+active = Transform2D(1.000000, 0.000000, -0.000000, 1.000000, 6, -5)
+recovery = Transform2D(0.796084, 0.605186, -0.605186, 0.796084, 1, -5)
+feet_y = Vector3(0, 0, 0)
+
+[sub_resource type="Resource" id="Pose_ground_up"]
+script = ExtResource("3")
+pose_name = &"ground_up"
+startup = Transform2D(-0.932039, -0.362358, 0.362358, -0.932039, -7, -5)
+active = Transform2D(0.000000, -1.000000, 1.000000, 0.000000, 6, -5)
+recovery = Transform2D(0.605186, -0.796084, 0.796084, 0.605186, 1, -5)
+feet_y = Vector3(0, 0, 0)
+
+[sub_resource type="Resource" id="Pose_ground_down"]
+script = ExtResource("3")
+pose_name = &"ground_down"
+startup = Transform2D(0.840992, -0.541047, 0.541047, 0.840992, -7, -5)
+active = Transform2D(0.809017, 0.587785, -0.587785, 0.809017, 6, -5)
+recovery = Transform2D(0.288326, 0.957532, -0.957532, 0.288326, 1, -5)
+feet_y = Vector3(0, 0, 0)
+
+[sub_resource type="Resource" id="Pose_aerial_neutral"]
+script = ExtResource("3")
+pose_name = &"aerial_neutral"
+startup = Transform2D(0.362358, -0.932039, 0.932039, 0.362358, -7, -5)
+active = Transform2D(1.000000, 0.000000, -0.000000, 1.000000, 6, -5)
+recovery = Transform2D(0.796084, 0.605186, -0.605186, 0.796084, 1, -5)
+feet_y = Vector3(0, 0, 0)
+
+[sub_resource type="Resource" id="Pose_aerial_up"]
+script = ExtResource("3")
+pose_name = &"aerial_up"
+startup = Transform2D(-0.932039, -0.362358, 0.362358, -0.932039, -7, -5)
+active = Transform2D(0.000000, -1.000000, 1.000000, 0.000000, 6, -5)
+recovery = Transform2D(0.605186, -0.796084, 0.796084, 0.605186, 1, -5)
+feet_y = Vector3(0, 0, 0)
+
+[sub_resource type="Resource" id="Pose_aerial_down"]
+script = ExtResource("3")
+pose_name = &"aerial_down"
+startup = Transform2D(0.932039, 0.362358, -0.362358, 0.932039, -7, -5)
+active = Transform2D(0.000000, 1.000000, -1.000000, 0.000000, 6, -5)
+recovery = Transform2D(-0.605186, 0.796084, -0.796084, -0.605186, 1, -5)
+feet_y = Vector3(-3, 7, -3)
+
+[sub_resource type="Resource" id="Pose_recovery_special"]
+script = ExtResource("3")
+pose_name = &"recovery_special"
+startup = Transform2D(-0.932039, -0.362358, 0.362358, -0.932039, -7, -5)
+active = Transform2D(0.000000, -1.000000, 1.000000, 0.000000, 6, -5)
+recovery = Transform2D(0.605186, -0.796084, 0.796084, 0.605186, 1, -5)
+feet_y = Vector3(6, 6, 6)
 
 [node name="Bramble" type="CharacterBody2D"]
 script = ExtResource("1")
@@ -25,10 +86,48 @@ monitorable = false
 [node name="Body" type="CollisionShape2D" parent="Hurtboxes"]
 shape = SubResource("Hurt")
 
-[node name="Silhouette" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-23.0, -30.0, 23.0, -30.0, 23.0, 30.0, -23.0, 30.0)
-color = Color(0.32, 0.52, 0.22, 1)
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2")
+poses = Array[ExtResource("3")]([SubResource("Pose_ground_neutral"), SubResource("Pose_ground_up"), SubResource("Pose_ground_down"), SubResource("Pose_aerial_neutral"), SubResource("Pose_aerial_up"), SubResource("Pose_aerial_down"), SubResource("Pose_recovery_special")])
+guardian = true
 
-[node name="BranchCrown" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-29.0, -30.0, -23.0, -42.0, 0, -35.0, 23.0, -42.0, 29.0, -30.0)
-color = Color(0.26, 0.17, 0.09, 1)
+[node name="Branches" type="Polygon2D" parent="Visual"]
+polygon = PackedVector2Array(-22, -18, -31, -33, -30, -45, -25, -32, -18, -27, -17, -48, -12, -38, -9, -27, 12, -29, 20, -48, 21, -32, 32, -40, 28, -25, 20, -17)
+color = Color(0.34, 0.22, 0.15, 1)
+
+[node name="Body" type="Polygon2D" parent="Visual"]
+polygon = PackedVector2Array(-23, -21, -12, -30, 17, -29, 26, -17, 22, 20, 12, 30, -19, 25, -26, 8)
+color = Color(0.42, 0.32, 0.21, 1)
+
+[node name="Moss" type="Polygon2D" parent="Visual"]
+polygon = PackedVector2Array(-25, -21, -12, -29, 18, -29, 26, -18, 16, -11, 4, -15, -6, -10, -17, -14)
+color = Color(0.37, 0.63, 0.38, 1)
+
+[node name="Grain" type="Polygon2D" parent="Visual"]
+polygon = PackedVector2Array(-10, -9, -7, 7, -11, 20, -6, 17, -3, 6, -6, -9)
+color = Color(0.63, 0.46, 0.27, 1)
+
+[node name="Face" type="Polygon2D" parent="Visual"]
+polygon = PackedVector2Array(-10, -21, 16, -21, 13, -12, -7, -12)
+color = Color(0.16, 0.23, 0.2, 1)
+
+[node name="Eye" type="Polygon2D" parent="Visual"]
+polygon = PackedVector2Array(-6, -19, 0, -18, 0, -15, -6, -16, 8, -18, 14, -19, 14, -16, 8, -15)
+color = Color(0.86, 1, 0.67, 1)
+
+[node name="Feet" type="Node2D" parent="Visual"]
+
+[node name="Boots" type="Polygon2D" parent="Visual/Feet"]
+polygon = PackedVector2Array(-19, 17, -5, 18, -8, 31, -25, 31, -20, 26, 1, 20, 15, 20, 23, 31, 5, 31, 0, 28)
+color = Color(0.22, 0.25, 0.23, 1)
+
+[node name="Weapon" type="Node2D" parent="Visual"]
+position = Vector2(0, -5)
+
+[node name="Arm" type="Polygon2D" parent="Visual/Weapon"]
+polygon = PackedVector2Array(-2, -7, 21, -10, 29, -1, 19, 10, 0, 8)
+color = Color(0.5, 0.36, 0.22, 1)
+
+[node name="Tool" type="Polygon2D" parent="Visual/Weapon"]
+polygon = PackedVector2Array(14, -4, 38, -8, 47, -17, 45, -5, 55, 0, 41, 5, 35, 12, 35, 5, 13, 5)
+color = Color(0.65, 0.49, 0.29, 1)
