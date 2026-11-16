@@ -15,14 +15,14 @@ New-Item -ItemType Directory -Path $logDir -Force | Out-Null
 $utf8 = New-Object Text.UTF8Encoding($false)
 [IO.File]::WriteAllText((Join-Path $root 'build/.gdignore'),'',$utf8)
 
-function Invoke-Bounded([string]$Name, [string[]]$Arguments, [switch]$LaunchOnly) {
+function Invoke-Bounded([string]$Name, [string[]]$Arguments, [switch]$LaunchOnly, [string]$Executable = $script:engine, [string]$WorkingDirectory = $root) {
     $info = New-Object Diagnostics.ProcessStartInfo
-    $info.FileName = $script:engine
+    $info.FileName = $Executable
     # ProcessStartInfo.ArgumentList is unavailable on Windows PowerShell 5.1.
     $info.Arguments = ($Arguments | ForEach-Object {
         '"' + (($_ -replace '(\\*)"', '$1$1\"') -replace '(\\+)$', '$1$1') + '"'
     }) -join ' '
-    $info.WorkingDirectory = $root
+    $info.WorkingDirectory = $WorkingDirectory
     $info.UseShellExecute = $false
     $info.CreateNoWindow = $true
     $info.RedirectStandardOutput = -not $LaunchOnly
@@ -76,12 +76,17 @@ try {
     $version = (Invoke-Bounded 'version' @('--version')).Trim()
     if ($version -ne $expectedVersion) { throw "Wrong engine '$version'; required Standard $expectedVersion. Install the matching official Standard engine (not .NET)." }
     $commit = 'unknown'
+    $sourceDirty = $true
     $oldCount = $env:GIT_CONFIG_COUNT
     try {
         $env:GIT_CONFIG_COUNT = '0'
         if (Test-Path (Join-Path $root '.git')) {
             $result = & git -c "safe.directory=$($root.Replace('\','/'))" -C $root rev-parse HEAD 2>$null
-            if ($LASTEXITCODE -eq 0) { $commit = $result }
+            if ($LASTEXITCODE -eq 0) {
+                $commit = $result
+                $changes = & git -c "safe.directory=$($root.Replace('\','/'))" -C $root status --porcelain --untracked-files=normal 2>$null
+                if ($LASTEXITCODE -eq 0) { $sourceDirty = [bool]$changes }
+            }
         }
     } catch { } finally { $env:GIT_CONFIG_COUNT = $oldCount }
     [IO.File]::WriteAllText((Join-Path $logDir 'run.json'),(@{source_commit=$commit;engine=$engine;version=$version;action=$Action;case=$CheckCase;timeout_seconds=$TimeoutSeconds} | ConvertTo-Json),$utf8)
@@ -100,6 +105,7 @@ try {
             if ($EditorSmoke) { $editorArgs += @('--headless','--quit-after','2') }
             $null = Invoke-Bounded 'editor' $editorArgs -LaunchOnly:(-not $EditorSmoke)
         }
+        'export' { . (Join-Path $PSScriptRoot 'export.ps1') }
         default { throw "$Action is not implemented yet (application flow #18, exports #20). No playable build is claimed." }
     }
     exit 0

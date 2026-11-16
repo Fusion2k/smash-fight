@@ -11,6 +11,8 @@ config_version=5
 [application]
 
 config/name="smash-fight"
+run/main_scene="res://smoke/export_smoke.tscn"
+config/version="0.1.0"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

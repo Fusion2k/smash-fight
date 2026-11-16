@@ -102,7 +102,7 @@ For each new match or Developer Test restart, load a fresh validated tuning snap
 5. **Select Zip twice:** both instances use the same authored identity and tuning; damaging, attacking, spending a jump, or respawning one must not mutate the other instance or authored data.
 6. **Add a new mechanic:** tuning existing movement/attacks needs data edits. A new rule/action outside the agreed lifecycle needs code and an explicit schema/editor-definition change when it introduces new authoring data; do not hide executable behavior in JSON.
 
-First-playable editing is for a source checkout. Exported-game modding and live-match reload are deferred. JSON must be included in Windows/native-Linux exports and references validated in the eventual #9/#10 workflow. This document does not claim exported builds or these loader/validation/state-isolation checks have passed.
+First-playable editing is for a source checkout. Exported-game modding and live-match reload are deferred. JSON must be included in Windows/native-Linux exports and references validated in the eventual #9/#10 workflow. The #15 content checks cover loader/validation/snapshot isolation. #20 adds explicit JSON packaging and fresh unpacked Windows release catalog verification; native hardware and full gameplay state isolation remain unverified.
 
 ## Implemented authoring interface (#15)
 
