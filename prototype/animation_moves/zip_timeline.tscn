@@ -1,4 +1,6 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://prototype/animation_moves/box_preview.gd" id="6"]
 
 [ext_resource type="Script" path="res://prototype/animation_moves/timeline_character.gd" id="1"]
 
@@ -78,6 +80,16 @@ move_library = ExtResource("4")
 collision_layer = 0
 collision_mask = 1
 
+[node name="HitboxPreview" type="Node2D" parent="."]
+script = ExtResource("6")
+box_color = Color(0.25, 0.6, 1, 0.45)
+
+[node name="HurtboxPreview" type="Node2D" parent="."]
+script = ExtResource("6")
+extent_property = &"hurtbox_extent"
+offset_property = &"hurtbox_offset"
+box_color = Color(0.35, 0.85, 0.5, 0.35)
+
 [node name="CombatSample" type="Node" parent="."]
 script = ExtResource("5")
 
@@ -85,6 +97,7 @@ script = ExtResource("5")
 libraries = {
 "moves": ExtResource("4")
 }
+assigned_animation = &"moves/ground_neutral"
 
 [node name="SurfaceShape" type="CollisionShape2D" parent="."]
 shape = SubResource("Surface")

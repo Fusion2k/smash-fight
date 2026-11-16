@@ -61,10 +61,12 @@ Zip is rebuilt on the prototype branch as a playable character. `zip_move_librar
 holds **one Animation per move**, generated from Zip's authored `.tres` files by
 `build_zip_library.gd` (timing, hitbox extent/offset, hurtbox extent/offset, phase and
 active flag, with `startup_end` / `active_end` / `move_end` markers). `zip_timeline.tscn`
-is a clone of Zip's art/scene with a `Timeline` AnimationPlayer (set to MANUAL) and a
-`CombatSample` node so the tracks resolve in the editor. `timeline_character.gd` samples
-the Animation at `attack_age / 60` and overrides the plan's combat values; the inherited
-Character/Match still own the clock, hits, stocks and pause.
+is a clone of Zip's art/scene with a `Timeline` AnimationPlayer (ground_neutral is
+preselected), a `CombatSample` node that the tracks target, and two visible preview
+rectangles (`box_preview.gd`, `@tool`). `timeline_character.gd` samples the Animation at
+`attack_age / 60` and overrides the plan's combat values; the inherited Character/Match
+still own the clock, hits, stocks and pause. No animation is *played* at runtime — the
+player stays stopped and the simulation reads the Animation resource directly.
 
 `zip_timeline.tres` is the first entry in `app.gd`'s `DEFINITIONS`, so the Developer Test
 spawns it as P1 (P2 stays normal Zip). Verified:
@@ -76,9 +78,23 @@ spawns it as P1 (P2 stays normal Zip). Verified:
   active → ends on landing (normal aerial rule). `zip_play_capture.png` is a real
   1280x720 render showing P1 "Zip (Timeline)" with `ACTIVE` and the attack arc.
 
-In the editor, open `zip_timeline.tscn` and double-click `zip_move_library.tres` to
-drag any move's keys. To play, run Developer Test with `./tools/dev.ps1 test` or the app
-directly; P1 is timeline Zip.
+### Seeing it in the editor
+
+Open `zip_timeline.tscn`. The `Timeline` AnimationPlayer already has `moves/ground_neutral`
+selected — press play in the Animation dock and scrub. The blue box (hitbox), green box
+(hurtbox) and Zip's weapon/feet **move as you scrub**, because the preview rectangles read
+the very same `CombatSample` properties the animation keys and the simulation use. There
+is only one set of geometry tracks, so dragging a key changes both what you see in the
+editor and what the Match samples. Art-only tracks (weapon rotation/position, feet) are
+the exception: they exist purely for preview.
+
+`editor_preview_probe.gd` proves this: seeking steps 0/3/4/6 changes sampled and drawn
+extents together — hitbox `(24,18) -> (43.2,18)` and hurtbox `(30,46) -> (18,42)` at
+step 4 — and rotates the weapon. `zip_editor_preview.png` is a real 1280x720 render of
+that frame.
+
+To play, run Developer Test with `./tools/dev.ps1 test` or the app directly; P1 is
+timeline Zip.
 
 ## Run it
 
@@ -109,4 +125,6 @@ interactive scene; the latter was captured by clicking "Run to end" through the 
 | `build_zip_library.gd`, `zip_move_library.tres` | Generates / holds one Animation per Zip move |
 | `timeline_character.gd` | Samples the Animation and overrides per-step combat data |
 | `zip_timeline.tscn`, `zip_timeline.tres` | Playable Zip scene and its CharacterDefinition |
+| `box_preview.gd` | @tool preview rectangles reading the animated `CombatSample` properties |
 | `zip_play_probe.gd`, `zip_play_capture.gd` | Simulation evidence and real Developer Test capture |
+| `editor_preview_probe.gd`, `editor_preview_capture.gd` | Proves editor scrubbing moves boxes/art; 1280x720 render |

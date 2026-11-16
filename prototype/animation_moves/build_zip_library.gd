@@ -28,6 +28,7 @@ func _run() -> void:
 		anim.length = float(total) * STEP_SECONDS
 		anim.loop_mode = Animation.LOOP_NONE
 
+		# Data tracks sampled by the simulation.
 		_track(anim, "CombatSample:hitbox_extent", [
 			[0, base_extent], [startup, base_extent],
 			[grow, Vector2(base_extent.x * 1.8, base_extent.y)],
@@ -44,6 +45,21 @@ func _run() -> void:
 			[0, 0], [startup, 1], [startup + active, 2], [end, 2]])
 		_track(anim, "CombatSample:hitbox_active", [
 			[0, false], [startup, true], [startup + active, false], [end, false]])
+
+		# Visual-only tracks. Combat geometry is NOT duplicated here: the two
+		# preview rectangles read the CombatSample properties above, so one key
+		# moves the editor preview and the simulation together.
+		_track(anim, "Visual/Weapon:rotation", [
+			[0, -0.6], [startup, -0.6], [grow, 0.5],
+			[startup + active, 0.2], [end, 0.0]])
+		_track(anim, "Visual/Weapon:position", [
+			[0, Vector2(0, -5)], [startup, Vector2(0, -5)],
+			[grow, Vector2(6, -8)], [startup + active, Vector2(2, -5)],
+			[end, Vector2(0, -5)]])
+		_track(anim, "Visual/Feet:position", [
+			[0, Vector2.ZERO], [startup, Vector2.ZERO],
+			[grow, Vector2(0, 3)], [startup + active, Vector2.ZERO],
+			[end, Vector2.ZERO]])
 
 		anim.add_marker(&"startup_end", float(startup) * STEP_SECONDS)
 		anim.add_marker(&"active_end", float(startup + active) * STEP_SECONDS)
