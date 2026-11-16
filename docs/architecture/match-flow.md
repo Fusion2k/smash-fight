@@ -1,6 +1,6 @@
 # Match flow
 
-**Status: agreed behavior, not implemented.** Sources: [match and stock rules, #2](https://github.com/Fusion2k/smash-fight/issues/2) and [controller ownership and match flow, #4](https://github.com/Fusion2k/smash-fight/issues/4). Diagram states describe observable flow, not a prescribed state-machine class or Godot node layout.
+**Status: software implemented in #18; automated fixtures exercise this flow through the real application. Physical Windows/Deck controller acceptance remains pending.** Sources: [match and stock rules, #2](https://github.com/Fusion2k/smash-fight/issues/2) and [controller ownership and match flow, #4](https://github.com/Fusion2k/smash-fight/issues/4). Diagram states describe observable flow, not a prescribed state-machine class or Godot node layout.
 
 ```mermaid
 stateDiagram-v2

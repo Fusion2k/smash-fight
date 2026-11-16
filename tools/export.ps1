@@ -32,12 +32,12 @@ foreach ($name in $requiredTemplates) {
 }
 Write-Host "Templates: $templateRoot ($templateName), pinned official SHA512 verified"
 $null = Invoke-Bounded 'import' @('--headless','--path',$root,'--editor','--import')
-foreach ($suite in @('foundation','catalog')) {
+foreach ($suite in @('foundation','catalog','application')) {
     $result = Invoke-Bounded $suite @('--headless','--path',$root,'--script',"res://checks/$suite.gd")
     if ($result -notmatch "(?m)^CHECKS_PASSED $suite(?: \(\d+ checks\))?\r?`$") { throw "$suite did not report completion." }
 }
 $smoke = Invoke-Bounded 'source-smoke' @('--headless','--path',$root,'--','--verify-quit')
-if ($smoke -notmatch 'EXPORT_SMOKE_PASSED') { throw 'Source smoke did not report completion.' }
+if ($smoke -notmatch 'APPLICATION_START_PASSED') { throw 'Source smoke did not report completion.' }
 $projectVersion = (Select-String -Path (Join-Path $root 'project.godot') -Pattern '^config/version="([^"]+)"').Matches.Groups[1].Value
 if (-not $projectVersion -or $projectVersion -notmatch '^[a-zA-Z0-9._-]+$') { throw 'Set a filename-safe project config/version before packaging.' }
 $shortCommit = $commit.Substring(0,[Math]::Min(12,$commit.Length))
@@ -52,18 +52,26 @@ $null = Invoke-Bounded 'export' @('--headless','--path',$root,'--export-release'
 foreach ($required in @($destination,(Join-Path $packageDir 'smash-fight.pck'))) {
     if (-not (Test-Path $required) -or (Get-Item $required).Length -eq 0) { throw "Export did not create $required" }
 }
-$manifest = [ordered]@{project_version=$projectVersion;source_commit=$commit;engine_version=$version;preset=$preset;architecture='x86_64';build_type='release';template_source=$contract.source;coverage='export smoke only; gameplay and hardware unverified';template_sha512=(Get-FileHash $template -Algorithm SHA512).Hash;built_utc=[DateTime]::UtcNow.ToString('o');source_dirty=$sourceDirty}
+$manifest = [ordered]@{project_version=$projectVersion;source_commit=$commit;engine_version=$version;preset=$preset;architecture='x86_64';build_type='release';template_source=$contract.source;coverage='production application and automated gameplay checks; physical hardware/feel unverified';template_sha512=(Get-FileHash $template -Algorithm SHA512).Hash;built_utc=[DateTime]::UtcNow.ToString('o');source_dirty=$sourceDirty}
 [IO.File]::WriteAllText((Join-Path $packageDir 'manifest.json'),($manifest | ConvertTo-Json),$utf8)
 $instructions = @"
-Smash Fight $projectVersion - EXPORT SMOKE ONLY
-Keep every file together. This probe shows prepared Zip/Bramble content, display and raw controller events; it is not the game or its player ownership flow.
-Windows: double-click smash-fight.exe. Escape quits.
-Linux/Steam Deck: unpack the entire archive; run chmod +x ./smash-fight.x86_64 then ./smash-fight.x86_64. Add that native executable as a non-Steam game; do not select Proton compatibility.
-Paths containing spaces: in a terminal change directory to the unpacked folder using shell quoting, then use the relative commands above.
-Machine check: Windows .\smash-fight.exe --headless -- --verify-quit ; Linux ./smash-fight.x86_64 --headless -- --verify-quit
-Expected: EXPORT_CONTENT zip, EXPORT_CONTENT bramble and EXPORT_SMOKE_PASSED. Raw JSON is packaged inside smash-fight.pck.
-Physical review: Gaming Mode, 1080p TV at 60 Hz plus 1280x800 handheld; verify readable text/16:9 bars, both characters, pad buttons/axes and connection events. Record OS/dock/pads/output/renderer/source/build and failures in issue #20. This does not establish gameplay, ownership, feel or 60 FPS acceptance.
-Runtime Godot logs use user:// (the OS user-data directory), not this folder.
+Smash Fight $projectVersion - FIRST RUNNABLE PROTOTYPE (physical acceptance pending)
+Keep every file together. Windows: double-click smash-fight.exe.
+Two gamepads: Start to join; stick left/right chooses character; bottom face or Start readies.
+In play: stick moves/aims, bottom face jumps, left face attacks, top face recovery special, Start pauses.
+Paused/results: top face returns to selection; bottom face or Start resumes/readies rematch.
+Disconnected player: Start on an unassigned controller explicitly replaces their controls; then resume.
+Developer Test: select the clearly marked button, or run .\smash-fight.exe -- --developer-test.
+Keyboard: WASD directions, Space jump/ready, J attack, K special/return to select, Esc pause/resume.
+Keyboard + gamepad: select Join keyboard player, then Start on a pad for normal two-player flow.
+Linux/Steam Deck: unpack all files, chmod +x ./smash-fight.x86_64 then ./smash-fight.x86_64.
+Add the native executable as a non-Steam game; do not select Proton compatibility.
+Machine startup check: executable --headless -- --verify-quit
+Expected: APPLICATION_CONTENT zip, APPLICATION_CONTENT bramble, APPLICATION_START_PASSED.
+Early raw hardware probe remains available from source: res://smoke/export_smoke.tscn.
+Physical acceptance H1/H2/H5 is pending: complete sessions, controller lifecycle, presentation/feel.
+Record OS, display, controllers/connection modes, source/build and observations in issue #18.
+A graphical startup log is not physical or visual acceptance. Runtime logs use user://.
 "@
 [IO.File]::WriteAllText((Join-Path $packageDir 'RUN.txt'),$instructions,$utf8)
 $archive = Join-Path (Split-Path $packageDir -Parent) "$packageName.zip"
@@ -73,9 +81,9 @@ if ($Target -eq 'windows') {
     $unpacked = Join-Path ([IO.Path]::GetTempPath()) ("Smash Fight unpacked " + [Guid]::NewGuid().ToString('N'))
     Expand-Archive -LiteralPath $archive -DestinationPath $unpacked
     $result = Invoke-Bounded 'unpacked-smoke' @('--headless','--','--verify-quit') -Executable (Join-Path $unpacked $executable) -WorkingDirectory $unpacked
-    if ($result -notmatch 'EXPORT_SMOKE_PASSED .*exported=true' -or $result -notmatch 'EXPORT_CONTENT zip' -or $result -notmatch 'EXPORT_CONTENT bramble') { throw 'Unpacked export did not verify bundled content.' }
+    if ($result -notmatch 'APPLICATION_START_PASSED .*exported=true' -or $result -notmatch 'APPLICATION_CONTENT zip' -or $result -notmatch 'APPLICATION_CONTENT bramble') { throw 'Unpacked export did not verify bundled content.' }
     $windowed = Invoke-Bounded 'unpacked-window-smoke' @('--','--verify-quit') -Executable (Join-Path $unpacked $executable) -WorkingDirectory $unpacked
-    if ($windowed -notmatch 'EXPORT_SMOKE_PASSED .*display=windows') { throw 'Unpacked graphical Windows startup did not report completion.' }
+    if ($windowed -notmatch 'APPLICATION_START_PASSED .*display=windows') { throw 'Unpacked graphical Windows startup did not report completion.' }
     [IO.File]::WriteAllText((Join-Path $logDir 'unpacked.txt'),$unpacked,$utf8)
     Write-Host "UNPACKED_SMOKE_PASSED: $unpacked"
 }

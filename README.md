@@ -27,7 +27,7 @@ The SteamOS/native Linux delivery path and 1080p/60 FPS goal are agreed targets.
 - Responsive movement and combat, with basic player/damage/stock displays and enough feedback to judge game feel.
 - Placeholder art where useful during development.
 
-The agreed movement, attack, defense, recovery, and match rules are specified in [Define first-playable movement and combat rules](https://github.com/Fusion2k/smash-fight/issues/2). The agreed controls, controller ownership, selection, pause/reconnect, and developer keyboard path are specified in [Define gamepad ownership and the local match flow](https://github.com/Fusion2k/smash-fight/issues/4). Native movement/resources and the first Arena are implemented in #16; Match chronology, attacks, hit resolution and local pause are implemented in #17; complete stock/flow sessions and playtest validation remain upcoming.
+The agreed movement, attack, defense, recovery, and match rules are specified in [Define first-playable movement and combat rules](https://github.com/Fusion2k/smash-fight/issues/2). The agreed controls, controller ownership, selection, pause/reconnect, and developer keyboard path are specified in [Define gamepad ownership and the local match flow](https://github.com/Fusion2k/smash-fight/issues/4). Native movement/resources and the first Arena are implemented in #16; Match chronology, attacks, hit resolution and local pause are implemented in #17; stock/flow software is implemented in #18; physical sessions and playtest validation remain pending.
 
 The [first-playable acceptance and implementation handoff](docs/first-playable-acceptance.md) is accepted in #10. It defines observable automated and human checks plus dependent implementation issues; it does not claim a playable build.
 
@@ -38,19 +38,36 @@ The [first-playable acceptance and implementation handoff](docs/first-playable-a
 - Keep character definitions separate from mutable match state. Two instances of the same character must be able to act independently.
 - Keep the project portable between development PCs; resolve the Godot executable locally rather than embedding one machine's installation path.
 
-GDScript and built-in GodotPhysics2D are accepted in #8. See [Define Godot scene responsibilities and gameplay module interfaces](https://github.com/Fusion2k/smash-fight/issues/8) and [Choose the character file schema and tuning workflow](https://github.com/Fusion2k/smash-fight/issues/7) for the decisions behind these areas. The evolving [architecture documents](docs/architecture/README.md) include a [scene map](docs/architecture/scene-map.md), match-flow and combat diagrams, state/content constraints, and linked ADRs. The user confirmed #8's complete architecture on 2026-11-15, including native interval prediction/commit and chronological event ties. Character content scenes, shared native movement and the first Arena now exist. Match/combat scheduling is implemented in #17 through actual native intervals; see [combat evidence](docs/evidence/17-chronological-combat.md). Complete flow and human acceptance remain upcoming.
+GDScript and built-in GodotPhysics2D are accepted in #8. See [Define Godot scene responsibilities and gameplay module interfaces](https://github.com/Fusion2k/smash-fight/issues/8) and [Choose the character file schema and tuning workflow](https://github.com/Fusion2k/smash-fight/issues/7) for the decisions behind these areas. The evolving [architecture documents](docs/architecture/README.md) include a [scene map](docs/architecture/scene-map.md), match-flow and combat diagrams, state/content constraints, and linked ADRs. The user confirmed #8's complete architecture on 2026-11-15, including native interval prediction/commit and chronological event ties. Character content scenes, shared native movement and the first Arena now exist. Match/combat scheduling is implemented in #17 through actual native intervals; see [combat evidence](docs/evidence/17-chronological-combat.md). Application flow is implemented in #18; human acceptance remains pending.
 
 ## Opening the project
 
-1. Install Godot **4.7.2** for your development PC. Use the Standard distribution and matching Standard export templates. GDScript is accepted in #8; [the #9 workflow](docs/development-workflow.md) documents portable local discovery, delivered check/editor commands, and future play/test/export commands.
+1. Install Godot **4.7.2** for your development PC. Use the Standard distribution and matching Standard export templates. GDScript is accepted in #8; [the #9 workflow](docs/development-workflow.md) documents portable local discovery, check/editor/play/test/export commands.
 2. Clone this repository and import the root [`project.godot`](project.godot) through Godot's Project Manager.
 3. Read the relevant GitHub issue before making changes, along with the [glossary](GLOSSARY.md) and any applicable architectural decision records under `docs/adr/`.
 
-On the current Windows PC, Godot is installed under `C:\tools\Godot4`. Other PCs may use a different location. The repository contains the launcher, engine/window and character-catalog checks, Compatibility/1280x720 layout configuration, and editor-authored Zip/Bramble Resources with physics/damage JSON. Shared native Character movement and the first Arena are implemented; a runnable match remains upcoming work.
+On the current Windows PC, Godot is installed under `C:\tools\Godot4`. Other PCs may use a different location. The repository contains the launcher, engine/window and character-catalog checks, Compatibility/1280x720 layout configuration, and editor-authored Zip/Bramble Resources with physics/damage JSON. The root project runs the restartable application with two gamepads, or Developer Test with keyboard plus a stationary opponent.
 
 The separate [`prototype/combat-timing` branch](https://github.com/Fusion2k/smash-fight/tree/prototype/combat-timing) contains the runnable timing lab for #11. Its Windows launcher is **Run Combat Timing Lab.cmd** in that branch's worktree. See the [experiment evidence and instructions](docs/architecture/combat-timing-evidence.md); the main project does not run that lab.
 
-The completed [Research a portable Godot 4.7.2 development workflow](https://github.com/Fusion2k/smash-fight/issues/6) covers version checks, imports, export templates, and verification options. The shared `tools/dev.ps1` launcher now delivers check/editor commands and foundation checks (#14); catalog checks are delivered in #15 and native movement checks in #16; integrated combat checks are delivered in #17; application/stock/flow checks remain upcoming.
+The completed [Research a portable Godot 4.7.2 development workflow](https://github.com/Fusion2k/smash-fight/issues/6) covers version checks, imports, export templates, and verification options. The shared `tools/dev.ps1` launcher now delivers check/editor commands and foundation checks (#14); catalog checks are delivered in #15 and native movement checks in #16; integrated combat checks are delivered in #17; application/stock/flow checks are delivered in #18. Physical Windows gamepad and native Deck acceptance remain pending.
+
+## Run the prototype
+
+Set `GODOT_BIN` to your local Standard 4.7.2 executable (or pass `-GodotBin`), then run:
+
+```powershell
+./tools/dev.ps1 check
+./tools/dev.ps1 play
+./tools/dev.ps1 test
+./tools/dev.ps1 export windows
+```
+
+`play` opens the normal join screen; Start on each gamepad joins, stick left/right selects and bottom face or Start readies. `test` opens the clearly marked Developer Test: WASD directions, Space jump/ready, J attack, K recovery special, Escape pause/resume. Both use the same three-stock Match. The join screen also offers keyboard plus one gamepad for normal two-player flow. Interactive launches persist until the window closes.
+
+Either player can pause with Start, resume through three seconds, or return to selection with top face. Results use bottom face/Start for independent rematch readiness and top face for selection. A missing controller requires Start on an unassigned controller, followed by explicit resume. Both players can choose the same character.
+
+The runnable prototype and automated flow checks are delivered; real Windows H1/H2/H5 and Deck/TV checks are **unverified**. See [#18 evidence](docs/evidence/18-application-flow.md) for exact procedures and retained limitations. Basic visuals/attack regions and launch indicators are functional placeholders; content/feel work is #19.
 
 ## GitHub task workflow
 

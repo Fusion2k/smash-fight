@@ -9,6 +9,11 @@ var arena: Arena
 var automatic := false
 var event_budget := EVENT_BUDGET
 var input_frames := {}
+var input_provider: Callable
+var _stocks := {}
+var _respawns := {}
+var _spawn_positions := {}
+var _result := {}
 var _paused := false
 var _removed := {}
 var _step_number := 0
@@ -26,6 +31,10 @@ func start(setup: Dictionary) -> Dictionary:
 	if is_instance_valid(arena):
 		arena.free()
 	_removed.clear()
+	_stocks.clear()
+	_respawns.clear()
+	_spawn_positions.clear()
+	_result.clear()
 	_step_number = 0
 	_failed = true
 	_paused = false
@@ -40,7 +49,8 @@ func start(setup: Dictionary) -> Dictionary:
 		return validation
 	var positions: Array = setup.get("positions", arena.start_positions())
 	var slots: Array = setup.get("slots", range(content.size()))
-	if positions.size() < content.size() or slots.size() != content.size() or _has_duplicates(slots):
+	var respawn_positions: Array = setup.get("respawn_positions", setup.get("positions", arena.respawn_positions()))
+	if respawn_positions.size() < content.size() or positions.size() < content.size() or slots.size() != content.size() or _has_duplicates(slots):
 		return {"ok": false, "error": "invalid_match_slots_or_markers"}
 	for index in content.size():
 		var body := content[index].instantiate_scene() as Character
@@ -48,13 +58,18 @@ func start(setup: Dictionary) -> Dictionary:
 		body.configure(content[index], slots[index])
 		body.respawn(positions[index])
 		characters.append(body)
+		_stocks[body.slot_id] = maxi(1, int(setup.get("stocks", 3)))
+		_spawn_positions[body.slot_id] = respawn_positions[index]
 	_failed = false
 	automatic = setup.get("automatic", false)
 	return {"ok": true}
 
 func _physics_process(_delta: float) -> void:
 	if automatic:
-		step(input_frames)
+		var frames: Dictionary = input_provider.call() if input_provider.is_valid() else input_frames
+		step(frames)
+		# Queued frames are single-use, including fresh action presses.
+		input_frames.clear()
 
 func set_paused(value: bool) -> void:
 	_paused = value
@@ -69,15 +84,17 @@ func view() -> Dictionary:
 	for body in characters:
 		views.append(body.view())
 	return {"step": _step_number, "paused": _paused, "characters": views,
+		"stocks": _stocks.duplicate(), "respawns": _respawns.duplicate(), "result": _result.duplicate(true),
 		"removed": _removed.duplicate(), "events": _events.duplicate(true), "trace": _trace.duplicate(true), "failed": _failed}
 
 func step(frames: Dictionary = {}) -> Dictionary:
 	if _failed:
 		return {"ok": false, "error": "match_failed", "trace": _trace}
-	if _paused:
+	if _paused or not _result.is_empty():
 		return {"ok": true, "paused": true}
 	_events = []
 	_trace = []
+	_advance_respawns()
 	var live: Array[Character] = []
 	for body in characters:
 		if not _removed.has(body.slot_id):
@@ -142,6 +159,7 @@ func step(frames: Dictionary = {}) -> Dictionary:
 				var finished := body.finish_step()
 				if not finished.ok:
 					return _failure(finished)
+			_complete_stocks()
 			_step_number += 1
 			return {"ok": true, "events": _events.duplicate(true)}
 		if horizon <= cursor and not changed:
@@ -173,3 +191,32 @@ func _has_duplicates(values: Array) -> bool:
 			return true
 		seen[value] = true
 	return false
+
+func _advance_respawns() -> void:
+	for slot in _respawns.keys():
+		_respawns[slot] -= 1
+		if _respawns[slot] == 0:
+			for body in characters:
+				if body.slot_id == slot:
+					body.respawn(_spawn_positions[slot])
+					body.grant_protection(120)
+			_respawns.erase(slot)
+			_removed.erase(slot)
+			_events.append({"kind": "respawn", "slot": slot})
+
+func _complete_stocks() -> void:
+	# Only after EVERY chronological ring-out in the completed step.
+	var lost := false
+	for event in _events.duplicate():
+		if event.kind == "ring_out":
+			var slot: int = event.slot
+			_stocks[slot] = maxi(0, _stocks[slot] - 1)
+			lost = true
+			if _stocks[slot] > 0:
+				_respawns[slot] = 60
+			_events.append({"kind": "stock_lost", "slot": slot, "stocks": _stocks[slot]})
+	if lost:
+		var survivors: Array = _stocks.keys().filter(func(slot: int) -> bool: return _stocks[slot] > 0)
+		if survivors.size() <= 1:
+			_result = {"draw": survivors.is_empty(), "winner": survivors[0] if not survivors.is_empty() else -1}
+			_events.append({"kind": "result", "result": _result.duplicate()})

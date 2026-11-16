@@ -48,6 +48,10 @@ func respawn(at: Vector2) -> void:
 	_in_step = false
 	_revision += 1
 
+func grant_protection(steps: int) -> void:
+	_state.protection = maxi(0, steps)
+	_revision += 1
+
 func view() -> Dictionary:
 	var result := _state.duplicate(true)
 	result.merge({"slot_id": slot_id, "position": global_position, "velocity": velocity,

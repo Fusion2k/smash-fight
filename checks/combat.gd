@@ -307,7 +307,7 @@ func surfaces() -> void:
 	game.arena.ring_out_limits = Rect2(0, -180, 600, 1100)
 	game.characters[0].apply_event_group({"velocity": Vector2(600, 0)})
 	step({0: {"attack_pressed": true}})
-	expect("ring-out/combat exact tie removes first", hits().is_empty() and game.view().removed.size() == 2 and game.view().events.size() == 2, game.view().events)
+	expect("ring-out/combat exact tie removes first", hits().is_empty() and game.view().removed.size() == 2 and game.view().events.filter(func(event: Dictionary) -> bool: return event.kind == "ring_out").size() == 2, game.view().events)
 
 func failure_and_resources() -> void:
 	setup([Vector2(640, 530)])

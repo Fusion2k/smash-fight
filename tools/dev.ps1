@@ -4,7 +4,8 @@ param(
     [string]$GodotBin,
     [ValidateRange(1,86400)][int]$TimeoutSeconds = 120,
     [ValidateSet('normal','failure','engine-error','timeout')][string]$CheckCase = 'normal',
-    [switch]$EditorSmoke
+    [switch]$EditorSmoke,
+    [switch]$DeveloperTest
 )
 # Windows PowerShell 5.1 or PowerShell 7. No machine-specific engine paths.
 $ErrorActionPreference = 'Stop'
@@ -31,7 +32,7 @@ function Invoke-Bounded([string]$Name, [string[]]$Arguments, [switch]$LaunchOnly
     $process.StartInfo = $info
     [void]$process.Start()
     if ($LaunchOnly) {
-        $message = "Started interactive editor PID $($process.Id); its lifetime is not limited by check timeouts."
+        $message = "Started interactive application PID $($process.Id); its lifetime is not limited by check timeouts."
         [IO.File]::WriteAllText((Join-Path $logDir "$Name.start.log"),$message,$utf8)
         Write-Host $message
         $process.Dispose()
@@ -98,12 +99,22 @@ try {
             if ($result -notmatch '(?m)^CHECKS_PASSED foundation\r?$') { throw 'Check runner did not report completion.' }
             $catalog = Invoke-Bounded 'catalog' @('--headless','--path',$root,'--script','res://checks/catalog.gd')
             if ($catalog -notmatch '(?m)^CHECKS_PASSED catalog \(\d+ checks\)\r?$') { throw 'Catalog runner did not report completion.' }
-            Write-Host 'PASS: foundation, native movement, integrated combat and catalog checks; complete flow/hardware acceptance is not delivered.'
+            $flow = Invoke-Bounded 'application' @('--headless','--path',$root,'--script','res://checks/application.gd')
+            if ($flow -notmatch '(?m)^CHECKS_PASSED application \(\d+ checks\)\r?$') { throw 'Application runner did not report completion.' }
+            Write-Host 'PASS: foundation, movement, combat, catalog and application checks. Physical acceptance remains unverified.'
         }
         'editor' {
             $editorArgs = @('--path',$root,'--editor')
             if ($EditorSmoke) { $editorArgs += @('--headless','--quit-after','2') }
             $null = Invoke-Bounded 'editor' $editorArgs -LaunchOnly:(-not $EditorSmoke)
+        }
+        'play' {
+            $playArgs = @('--path',$root)
+            if ($DeveloperTest) { $playArgs += @('--','--developer-test') }
+            $null = Invoke-Bounded 'play' $playArgs -LaunchOnly
+        }
+        'test' {
+            $null = Invoke-Bounded 'developer-test' @('--path',$root,'--','--developer-test') -LaunchOnly
         }
         'export' { . (Join-Path $PSScriptRoot 'export.ps1') }
         default { throw "$Action is not implemented yet (application flow #18, exports #20). No playable build is claimed." }
