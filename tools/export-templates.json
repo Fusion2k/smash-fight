@@ -1,0 +1,10 @@
+{
+    "version":  "4.7.2.stable",
+    "source":  "https://github.com/godotengine/godot-builds/releases/tag/4.7.2-stable",
+    "archive_sha512":  "ca4d71c4d7b81dfc15d1a98baa07534aa95b03fdda78a0075b06672e1648d2e5f40980c9adc28d23e1b92e732ee7bf3461997aa804af74ec2fcd7a93ccb84079",
+    "files":  {
+                  "windows_release_x86_64.exe":  "5b3d39315848983e45400a64662dad4a782636015cf6f659956194e3f196d72e7117a5ad9c94528361f6e1f229ed20c09a1dc740506eb1bcba2fba6bbb727981",
+                  "windows_release_x86_64_console.exe":  "13b9364f97fae58c91a6f434da27cfc61146ac9e2eff961a9142ae67dacd8390346daa80a3d14b6cf0ecac75035472e04512fd5399414cea313c47cb4ac62ed6",
+                  "linux_release.x86_64":  "08be8a6ab54c9dbadad046ab526f22e351bed43a92b3ad19436f53a9dd44267a8a96338252ebc28f31047dd23d3e27a89a9dd0a7aefede0b3a61fb2ac66fb08c"
+              }
+}
