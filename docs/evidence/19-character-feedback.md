@@ -42,3 +42,16 @@ Exact-marker manual reproduction is available in the same production Developer T
 5. Verify SAFE lasts until protection expires or an attack begins, the recovery-spent/land-to-act cue clears on landing, hits clearly change damage and launch, and full pause/resume holds all gameplay artwork. Record defects for fixes and repeat affected checks/playtests.
 
 No human gates are waived. #18 remains open for real-pad Windows H1/H2/H5; #20 remains open for native Deck hardware smoke; #21 cannot start until its prerequisite gates are met.
+
+## Clean-source handoff archives
+
+Implementation commits `12c74a8` (native presentation) and `7f9525ec005e06654191e455bf00ac31bd5405fc` (real-Match recovery evidence and developer marker entry point) are pushed on main. Both release archives were built from the latter exact clean source; each manifest has `source_dirty: false`, engine 4.7.2.stable.official.ed1daf0bf and matching pinned official template SHA512. This subsequent documentation-only evidence commit does not change executable source.
+
+| Release archive | Bytes | SHA256 |
+| --- | --- | --- |
+| `smash-fight-0.1.0-7f9525ec005e-windows-x86_64-release.zip` | 38,141,916 | `916f02225171e2c73f37bfd58f99b51894f4ea07b3010b2971af25300938ed06` |
+| `smash-fight-0.1.0-7f9525ec005e-linux-x86_64-release.zip` | 28,490,964 | `a2bc5d389f30d9563ebcee2100ec1c03d807103a7e893a9e1a278ff72470b6cb` |
+
+Archives are retained at `build/packages/<archive name without .zip>/<archive name>`. Windows export/check logs: `build/logs/20261115-232254-801-4156/`; Linux export/check logs: `build/logs/20261115-232331-567-3640/`. Both builds reran all 450 checks. Windows fresh unpacked headless and graphical processes verified both bundled JSON characters and `APPLICATION_START_PASSED ... exported=true`; graphical display is Windows/Compatibility. The retained unpacked directory is recorded in the Windows log folder's `unpacked.txt`.
+
+Additional actual unpacked Windows release captures were inspected: `build/19-release-play.png` and `build/19-release-marker.png` (the keyboard player visibly starts at LeftModest). Fresh standalone processes ran outside the checkout without a source path. Their startup/capture logs are `build/19-release-capture.*.log` and `build/19-marker-capture.*.log`; both report phase=playing and exported=true. This is startup/render evidence, not physical-controller or feel acceptance. Native Linux was cross-exported on Windows and has not been executed; Deck, TV, second-PC, H3 owner feedback and manual H4 remain outstanding.
