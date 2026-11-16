@@ -1,6 +1,6 @@
 # State and content
 
-**Status: authoring responsibilities, schema, and validation accepted in #7; ownership and implementation interfaces accepted in #8; Resources/catalog and content snapshots implemented in #15; runtime gameplay isolation remains unverified.** Sources: [planning constraints, #1](https://github.com/Fusion2k/smash-fight/issues/1), [combat, #2](https://github.com/Fusion2k/smash-fight/issues/2), [character direction, #3](https://github.com/Fusion2k/smash-fight/issues/3), [player slots, #4](https://github.com/Fusion2k/smash-fight/issues/4), and [character authoring, #7](https://github.com/Fusion2k/smash-fight/issues/7).
+**Status: authoring responsibilities, schema, and validation accepted in #7; ownership and implementation interfaces accepted in #8; Resources/catalog and content snapshots implemented in #15; movement/resource isolation implemented and checked in #16; full combat/gameplay isolation remains unverified.** Sources: [planning constraints, #1](https://github.com/Fusion2k/smash-fight/issues/1), [combat, #2](https://github.com/Fusion2k/smash-fight/issues/2), [character direction, #3](https://github.com/Fusion2k/smash-fight/issues/3), [player slots, #4](https://github.com/Fusion2k/smash-fight/issues/4), and [character authoring, #7](https://github.com/Fusion2k/smash-fight/issues/7).
 
 ## Same character, independent players
 
@@ -74,4 +74,4 @@ Differences use timing, reach, damage, launch strength, and recovery movement wi
 | Replace a disconnected gamepad | The missing slot's assignment, preserving player and match state | #4 and #8 |
 | Grow from two to four slots | Player-count-aware ownership and composition | #8 and later hardware checks |
 
-These constraints are addressed by the accepted [module interfaces](module-interfaces.md) and [scene map](scene-map.md). #15 verifies tuning locality, fresh snapshots, defensive containers, and native shape isolation through the catalog interface. Mutable Character state and complete A2 behavior remain #16/#17.
+These constraints are addressed by the accepted [module interfaces](module-interfaces.md) and [scene map](scene-map.md). #15 verifies tuning locality, fresh snapshots, defensive containers, and native shape isolation through the catalog interface. #16 adds independent movement/resources for four native Character bodies. Complete A2 action/history and local-pause lifecycle behavior remains #17.

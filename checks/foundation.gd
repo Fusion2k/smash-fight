@@ -1,5 +1,5 @@
 extends SceneTree
-## Tests actual loaded engine/project interfaces. Gameplay suites will join this runner later.
+## Tests actual loaded engine/project interfaces, then native Character movement.
 
 var failures := 0
 
@@ -10,6 +10,9 @@ func expect_equal(label: String, actual: Variant, expected: Variant) -> void:
 		push_error("Check failed: " + label)
 
 func _initialize() -> void:
+	_run.call_deferred()
+
+func _run() -> void:
 	var args := OS.get_cmdline_user_args()
 	if args.has("timeout"):
 		print("CONTROLLED_TIMEOUT: waiting for the external wall-clock guard")
@@ -32,4 +35,5 @@ func _initialize() -> void:
 		quit(1)
 	else:
 		print("CHECKS_PASSED foundation")
-		quit(0)
+		failures += await load("res://checks/movement.gd").new().run(self)
+		quit(1 if failures else 0)

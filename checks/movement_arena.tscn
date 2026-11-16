@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3]
+
+[sub_resource type="RectangleShape2D" id="Floor"]
+size = Vector2(1000, 40)
+[sub_resource type="RectangleShape2D" id="Wall"]
+size = Vector2(40, 600)
+[sub_resource type="RectangleShape2D" id="Platform"]
+size = Vector2(180, 12)
+[sub_resource type="RectangleShape2D" id="Ceiling"]
+size = Vector2(300, 40)
+
+[node name="MovementFixture" type="Node2D"]
+position = Vector2(2000, 0)
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 580)
+[node name="Shape" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("Floor")
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(320, 260)
+[node name="Shape" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("Wall")
+[node name="Upper" type="StaticBody2D" parent="."]
+position = Vector2(-200, 360)
+[node name="Shape" type="CollisionShape2D" parent="Upper"]
+shape = SubResource("Platform")
+one_way_collision = true
+one_way_collision_margin = 1.0
+[node name="Lower" type="StaticBody2D" parent="."]
+position = Vector2(-200, 440)
+[node name="Shape" type="CollisionShape2D" parent="Lower"]
+shape = SubResource("Platform")
+one_way_collision = true
+one_way_collision_margin = 1.0
+[node name="Ceiling" type="StaticBody2D" parent="."]
+position = Vector2(0, 180)
+[node name="Shape" type="CollisionShape2D" parent="Ceiling"]
+shape = SubResource("Ceiling")

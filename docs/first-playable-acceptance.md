@@ -85,3 +85,7 @@ No foundational decision gap has been identified in this review: the accepted ru
 ## Delivered content evidence (#15)
 
 [#15 catalog evidence](evidence/15-character-catalog.md) records A1 and the content portion of A2 through actual Resource/catalog interfaces: valid Zip/Bramble content, aggregate invalid-content diagnostics, disk retry, stable active tuning and copied native shapes. Full A2 movement/action/resource/history isolation still requires #16/#17. No runtime gameplay, hardware, feel, export or Deck gate is passed by this evidence.
+
+## Delivered movement evidence (#16)
+
+[#16 native movement evidence](evidence/16-native-movement.md) records 96 checks through the shared Character and real GodotPhysics2D Arena: A4 movement/resources, A10 movement-only one-way/drop behavior, native interval/prefix/revision checks, surface grouping and bounded diagnostics, four independent bodies, and automated reach/recovery baseline. A10 down-plus-attack selection, A7/A8 combat ties, full A2/A13, local-pause lifecycle and all H gates remain outstanding. Arena reach sequences establish an automated baseline for H4; they do not pass human feel or hardware review.

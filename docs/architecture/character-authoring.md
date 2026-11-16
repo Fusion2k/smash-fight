@@ -1,6 +1,6 @@
 # Character authoring
 
-**Status: accepted specification from [#7](https://github.com/Fusion2k/smash-fight/issues/7).** The user confirmed the complete schema, validation rules, and shared understanding. The production Resources, catalog, authored Zip/Bramble pairs and content snapshot checks are implemented in #15. See the concrete authoring interface below; Character/Match behavior and hardware acceptance remain upcoming.
+**Status: accepted specification from [#7](https://github.com/Fusion2k/smash-fight/issues/7).** The user confirmed the complete schema, validation rules, and shared understanding. The production Resources, catalog, authored Zip/Bramble pairs and content snapshot checks are implemented in #15. See the concrete authoring interface below; shared Character movement is implemented in #16; Match/combat behavior and hardware acceptance remain upcoming.
 
 ## Authoring responsibilities
 
@@ -118,7 +118,7 @@ Successful `characters` entries are PreparedCharacter snapshots with these read-
 - `geometry()` returns scene-relative `SurfaceShape` and `Hurtboxes/<name>` entries, each containing `shape` and `offset`.
 - `instantiate_scene()` returns a fresh CharacterBody2D with detached native shape Resources.
 
-All dictionary getters return detached containers, and shape getters explicitly duplicate native Resources. The catalog packs a private scene snapshot with copied shapes. Changes to the authored scene/moves or a getter result cannot alter an existing snapshot. Underscore storage is private by convention in GDScript; callers use the methods above and must never edit it. Prepared data contains no damage, velocity, action state or hit history: #16/#17 must allocate those separately for every character. These content checks do not establish full A2 gameplay isolation.
+All dictionary getters return detached containers, and shape getters explicitly duplicate native Resources. The catalog packs a private scene snapshot with copied shapes. Changes to the authored scene/moves or a getter result cannot alter an existing snapshot. Underscore storage is private by convention in GDScript; callers use the methods above and must never edit it. Prepared data contains no damage, velocity, action state or hit history: #16 allocates independent movement/resource state for every Character; #17 completes action/history state. These content checks do not establish full A2 gameplay isolation.
 
 Scene contract: identity root transform, CharacterBody2D root, direct `SurfaceShape: CollisionShape2D`, and a nonempty `Hurtboxes` container with CollisionShape2D children. Native surface/combat rectangles require positive finite dimensions and enabled, translation-only transforms; offsets may vary. The root position belongs to Match. Each move has one positive finite RectangleShape2D, finite offset, nonnegative startup/recovery and at least one active simulation step, finite nonzero launch direction and positive launch strength. Integer Resource properties enforce whole-step authoring. Pose names are presentation references; animation never controls hit eligibility. JSON supplies exactly the existing schema and seven damage keys, with no editor data duplication.
 
