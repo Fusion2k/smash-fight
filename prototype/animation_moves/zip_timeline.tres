@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterDefinition" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://characters/character_definition.gd" id="1"]
+[ext_resource type="PackedScene" path="res://prototype/animation_moves/zip_timeline.tscn" id="2"]
+[ext_resource type="Script" path="res://characters/move_definition.gd" id="3"]
+[ext_resource type="Resource" path="res://characters/zip/ground_neutral.tres" id="m0"]
+[ext_resource type="Resource" path="res://characters/zip/ground_up.tres" id="m1"]
+[ext_resource type="Resource" path="res://characters/zip/ground_down.tres" id="m2"]
+[ext_resource type="Resource" path="res://characters/zip/aerial_neutral.tres" id="m3"]
+[ext_resource type="Resource" path="res://characters/zip/aerial_up.tres" id="m4"]
+[ext_resource type="Resource" path="res://characters/zip/aerial_down.tres" id="m5"]
+[ext_resource type="Resource" path="res://characters/zip/recovery_special.tres" id="m6"]
+
+[resource]
+script = ExtResource("1")
+character_id = &"zip_timeline"
+display_name = "Zip (Timeline)"
+character_scene = ExtResource("2")
+tuning_path = "res://characters/zip/zip.physics.json"
+moves = Array[ExtResource("3")]([ExtResource("m0"), ExtResource("m1"), ExtResource("m2"), ExtResource("m3"), ExtResource("m4"), ExtResource("m5"), ExtResource("m6")])

@@ -55,6 +55,31 @@ and dragged in the editor.
 6. **No method/call tracks.** Discrete value tracks were sufficient for every state
    toggle tested. Call Method tracks would add event-skipping and ordering hazards.
 
+## Playable Zip (Timeline)
+
+Zip is rebuilt on the prototype branch as a playable character. `zip_move_library.tres`
+holds **one Animation per move**, generated from Zip's authored `.tres` files by
+`build_zip_library.gd` (timing, hitbox extent/offset, hurtbox extent/offset, phase and
+active flag, with `startup_end` / `active_end` / `move_end` markers). `zip_timeline.tscn`
+is a clone of Zip's art/scene with a `Timeline` AnimationPlayer (set to MANUAL) and a
+`CombatSample` node so the tracks resolve in the editor. `timeline_character.gd` samples
+the Animation at `attack_age / 60` and overrides the plan's combat values; the inherited
+Character/Match still own the clock, hits, stocks and pause.
+
+`zip_timeline.tres` is the first entry in `app.gd`'s `DEFINITIONS`, so the Developer Test
+spawns it as P1 (P2 stays normal Zip). Verified:
+
+- `zip_play_probe.gd`: 16 real Character steps; timeline phase drives Zip's phase; at
+  step 4 hitbox grows `(24,18) -> (43.2,18)` and hurtbox shrinks `(30,46) -> (18,42)`;
+  no simulation errors.
+- Real Developer Test: pressing attack starts `aerial_neutral`, which runs startup →
+  active → ends on landing (normal aerial rule). `zip_play_capture.png` is a real
+  1280x720 render showing P1 "Zip (Timeline)" with `ACTIVE` and the attack arc.
+
+In the editor, open `zip_timeline.tscn` and double-click `zip_move_library.tres` to
+drag any move's keys. To play, run Developer Test with `./tools/dev.ps1 test` or the app
+directly; P1 is timeline Zip.
+
 ## Run it
 
 ```powershell
@@ -80,4 +105,8 @@ interactive scene; the latter was captured by clicking "Run to end" through the 
 | `combat_sample.gd` | Exported properties so animation track paths resolve in the editor |
 | `geometry_view.gd` | Draws sampled hit/hurt rectangles and contact dots |
 | `lab_trace.gd` | Headless per-step evidence using the production detector |
-| `capture_lab.gd`, `capture_contact.gd` | Graphical captures |
+| `capture_lab.gd`, `capture_contact.gd` | Graphical captures of the rectangle lab |
+| `build_zip_library.gd`, `zip_move_library.tres` | Generates / holds one Animation per Zip move |
+| `timeline_character.gd` | Samples the Animation and overrides per-step combat data |
+| `zip_timeline.tscn`, `zip_timeline.tres` | Playable Zip scene and its CharacterDefinition |
+| `zip_play_probe.gd`, `zip_play_capture.gd` | Simulation evidence and real Developer Test capture |

@@ -1,7 +1,7 @@
 class_name SmashApplication
 extends Node2D
 ## Slots survive controller loss. Match owns all gameplay state and its clock.
-const DEFINITIONS := [preload("res://characters/zip/zip.tres"), preload("res://characters/bramble/bramble.tres")]
+const DEFINITIONS := [preload("res://prototype/animation_moves/zip_timeline.tres"), preload("res://characters/zip/zip.tres"), preload("res://characters/bramble/bramble.tres")]
 const COLORS := [Color("62d8ff"), Color("ff83ae"), Color("c1ef77"), Color("ffce66")]
 var definitions: Array = DEFINITIONS.duplicate()
 var controls := PlayerInput.new()
