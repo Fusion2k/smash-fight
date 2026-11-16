@@ -1,6 +1,6 @@
 # Character authoring
 
-**Status: accepted specification from [#7](https://github.com/Fusion2k/smash-fight/issues/7).** The user confirmed the complete schema, validation rules, and shared understanding. This is an implementation handoff, not an implemented loader or editor tool; #8 determines scene/module responsibilities and the concrete editor binding.
+**Status: accepted specification from [#7](https://github.com/Fusion2k/smash-fight/issues/7).** The user confirmed the complete schema, validation rules, and shared understanding. The production Resources, catalog, authored Zip/Bramble pairs and content snapshot checks are implemented in #15. See the concrete authoring interface below; Character/Match behavior and hardware acceptance remain upcoming.
 
 ## Authoring responsibilities
 
@@ -13,7 +13,7 @@
 
 Attack damage is explicitly in JSON. Attack launch parameters stay in the editor under the user's clarification even though they affect motion. Recovery boost speeds are general character physics in JSON. Do not duplicate a property between the two sources.
 
-The editor-authored character definition references its JSON file while working in Godot. The Inspector should expose that file reference, preferably with a JSON file picker. Identity, display names, artwork, asset references, and collision geometry do not move into JSON. #8 chooses the concrete definition/scene type and property implementation.
+The editor-authored character definition references its JSON file while working in Godot. The Inspector should expose that file reference, preferably with a JSON file picker. Identity, display names, artwork, asset references, and collision geometry do not move into JSON. #15 implements this with `CharacterDefinition.tuning_path` and `@export_file("*.json")`.
 
 ## Schema version 1
 
@@ -103,3 +103,23 @@ For each new match or Developer Test restart, load a fresh validated tuning snap
 6. **Add a new mechanic:** tuning existing movement/attacks needs data edits. A new rule/action outside the agreed lifecycle needs code and an explicit schema/editor-definition change when it introduces new authoring data; do not hide executable behavior in JSON.
 
 First-playable editing is for a source checkout. Exported-game modding and live-match reload are deferred. JSON must be included in Windows/native-Linux exports and references validated in the eventual #9/#10 workflow. This document does not claim exported builds or these loader/validation/state-isolation checks have passed.
+
+## Implemented authoring interface (#15)
+
+Open `characters/zip/zip.tres` or `characters/bramble/bramble.tres` in the Inspector. Each CharacterDefinition references its same-directory `.tscn`, `.physics.json` and seven named move `.tres` files. The scenes provide original simple courier/guardian silhouettes; detailed animation, phase poses and player feedback remain #19. Values are provisional: Zip is lighter/faster with shorter melee regions and taller recovery; Bramble is heavier/slower with wider regions and stronger launches. These are authored differences, not a passed feel/reach gate.
+
+`characters/character_catalog.gd` exposes `CharacterCatalog.new().prepare_match(definitions)`. Input is an ordered array of CharacterDefinition selections (repeated definitions are allowed). The result has `ok`, `characters` and `errors`. A failure returns no prepared characters, with aggregated file/field diagnostics across JSON, moves, scenes and selections. A corrected call rereads JSON from disk; no ResourceLoader cache controls tuning reload. The application must display the returned diagnostics and keep start unavailable; that UI belongs to #18.
+
+Successful `characters` entries are PreparedCharacter snapshots with these read-only methods:
+
+- `identity()` returns character ID and display name.
+- `settings()` returns the schema-versioned physics/damage dictionary.
+- `move(move_id)` returns hitbox/offset, integer phase lengths, normalized launch direction/strength and presentation pose name. Missing IDs return an empty dictionary; gameplay uses the seven validated IDs.
+- `geometry()` returns scene-relative `SurfaceShape` and `Hurtboxes/<name>` entries, each containing `shape` and `offset`.
+- `instantiate_scene()` returns a fresh CharacterBody2D with detached native shape Resources.
+
+All dictionary getters return detached containers, and shape getters explicitly duplicate native Resources. The catalog packs a private scene snapshot with copied shapes. Changes to the authored scene/moves or a getter result cannot alter an existing snapshot. Underscore storage is private by convention in GDScript; callers use the methods above and must never edit it. Prepared data contains no damage, velocity, action state or hit history: #16/#17 must allocate those separately for every character. These content checks do not establish full A2 gameplay isolation.
+
+Scene contract: identity root transform, CharacterBody2D root, direct `SurfaceShape: CollisionShape2D`, and a nonempty `Hurtboxes` container with CollisionShape2D children. Native surface/combat rectangles require positive finite dimensions and enabled, translation-only transforms; offsets may vary. The root position belongs to Match. Each move has one positive finite RectangleShape2D, finite offset, nonnegative startup/recovery and at least one active simulation step, finite nonzero launch direction and positive launch strength. Integer Resource properties enforce whole-step authoring. Pose names are presentation references; animation never controls hit eligibility. JSON supplies exactly the existing schema and seven damage keys, with no editor data duplication.
+
+Run `./tools/dev.ps1 check` to exercise both production interfaces and foundation settings. See [catalog evidence](../evidence/15-character-catalog.md) for scope, results and retained traces.

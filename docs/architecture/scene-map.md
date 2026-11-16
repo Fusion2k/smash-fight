@@ -1,12 +1,12 @@
 # Scene map
 
-**Status: accepted production composition in [#8](https://github.com/Fusion2k/smash-fight/issues/8), confirmed on 2026-11-15; not implemented.** The main working tree has no gameplay scenes or configured main scene. Paths below are accepted implementation targets; actual scene paths will replace them as implementation lands. The timing labs remain separate experimental branches. Native scheduling and complete-match acceptance remain unverified.
+**Status: accepted production composition in [#8](https://github.com/Fusion2k/smash-fight/issues/8), confirmed on 2026-11-15; character content scenes and catalog implemented in #15; gameplay composition remains upcoming.** The main working tree has static character content scenes but no configured main scene. Paths below are accepted implementation targets; actual scene paths will replace them as implementation lands. The timing labs remain separate experimental branches. Native scheduling and complete-match acceptance remain unverified.
 
 This view translates the agreed [match flow](https://github.com/Fusion2k/smash-fight/issues/4), [combat scope](https://github.com/Fusion2k/smash-fight/issues/2), and confirmed [arena direction](https://github.com/Fusion2k/smash-fight/issues/3) into an accepted scene composition. During #8 on 2026-11-15, the user accepted GDScript and the ownership split: application flow owns slots/controllers, Match owns stocks/results and simulation order, Character owns movement/combat state, and a catalog owns content validation. The [module interfaces](module-interfaces.md) record the accepted contract.
 
 ## Accepted composition
 
-Solid lines show accepted parent/child composition. Dashed lines show phase-dependent views: the diagram does not require every menu and match view to remain loaded at once. Every production node remains unimplemented.
+Solid lines show accepted parent/child composition. Dashed lines show phase-dependent views: the diagram does not require every menu and match view to remain loaded at once. Static Zip/Bramble content scenes exist; the Application/Match/runtime Character nodes remain upcoming.
 
 ```mermaid
 flowchart TB
@@ -70,7 +70,7 @@ flowchart TB
 | Application/frontend | Join, independent selection, readiness, results, and Developer Test entry | Proposed paths below; scenes not implemented |
 | Match composition | Complete restartable matches, pause, controller loss, and same-step outcomes | Accepted in #8; not implemented |
 | Arena | Main surface, two one-way platforms reachable by both characters' jumps, fixed view, safe starts, respawn positions, and ring-out limits | Topology and recovery expectations agreed in #3; dimensions and scene layout pending |
-| Character instance | Independent movement, damage, attack state, and airborne resources for every player slot | Authoring agreed in #7 and timing evidence completed in #11; ownership/Resources/geometry accepted in #8; composition accepted; not implemented |
+| Character instance | Independent movement, damage, attack state, and airborne resources for every player slot | Static Zip/Bramble scenes, Resources and catalog snapshots implemented in #15; shared runtime movement/combat remains #16/#17 |
 | HUD/presentation | Distinguishable players, damage/stocks, attack phases, and hit feedback | Requirement agreed; accepted paths below; not implemented |
 | Pause/countdown presentation | Frozen match state, explicit missing-slot replacement, and three-second resume countdown | Behavior agreed in #4; application-owned overlay accepted below; not implemented |
 
@@ -86,7 +86,7 @@ flowchart TB
 | `match/match_hud.tscn` | Reads a match view; rows come from slot IDs rather than hardcoded P1/P2 character nodes. |
 | `arenas/first_arena.tscn` | StaticBody2D surfaces, two one-way platforms, Marker2D starts/respawns, editor-authored ring-out rectangle and fixed Camera2D. |
 | `characters/character.tscn` | Shared CharacterBody2D behavior, surface CollisionShape2D, editor-authored rectangular hurtboxes and visual child. No independent gameplay physics callback. |
-| `characters/zip/zip.tscn`, `characters/bramble/bramble.tscn` | Character scenes based on shared character behavior, with original silhouettes, editor geometry and visuals. Corresponding CharacterDefinition and MoveDefinition Resources supply authored content. |
+| `characters/zip/zip.tscn`, `characters/bramble/bramble.tscn` | Implemented static CharacterBody2D content scenes with original simple silhouettes, SurfaceShape and Hurtboxes/Body rectangles. Same-directory character `.tres` references seven move `.tres` files and physics/damage JSON; shared runtime behavior follows in #16/#17. |
 
 Developer Test uses the same Match scene with keyboard and stationary input adapters. It needs no second combat implementation or special arena. The input adapters, character catalog, hit detection and hit resolution are script modules rather than empty scene nodes. The [module interfaces](module-interfaces.md) specifies communication and state ownership; gameplay uses explicit ordered calls and presentation can subscribe to events.
 

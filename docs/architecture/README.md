@@ -2,21 +2,21 @@
 
 These documents explain the evolving design of Smash Fight. GitHub Issues remain the source of truth for requirements and their resolutions; these diagrams provide views of those decisions and link back to them.
 
-The main working tree currently contains the starter Godot project, without gameplay scenes or a configured main scene. A runnable timing lab is preserved separately on `prototype/combat-timing`. An agreed requirement is not evidence of implemented behavior. Each document distinguishes agreed rules, proposed structure, and work awaiting verification.
+The main working tree currently contains the Godot foundation, character Resources/catalog and static Zip/Bramble content scenes, without runtime gameplay or a configured main scene. A runnable timing lab is preserved separately on `prototype/combat-timing`. An agreed requirement is not evidence of implemented behavior. Each document distinguishes agreed rules, proposed structure, and work awaiting verification.
 
 ## Views
 
 | Document | Purpose | Current status |
 | --- | --- | --- |
-| [Scene map](scene-map.md) | Godot scene composition, scene responsibilities, and implementation status | Accepted production targets (unimplemented) plus separate implemented timing-lab tree |
+| [Scene map](scene-map.md) | Godot scene composition, scene responsibilities, and implementation status | Static character content implemented; remaining production targets plus separate timing-lab tree |
 | [Module interfaces](module-interfaces.md) | Ownership, accepted interfaces, editor authoring and step schedule | #8 accepted on 2026-11-15, including native prediction/commit and exact event ties; integration unverified |
 | [First-playable acceptance](../first-playable-acceptance.md) | Real-interface, physical/hardware acceptance and staged implementation handoff | #10 accepted on 2026-11-15; no production acceptance claimed |
-| [Development workflow](../development-workflow.md) | Portable engine, planned commands, rendering and native delivery | #9 accepted; #14 launcher/foundation checks delivered, gameplay checks/exports upcoming |
+| [Development workflow](../development-workflow.md) | Portable engine, planned commands, rendering and native delivery | #9 accepted; #14 launcher/foundation and #15 catalog checks delivered, gameplay checks/exports upcoming |
 | [Match flow](match-flow.md) | Joining, selection, match results, pause, and controller replacement | Agreed behavior from #2 and #4; not implemented |
 | [Combat lifecycle](combat-lifecycle.md) | Attack phases, hit response, and timing constraints | Accepted #2/#8 rules and schedule; integrated native behavior unverified |
 | [Contact chronology evidence](contact-chronology-evidence.md) | Contact fractions, true ties and re-evaluated motion | #13 resolved: fifteen analytic fixtures plus separate native surface probes; human reaction recorded; integration unverified |
 | [Combat timing evidence](combat-timing-evidence.md) | Reproducible fixture results, limitations, and candidate approach | Eleven scenarios measured; user reported "prototype looks good" |
-| [State and content](state-and-content.md) | Player identity, character definitions, independent match state, and content requirements | JSON physics/damage and editor-authored graphics/move data agreed |
+| [State and content](state-and-content.md) | Player identity, character definitions, independent match state, and content requirements | Resources/catalog and content snapshot isolation implemented; runtime state upcoming |
 | [Character authoring](character-authoring.md) | Concrete JSON fields, units, editor reference, validation, and editing walkthroughs | Accepted specification from #7; loader/editor implementation pending |
 | [Player-slot decision](../adr/0001-player-slots-and-controller-assignment.md) | Persistent player identity and replaceable controllers | Accepted in #4 |
 | [Character-authoring decision](../adr/0002-physics-json-and-editor-authored-geometry.md) | Physics/damage JSON separated from editor-authored graphics/move data | Accepted in #7, with schema and validation contract |

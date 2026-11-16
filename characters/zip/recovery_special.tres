@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MoveDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://characters/move_definition.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="Hitbox"]
+size = Vector2(22, 26)
+
+[resource]
+resource_name = "Spring boost"
+script = ExtResource("1")
+move_id = &"recovery_special"
+hitbox = SubResource("Hitbox")
+hitbox_offset = Vector2(0, -30.0)
+startup_steps = 3
+active_steps = 5
+recovery_steps = 18
+launch_direction = Vector2(0, -1)
+launch_strength = 368.0
+pose_name = &"recovery_special"

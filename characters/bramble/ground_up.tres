@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MoveDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://characters/move_definition.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="Hitbox"]
+size = Vector2(38, 42)
+
+[resource]
+resource_name = "Branch uppercut"
+script = ExtResource("1")
+move_id = &"ground_up"
+hitbox = SubResource("Hitbox")
+hitbox_offset = Vector2(0, -38.0)
+startup_steps = 8
+active_steps = 2
+recovery_steps = 17
+launch_direction = Vector2(0, -1)
+launch_strength = 378.0
+pose_name = &"ground_up"

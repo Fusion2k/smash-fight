@@ -1,6 +1,6 @@
 # Development workflow
 
-**Status: accepted specification for [#9](https://github.com/Fusion2k/smash-fight/issues/9), confirmed by the user on 2026-11-15; launcher/foundation checks implemented in #14, with gameplay checks and exports upcoming.** #8 has resolved GDScript and built-in GodotPhysics2D. The user accepted Compatibility, the logical layout/scaling policy, and the complete workflow below. Evidence comes from [#6 research](https://github.com/Fusion2k/smash-fight/blob/28981362e9541d704f6ffdf7fc4fff42bf6b3080/docs/research/godot-4-7-2-workflow.md), kept on its separate research branch.
+**Status: accepted specification for [#9](https://github.com/Fusion2k/smash-fight/issues/9), confirmed by the user on 2026-11-15; launcher/foundation checks implemented in #14 and catalog checks in #15, with gameplay checks and exports upcoming.** #8 has resolved GDScript and built-in GodotPhysics2D. The user accepted Compatibility, the logical layout/scaling policy, and the complete workflow below. Evidence comes from [#6 research](https://github.com/Fusion2k/smash-fight/blob/28981362e9541d704f6ffdf7fc4fff42bf6b3080/docs/research/godot-4-7-2-workflow.md), kept on its separate research branch.
 
 ## Portable setup contract
 
@@ -22,7 +22,7 @@ $env:GODOT_BIN = 'D:\Apps\Godot\Godot_v4.7.2-stable_win64_console.exe'
 ./tools/dev.ps1 editor
 ```
 
-Expected check completion is `CHECKS_PASSED foundation` and `PASS: foundation checks only`; this currently verifies the actual engine and loaded renderer/window settings, not gameplay. The launcher prints the selected executable, exact version, source HEAD (or unknown outside Git), and retained log directory. `-GodotBin <path>` overrides `GODOT_BIN`; without either it resolves `godot` on PATH. A copied `.godot` cache is unnecessary.
+Expected check completion includes `CHECKS_PASSED foundation`, `CHECKS_PASSED catalog (N checks)` and `PASS: foundation and catalog checks`. This verifies engine/window configuration and the production content boundary, including disk retry and snapshot isolation. Runtime gameplay and hardware acceptance remain upcoming. The launcher prints the selected executable, exact version, source HEAD (or unknown outside Git), and retained log directory. `-GodotBin <path>` overrides `GODOT_BIN`; without either it resolves `godot` on PATH. A copied `.godot` cache is unnecessary.
 
 Bounded commands use `-TimeoutSeconds` (default 120 per process). Each retains stdout/stderr and `run.json` in ignored `build/logs/<run>/`; failure also writes `failure.txt`. Nonzero exit, Godot `ERROR:`/`SCRIPT ERROR:` output even with exit zero, missing completion, wall-clock timeout or output-drain timeout fails the wrapper. On Windows timeout terminates the engine process tree. The manifest records source HEAD; local modifications may be present, so milestone evidence must name its committed source. Build output is excluded from Godot import using a generated `.gdignore`.
 
@@ -68,4 +68,4 @@ For exports use separate executable and generated PCK together in each archive, 
 
 ## What is verified today
 
-The source research checked the installed engine version/help and successfully imported the starter project headlessly in an isolated worktree, without tracked changes. Separate #11/#13 labs have their own version-checking Windows launchers and limited timing evidence. Main now has the #14 launcher and engine/window foundation runner; it still has no gameplay scenes, main scene, gameplay check suite or export presets. No production export, second-PC setup, native Deck/TV run, frame-rate target or complete match has passed. This accepted specification makes those future responsibilities concrete without counting them as delivered tooling.
+The source research checked the installed engine version/help and successfully imported the starter project headlessly in an isolated worktree, without tracked changes. Separate #11/#13 labs have their own version-checking Windows launchers and limited timing evidence. Main now has the #14 launcher/foundation runner and #15 Resources/catalog with static character scenes and catalog checks; it still has no runtime gameplay, main scene, gameplay check suite or export presets. No production export, second-PC setup, native Deck/TV run, frame-rate target or complete match has passed. This accepted specification makes those future responsibilities concrete without counting them as delivered tooling.

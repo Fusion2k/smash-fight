@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MoveDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://characters/move_definition.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="Hitbox"]
+size = Vector2(48, 24)
+
+[resource]
+resource_name = "Forward sweep"
+script = ExtResource("1")
+move_id = &"aerial_neutral"
+hitbox = SubResource("Hitbox")
+hitbox_offset = Vector2(42.0, -2)
+startup_steps = 7
+active_steps = 3
+recovery_steps = 16
+launch_direction = Vector2(1, -0.5)
+launch_strength = 414.0
+pose_name = &"aerial_neutral"

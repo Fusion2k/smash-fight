@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "mass": 1.35,
+  "movement": {
+    "ground_speed": 230,
+    "ground_acceleration": 1550,
+    "ground_deceleration": 1900,
+    "ground_attack_speed_multiplier": 0.25,
+    "air_speed": 210,
+    "air_acceleration": 1100
+  },
+  "jumping": {
+    "ground_jump_speed": 620,
+    "air_jump_speed": 560,
+    "jump_release_multiplier": 0.45
+  },
+  "falling": {
+    "gravity": 1800,
+    "max_fall_speed": 900,
+    "fast_fall_speed": 1400
+  },
+  "recovery": {
+    "up_speed": 690,
+    "air_speed": 140
+  },
+  "attack_damage": {
+    "ground_neutral": 7,
+    "ground_up": 8,
+    "ground_down": 7,
+    "aerial_neutral": 7,
+    "aerial_up": 8,
+    "aerial_down": 10,
+    "recovery_special": 9
+  }
+}
