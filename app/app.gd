@@ -31,6 +31,7 @@ var _verify_ticks := -1
 var _capture_phase := ""
 var _capture := ""
 var _discard_edges := false
+var _recovery_marker := ""
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("111c30"))
@@ -42,17 +43,22 @@ func _ready() -> void:
 	_make_ui()
 	retry_content()
 	var args := OS.get_cmdline_user_args()
-	if args.has("--developer-test"):
-		start_developer_test()
 	if args.has("--verify-quit"):
 		_verify_ticks = 12
 	for arg in args:
+		if arg.begins_with("--recovery-marker="):
+			var marker_name := arg.trim_prefix("--recovery-marker=")
+			if marker_name in ["LeftModest", "RightModest", "LeftDeep", "RightDeep"]:
+				_recovery_marker = marker_name
 		if arg.begins_with("--verify-steps=") and _verify_ticks > 0:
 			_verify_ticks = clampi(int(arg.trim_prefix("--verify-steps=")), 12, 1800)
 		if arg.begins_with("--capture-phase="):
 			_capture_phase = arg.trim_prefix("--capture-phase=")
 		if arg.begins_with("--capture="):
 			_capture = arg.trim_prefix("--capture=")
+
+	if args.has("--developer-test") or not _recovery_marker.is_empty():
+		start_developer_test()
 
 	if _verify_ticks > 0 and _capture_phase == "results":
 		# Explicit bounded developer draw fixture, through the real Match.
@@ -147,6 +153,9 @@ func _start_match() -> void:
 	if not started.ok:
 		_fail(started)
 		return
+	if developer and not _recovery_marker.is_empty():
+		var marker := game.arena.get_node("RecoveryMarkers/" + _recovery_marker) as Marker2D
+		game.characters[0].respawn(marker.global_position)
 	for slot in slots:
 		slot.ready = false
 	phase = "countdown"
@@ -426,7 +435,7 @@ func _present() -> void:
 			_cards[index].text = "P%d  %s\n%.0f%%   |   %d stocks%s" % [slot.id + 1, definitions[slot.selection].display_name, damage, stock, ("\n" + status) if not status.is_empty() else ""]
 	for index in _cards.size():
 		_cards[index].get_parent().visible = index < slots.size()
-	_hud.text = "SMASH FIGHT" + ("  /  DEVELOPER TEST" if developer else "")
+	_hud.text = "SMASH FIGHT" + (("  /  DEVELOPER TEST" + ("  /  " + _recovery_marker if not _recovery_marker.is_empty() else "")) if developer else "")
 	_help.text = ("WASD move / aim  |  Space jump  |  J attack  |  K recovery  |  Esc pause" if keyboard else "Stick move / aim  |  Bottom jump  |  Left attack  |  Top recovery  |  Start pause") if phase == "playing" else ""
 
 	_overlay.visible = phase != "playing"

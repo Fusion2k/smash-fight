@@ -98,6 +98,44 @@ func run(tree: SceneTree) -> int:
 		expect("editor artwork change leaves gameplay untouched %d" % index, body.view() == unchanged)
 		expect("art never transforms collision root %d" % index, body.scale == Vector2.ONE and body.rotation == 0)
 	game.free()
+	await _recovery_checks(tree, prepared.characters)
 	if failures == 0:
 		print("CHECKS_PASSED presentation (%d checks)" % checks)
 	return failures
+
+func _recovery_checks(tree: SceneTree, content: Array) -> void:
+	for character_index in 2:
+		for side in ["Left", "Right"]:
+			for depth in ["Modest", "Deep"]:
+				var game := Match.new()
+				tree.root.add_child(game)
+				game.start({"characters": [content[character_index]]})
+				await tree.physics_frame
+				var marker := game.arena.get_node("RecoveryMarkers/" + side + depth) as Marker2D
+				var body := game.characters[0]
+				body.respawn(marker.global_position)
+				var special_step := 13 if depth == "Modest" else 19
+				var inward := 1 if side == "Left" else -1
+				var ring_out := false
+				var landed := false
+				var completed := true
+				var last_step := 0
+				for tick in 124:
+					last_step = tick + 1
+					var input := {"jump_pressed": tick == 0, "jump_held": tick < special_step,
+						"special_pressed": tick == special_step, "horizontal": inward if depth == "Deep" or tick < 69 else 0}
+					var result := game.step({0: input})
+					completed = completed and result.ok
+					if tick == 0:
+						expect("H4 air jump consumed %d %s%s" % [character_index, side, depth], not body.view().air_jump_available)
+					if tick == special_step:
+						expect("H4 recovery special consumed %d %s%s" % [character_index, side, depth], not body.view().recovery_available)
+					if game.view().events.any(func(event: Dictionary) -> bool: return event.kind == "ring_out"):
+						ring_out = true
+						break # Never allow respawn to turn a failed recovery into success.
+					if tick > special_step and body.view().grounded:
+						landed = true
+						break
+				print("H4_MATCH character=%s marker=%s%s start=%s steps=%d final=%s landed=%s first_ring_out=%s stocks=%s" % [content[character_index].identity().character_id, side, depth, marker.global_position, last_step, body.global_position, landed, ring_out, game.view().stocks])
+				expect("H4 Match recovery outcome %d %s%s" % [character_index, side, depth], completed and (landed and not ring_out if depth == "Modest" else ring_out and not landed))
+				game.free()

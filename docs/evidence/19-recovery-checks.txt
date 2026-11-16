@@ -1,0 +1,36 @@
+Engine 4.7.2.stable.official.ed1daf0bf; GodotPhysics2D; 60 Hz; no random seed
+Source: implementation checkpoint containing this evidence; no tuning/geometry changes
+Command: tools/dev.ps1 check; retained run 20261115-232144-966-5288
+CHECK presentation H4 air jump consumed 0 LeftModest actual=true
+CHECK presentation H4 recovery special consumed 0 LeftModest actual=true
+H4_MATCH character=zip marker=LeftModest start=(200.0, 620.0) steps=66 final=(376.3518, 537.9999) landed=true first_ring_out=false stocks={ 0: 3 }
+CHECK presentation H4 Match recovery outcome 0 LeftModest actual=true
+CHECK presentation H4 air jump consumed 0 LeftDeep actual=true
+CHECK presentation H4 recovery special consumed 0 LeftDeep actual=true
+H4_MATCH character=zip marker=LeftDeep start=(200.0, 880.0) steps=75 final=(438.9889, 920.0) landed=false first_ring_out=true stocks={ 0: 2 }
+CHECK presentation H4 Match recovery outcome 0 LeftDeep actual=true
+CHECK presentation H4 air jump consumed 0 RightModest actual=true
+CHECK presentation H4 recovery special consumed 0 RightModest actual=true
+H4_MATCH character=zip marker=RightModest start=(1080.0, 620.0) steps=66 final=(903.6486, 537.9999) landed=true first_ring_out=false stocks={ 0: 3 }
+CHECK presentation H4 Match recovery outcome 0 RightModest actual=true
+CHECK presentation H4 air jump consumed 0 RightDeep actual=true
+CHECK presentation H4 recovery special consumed 0 RightDeep actual=true
+H4_MATCH character=zip marker=RightDeep start=(1080.0, 880.0) steps=75 final=(841.0111, 920.0) landed=false first_ring_out=true stocks={ 0: 2 }
+CHECK presentation H4 Match recovery outcome 0 RightDeep actual=true
+CHECK presentation H4 air jump consumed 1 LeftModest actual=true
+CHECK presentation H4 recovery special consumed 1 LeftModest actual=true
+H4_MATCH character=bramble marker=LeftModest start=(200.0, 620.0) steps=57 final=(307.2587, 529.9999) landed=true first_ring_out=false stocks={ 0: 3 }
+CHECK presentation H4 Match recovery outcome 1 LeftModest actual=true
+CHECK presentation H4 air jump consumed 1 LeftDeep actual=true
+CHECK presentation H4 recovery special consumed 1 LeftDeep actual=true
+H4_MATCH character=bramble marker=LeftDeep start=(200.0, 880.0) steps=74 final=(376.0412, 920.0) landed=false first_ring_out=true stocks={ 0: 2 }
+CHECK presentation H4 Match recovery outcome 1 LeftDeep actual=true
+CHECK presentation H4 air jump consumed 1 RightModest actual=true
+CHECK presentation H4 recovery special consumed 1 RightModest actual=true
+H4_MATCH character=bramble marker=RightModest start=(1080.0, 620.0) steps=57 final=(972.7421, 529.9999) landed=true first_ring_out=false stocks={ 0: 3 }
+CHECK presentation H4 Match recovery outcome 1 RightModest actual=true
+CHECK presentation H4 air jump consumed 1 RightDeep actual=true
+CHECK presentation H4 recovery special consumed 1 RightDeep actual=true
+H4_MATCH character=bramble marker=RightDeep start=(1080.0, 880.0) steps=74 final=(903.9604, 920.0) landed=false first_ring_out=true stocks={ 0: 2 }
+CHECK presentation H4 Match recovery outcome 1 RightDeep actual=true
+CHECKS_PASSED presentation (53 checks)
