@@ -32,3 +32,15 @@ During development, import correctly failed on accidentally ANSI-encoded smoke s
 Actual Steam Deck/SteamOS hardware, dock/1080p TV, handheld display and intended external gamepads are unavailable to this agent. No Deck native launch, Gaming Mode, TV/handheld framing/readability, physical button/axis/disconnect/reconnect or performance check passed. Transfer the complete Linux archive, unpack, chmod the native launcher, add it as a non-Steam game without Proton, and record the #20 early smoke scenario from RUN.txt. Keep #20 open until that evidence is supplied. H6 second Windows PC and all full-game H1-H8/60 FPS acceptance remain #21 work.
 
 Official API/CLI references: [command line](https://docs.godotengine.org/en/4.7/tutorials/editor/command_line_tutorial.html), [export inclusion/presets](https://docs.godotengine.org/en/4.7/tutorials/export/exporting_projects.html), [template feature tag](https://docs.godotengine.org/en/4.7/tutorials/export/feature_tags.html). The smoke is a platform probe, not the normal application or Developer Test; `play`/`test` still fail clearly until #18. The normal application should replace `project.godot`'s smoke main scene when ready.
+## Committed handoff build
+
+Both final archives were built from clean source `f28945fbec4a9513849a466efdf4af66fd3d49a9` (both manifests have `source_dirty: false`), project version 0.1.0, release, exact engine above. The subsequent evidence/documentation commit does not change executable source.
+
+| Artifact | Actual result |
+| --- | --- |
+| `smash-fight-0.1.0-f28945fbec4a-windows-x86_64-release.zip` | 38,092,023 bytes; SHA256 `e65f345347e5f03f198cb1697c8119839b447da1015b1dd518b432f7119da2a6` |
+| `smash-fight-0.1.0-f28945fbec4a-linux-x86_64-release.zip` | 28,441,070 bytes; SHA256 `c70e2aa3e9d92efa88ad3d89dfe2e992a3d281a9d738787d0a4c154b96245263` |
+| Windows retained logs | `build/logs/20261115-191552-966-15636/`; seven foundation + 60 catalog pass; packaged Zip mass 0.8 / Bramble mass 1.35 verified in both fresh processes. Graphical startup reports OpenGL 3.3 Compatibility, Intel UHD Graphics 620, driver build 27.20.100.9664. Visual readability and physical pads not observed. |
+| Linux retained logs | `build/logs/20261115-191624-197-15636/`; template SHA512 verified, seven foundation + 60 catalog and source smoke pass; native release export completes. Linux executable has not been run. |
+
+Each archive is retained in `build/packages/<same-name-without-.zip>/<archive-name>` in the active delivery-packages worktree; absolute local handoff paths are posted in #20. Temporary Windows unpacked folder is recorded by the Windows run's `unpacked.txt`. Do not archive/remove that worktree until the human recipient has copied the Linux archive. Earlier dirty development archives and failure logs are retained separately and are not the handoff candidate.
