@@ -1,6 +1,6 @@
 # Restartable application evidence (#18)
 
-Software implementation completed on 2026-11-15. The first runnable Windows prototype uses `app/app.tscn` as its root and the same production Match for normal gamepads, keyboard plus gamepad and Developer Test. **#18 remains open: Windows physical H1/H2/H5 are unverified.** Deck/TV, human feel/content and performance gates also remain unverified; #19 stays blocked by #18.
+Software implementation completed on 2026-11-15. The first runnable Windows prototype uses `app/app.tscn` as its root and the same production Match for normal gamepads, keyboard plus gamepad and Developer Test. **#18 remains open: Windows physical H1/H2/H5 are unverified.** Its delivered code permits #19's independent visual/content work; #21 explicitly depends on #18, #19 and #20, retaining every human/physical gate. Deck/TV, human feel/content and performance gates also remain unverified. The user has offered to run the Windows two-gamepad checks; no result has yet been recorded.
 
 ## Automated results
 
