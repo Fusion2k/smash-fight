@@ -89,3 +89,8 @@ No foundational decision gap has been identified in this review: the accepted ru
 ## Delivered movement evidence (#16)
 
 [#16 native movement evidence](evidence/16-native-movement.md) records 96 checks through the shared Character and real GodotPhysics2D Arena: A4 movement/resources, A10 movement-only one-way/drop behavior, native interval/prefix/revision checks, surface grouping and bounded diagnostics, four independent bodies, and automated reach/recovery baseline. A10 down-plus-attack selection, A7/A8 combat ties, full A2/A13, local-pause lifecycle and all H gates remain outstanding. Arena reach sequences establish an automated baseline for H4; they do not pass human feel or hardware review.
+
+
+## Delivered chronological combat evidence (#17)
+
+[#17 combat evidence](evidence/17-chronological-combat.md) records integrated A5-A10 combat coverage through the actual Match, native Character/Arena and catalog, including four-slot fixtures. It covers authored move selection, startup/active/recovery, true/near/distinct contacts under reversed enumeration, vector-sum trades, interruption, native requery and calibrated exact landing ties, ring-out precedence, local pause/re-hit/pending-launch release, counter freezes and diagnostic exhaustion. Existing catalog/movement checks remain part of the bounded check command. A11/A12 stock/application flow and the remaining A2/A13 lifecycle portions are #18; all human, physical-device, packaged gameplay and performance gates remain unverified.

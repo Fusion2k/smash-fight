@@ -36,4 +36,5 @@ func _run() -> void:
 	else:
 		print("CHECKS_PASSED foundation")
 		failures += await load("res://checks/movement.gd").new().run(self)
+		failures += await load("res://checks/combat.gd").new().run(self)
 		quit(1 if failures else 0)

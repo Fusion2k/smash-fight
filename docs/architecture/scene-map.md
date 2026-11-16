@@ -1,12 +1,12 @@
 # Scene map
 
-**Status: accepted production composition in [#8](https://github.com/Fusion2k/smash-fight/issues/8), confirmed on 2026-11-15; character content/catalog implemented in #15; shared Character movement and first Arena implemented in #16.** Zip/Bramble scenes now attach `characters/character.gd`; `arenas/first_arena.tscn` contains the static topology, markers, limits and fixed camera. No application main scene or Match scheduler exists yet. The timing labs remain separate experimental branches; combat chronology and complete-match acceptance remain unverified. See [movement evidence](../evidence/16-native-movement.md).
+**Status: accepted production composition in [#8](https://github.com/Fusion2k/smash-fight/issues/8), confirmed on 2026-11-15; character content/catalog implemented in #15; shared Character movement and first Arena implemented in #16.** Zip/Bramble scenes now attach `characters/character.gd`; `arenas/first_arena.tscn` contains the static topology, markers, limits and fixed camera. `match/match.tscn` now composes prepared Characters and Arena with the production chronological scheduler (#17). The temporary export-smoke main remains the startup scene; application flow/HUD/stocks are #18/#19. The timing labs remain separate experimental branches; production combat evidence is [recorded here](../evidence/17-chronological-combat.md). See [movement evidence](../evidence/16-native-movement.md).
 
 This view translates the agreed [match flow](https://github.com/Fusion2k/smash-fight/issues/4), [combat scope](https://github.com/Fusion2k/smash-fight/issues/2), and confirmed [arena direction](https://github.com/Fusion2k/smash-fight/issues/3) into an accepted scene composition. During #8 on 2026-11-15, the user accepted GDScript and the ownership split: application flow owns slots/controllers, Match owns stocks/results and simulation order, Character owns movement/combat state, and a catalog owns content validation. The [module interfaces](module-interfaces.md) record the accepted contract.
 
 ## Accepted composition
 
-Solid lines show accepted parent/child composition. Dashed lines show phase-dependent views: the diagram does not require every menu and match view to remain loaded at once. Zip/Bramble runtime Character and Arena scenes exist; Application/Match composition remains upcoming.
+Solid lines show accepted parent/child composition. Dashed lines show phase-dependent views: the diagram does not require every menu and match view to remain loaded at once. Zip/Bramble runtime Character and Arena scenes exist; Match composition exists; Application flow and presentation remain upcoming.
 
 ```mermaid
 flowchart TB

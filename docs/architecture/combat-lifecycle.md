@@ -1,6 +1,6 @@
 # Combat lifecycle
 
-**Status: gameplay relationships and chronological production schedule accepted in #8 on 2026-11-15; implementation unverified.** Source: [#2](https://github.com/Fusion2k/smash-fight/issues/2), with the down-input interactions specified in [#4](https://github.com/Fusion2k/smash-fight/issues/4). The [#11 experiment](combat-timing-evidence.md) supplies timing/collision evidence and the user's positive reaction. The [module interfaces](module-interfaces.md) records the accepted ownership and detailed step order.
+**Status: gameplay relationships and chronological production schedule accepted in #8 on 2026-11-15; implemented in #17 through production Match/Character/native Arena checks; see [evidence](../evidence/17-chronological-combat.md). Complete sessions, presentation and human feel remain unverified.** Source: [#2](https://github.com/Fusion2k/smash-fight/issues/2), with the down-input interactions specified in [#4](https://github.com/Fusion2k/smash-fight/issues/4). The [#11 experiment](combat-timing-evidence.md) supplies timing/collision evidence and the user's positive reaction. The [module interfaces](module-interfaces.md) records the accepted ownership and detailed step order.
 
 ## Attack phases
 

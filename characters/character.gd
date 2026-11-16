@@ -21,6 +21,9 @@ var _in_step := false
 var _support: Dictionary = {}
 var _drop_rid := RID()
 var _drop_bottom := 0.0
+var _move: Dictionary = {}
+var _new_counters := {}
+var _next_attack_id := 0
 
 func configure(content: PreparedCharacter, slot: int) -> void:
 	prepared = content
@@ -34,7 +37,11 @@ func respawn(at: Vector2) -> void:
 	_state = {"grounded": false, "air_jump_available": true, "recovery_available": true,
 		"recovery_locked": false, "facing": 1, "fast_fall": false, "ground_jump": false,
 		"buffer_kind": "", "buffer_steps": 0, "grace_steps": 0, "committed": false,
-		"hitstun": 0, "frozen": false, "damage": 0.0, "pending_launch": Vector2.ZERO}
+		"hitstun": 0, "frozen": false, "damage": 0.0, "pending_launch": Vector2.ZERO,
+		"hit_pause": 0, "landing_delay": 0, "protection": 0, "move_id": "",
+		"attack_age": 0, "attack_id": 0, "targets": [], "phase": "idle"}
+	_move = {}
+	_new_counters.clear()
 	_support = {}
 	_drop_rid = RID()
 	_cursor = 0.0
@@ -57,6 +64,11 @@ func prepare_step(input: Dictionary) -> Dictionary:
 		return _error("step_already_prepared")
 	_in_step = true
 	_cursor = 0.0
+	_new_counters.clear()
+	_state.frozen = _state.hit_pause > 0
+	if not _state.frozen and _state.pending_launch != Vector2.ZERO:
+		velocity = _state.pending_launch
+		_state.pending_launch = Vector2.ZERO
 	_revision += 1
 	# Input owns physical edges. Keeping only the latest press is Character's rule.
 	for action in ["jump", "attack", "special"]:
@@ -76,15 +88,19 @@ func prepare_step(input: Dictionary) -> Dictionary:
 		_state.grace_steps = GRACE_STEPS
 	elif was_grounded:
 		_state.grace_steps = GRACE_STEPS
-	var can_act: bool = not _state.committed and _state.hitstun == 0 and not _state.recovery_locked
+	var can_act: bool = not _state.committed and _state.hitstun == 0 and not _state.recovery_locked and _state.landing_delay == 0
 	if can_act and input.get("down_pressed", false) and _support.get("one_way", false):
 		_drop_rid = _support.rid
 		_drop_bottom = _support.bottom
 		_support = {}
 		_state.grounded = false
 		_state.grace_steps = 0
+	var horizontal := clampf(float(input.get("horizontal", 0.0)), -1.0, 1.0)
+	if horizontal != 0 and not _state.committed and not _state.recovery_locked and _state.hitstun == 0:
+		_state.facing = 1 if horizontal > 0 else -1
 	if can_act and _state.buffer_steps > 0:
 		if _state.buffer_kind == "special" and _state.recovery_available:
+			_start_attack("recovery_special")
 			velocity.y = -_settings.recovery.up_speed
 			_state.recovery_available = false
 			_state.recovery_locked = true
@@ -92,6 +108,12 @@ func prepare_step(input: Dictionary) -> Dictionary:
 			_state.grace_steps = 0
 			_state.ground_jump = false
 			_state.fast_fall = false
+			clear_inputs()
+		elif _state.buffer_kind == "attack":
+			var direction: String = input.get("attack_direction", "neutral")
+			if direction not in ["up", "down"]:
+				direction = "neutral"
+			_start_attack(("ground_" if _state.grounded else "aerial_") + direction)
 			clear_inputs()
 		elif _state.buffer_kind == "jump":
 			if _state.grounded or _state.grace_steps > 0:
@@ -110,9 +132,6 @@ func prepare_step(input: Dictionary) -> Dictionary:
 		velocity.y *= _settings.jumping.jump_release_multiplier
 		_state.ground_jump = false
 	if _state.hitstun == 0:
-		var horizontal := clampf(float(input.get("horizontal", 0.0)), -1.0, 1.0)
-		if horizontal != 0 and not _state.committed and not _state.recovery_locked:
-			_state.facing = 1 if horizontal > 0 else -1
 		var movement: Dictionary = _settings.movement
 		var speed: float = movement.ground_speed if _state.grounded else movement.air_speed
 		var acceleration: float = movement.ground_acceleration if _state.grounded else movement.air_acceleration
@@ -145,7 +164,7 @@ func predict_interval(until: float = 1.0) -> Dictionary:
 		"until": until, "horizon": horizon, "from": global_transform, "velocity": moving_velocity,
 		"motion": motion * query.fraction, "surface": query.contacts,
 		"geometry": prepared.geometry(), "facing": _state.facing,
-		"frozen": _state.frozen}
+		"frozen": _state.frozen, "combat": combat_snapshot()}
 
 func commit_interval(plan: Dictionary, until: float) -> Dictionary:
 	if not plan.get("ok", false) or plan.get("revision", -1) != _revision:
@@ -174,11 +193,22 @@ func apply_event_group(results: Dictionary) -> Dictionary:
 		_state.fast_fall = false
 		_state.ground_jump = false
 		_state.recovery_locked = false
+		_end_attack()
+	if results.get("hit_pause", 0) > 0:
+		_state.hit_pause = results.hit_pause
+		_state.frozen = true
+		_new_counters.hit_pause = true
+	if results.has("hitstun"):
+		_new_counters.hitstun = true
+	if results.has("targets"):
+		for target in results.targets:
+			if target not in _state.targets:
+				_state.targets.append(target)
 	if results.has("velocity"):
 		velocity = results.velocity
 	if results.has("pending_launch"):
 		_state.pending_launch = results.pending_launch
-	for key in ["committed", "hitstun", "frozen", "damage"]:
+	for key in ["hitstun", "damage", "protection"]:
 		if results.has(key):
 			_state[key] = results[key]
 	var contacts: Array = results.get("surface", [])
@@ -192,6 +222,10 @@ func apply_event_group(results: Dictionary) -> Dictionary:
 			_state.pending_launch = _state.pending_launch.slide(normal)
 			changed = true
 		if normal.y < -0.5:
+			if _state.move_id.begins_with("aerial_") or _state.move_id == "recovery_special":
+				_end_attack()
+				_state.landing_delay = 6
+				_new_counters.landing_delay = true
 			_state.grounded = true
 			_state.air_jump_available = true
 			_state.recovery_available = true
@@ -208,14 +242,58 @@ func finish_step() -> Dictionary:
 	if not _in_step or _cursor < 1.0 - TIME_EPSILON:
 		return _error("incomplete_step")
 	if not _state.frozen:
+		if _state.committed and not _move.is_empty():
+			_state.attack_age += 1
+			_update_phase()
+		for counter in ["hitstun", "landing_delay", "protection"]:
+			if not _new_counters.has(counter):
+				_state[counter] = maxi(0, _state[counter] - 1)
 		_state.buffer_steps = maxi(0, _state.buffer_steps - 1)
 		if _state.buffer_steps == 0:
 			_state.buffer_kind = ""
 		if not _state.grounded:
 			_state.grace_steps = maxi(0, _state.grace_steps - 1)
+	if not _new_counters.has("hit_pause"):
+		_state.hit_pause = maxi(0, _state.hit_pause - 1)
 	_in_step = false
 	_revision += 1
 	return {"ok": true}
+
+func combat_snapshot() -> Dictionary:
+	var result := {"damage": _state.damage, "mass": _settings.mass,
+		"vulnerable": _state.protection == 0, "active": _state.phase == "active" and not _state.frozen,
+		"attack_id": _state.attack_id, "targets": _state.targets.duplicate(), "move": _move.duplicate(true)}
+	if not _move.is_empty():
+		result.attack_damage = _settings.attack_damage[_state.move_id]
+	return result
+
+func _start_attack(move_id: String) -> void:
+	_move = prepared.move(StringName(move_id))
+	_next_attack_id += 1
+	_state.attack_id = _next_attack_id
+	_state.move_id = move_id
+	_state.attack_age = 0
+	_state.targets = []
+	_state.committed = true
+	_state.protection = 0
+	_update_phase()
+
+func _end_attack() -> void:
+	_move = {}
+	_state.move_id = ""
+	_state.committed = false
+	_state.phase = "idle"
+
+func _update_phase() -> void:
+	var age: int = _state.attack_age
+	if age < _move.startup_steps:
+		_state.phase = "startup"
+	elif age < _move.startup_steps + _move.active_steps:
+		_state.phase = "active"
+	elif age < _move.startup_steps + _move.active_steps + _move.recovery_steps:
+		_state.phase = "recovery"
+	else:
+		_end_attack()
 
 func _query(from: Transform2D, motion: Vector2) -> Dictionary:
 	if not from.x.is_equal_approx(Vector2.RIGHT) or not from.y.is_equal_approx(Vector2.DOWN):

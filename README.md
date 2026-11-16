@@ -27,7 +27,7 @@ The SteamOS/native Linux delivery path and 1080p/60 FPS goal are agreed targets.
 - Responsive movement and combat, with basic player/damage/stock displays and enough feedback to judge game feel.
 - Placeholder art where useful during development.
 
-The agreed movement, attack, defense, recovery, and match rules are specified in [Define first-playable movement and combat rules](https://github.com/Fusion2k/smash-fight/issues/2). The agreed controls, controller ownership, selection, pause/reconnect, and developer keyboard path are specified in [Define gamepad ownership and the local match flow](https://github.com/Fusion2k/smash-fight/issues/4). Native movement/resources and the first Arena are implemented in #16; combat, complete matches and playtest validation remain upcoming.
+The agreed movement, attack, defense, recovery, and match rules are specified in [Define first-playable movement and combat rules](https://github.com/Fusion2k/smash-fight/issues/2). The agreed controls, controller ownership, selection, pause/reconnect, and developer keyboard path are specified in [Define gamepad ownership and the local match flow](https://github.com/Fusion2k/smash-fight/issues/4). Native movement/resources and the first Arena are implemented in #16; Match chronology, attacks, hit resolution and local pause are implemented in #17; complete stock/flow sessions and playtest validation remain upcoming.
 
 The [first-playable acceptance and implementation handoff](docs/first-playable-acceptance.md) is accepted in #10. It defines observable automated and human checks plus dependent implementation issues; it does not claim a playable build.
 
@@ -38,7 +38,7 @@ The [first-playable acceptance and implementation handoff](docs/first-playable-a
 - Keep character definitions separate from mutable match state. Two instances of the same character must be able to act independently.
 - Keep the project portable between development PCs; resolve the Godot executable locally rather than embedding one machine's installation path.
 
-GDScript and built-in GodotPhysics2D are accepted in #8. See [Define Godot scene responsibilities and gameplay module interfaces](https://github.com/Fusion2k/smash-fight/issues/8) and [Choose the character file schema and tuning workflow](https://github.com/Fusion2k/smash-fight/issues/7) for the decisions behind these areas. The evolving [architecture documents](docs/architecture/README.md) include a [scene map](docs/architecture/scene-map.md), match-flow and combat diagrams, state/content constraints, and linked ADRs. The user confirmed #8's complete architecture on 2026-11-15, including native interval prediction/commit and chronological event ties. Character content scenes, shared native movement and the first Arena now exist. Match/combat scheduling and complete acceptance remain upcoming work; see [native movement evidence](docs/evidence/16-native-movement.md).
+GDScript and built-in GodotPhysics2D are accepted in #8. See [Define Godot scene responsibilities and gameplay module interfaces](https://github.com/Fusion2k/smash-fight/issues/8) and [Choose the character file schema and tuning workflow](https://github.com/Fusion2k/smash-fight/issues/7) for the decisions behind these areas. The evolving [architecture documents](docs/architecture/README.md) include a [scene map](docs/architecture/scene-map.md), match-flow and combat diagrams, state/content constraints, and linked ADRs. The user confirmed #8's complete architecture on 2026-11-15, including native interval prediction/commit and chronological event ties. Character content scenes, shared native movement and the first Arena now exist. Match/combat scheduling is implemented in #17 through actual native intervals; see [combat evidence](docs/evidence/17-chronological-combat.md). Complete flow and human acceptance remain upcoming.
 
 ## Opening the project
 
@@ -50,7 +50,7 @@ On the current Windows PC, Godot is installed under `C:\tools\Godot4`. Other PCs
 
 The separate [`prototype/combat-timing` branch](https://github.com/Fusion2k/smash-fight/tree/prototype/combat-timing) contains the runnable timing lab for #11. Its Windows launcher is **Run Combat Timing Lab.cmd** in that branch's worktree. See the [experiment evidence and instructions](docs/architecture/combat-timing-evidence.md); the main project does not run that lab.
 
-The completed [Research a portable Godot 4.7.2 development workflow](https://github.com/Fusion2k/smash-fight/issues/6) covers version checks, imports, export templates, and verification options. The shared `tools/dev.ps1` launcher now delivers check/editor commands and foundation checks (#14); catalog checks are delivered in #15 and native movement checks in #16; integrated combat/flow checks remain upcoming.
+The completed [Research a portable Godot 4.7.2 development workflow](https://github.com/Fusion2k/smash-fight/issues/6) covers version checks, imports, export templates, and verification options. The shared `tools/dev.ps1` launcher now delivers check/editor commands and foundation checks (#14); catalog checks are delivered in #15 and native movement checks in #16; integrated combat checks are delivered in #17; application/stock/flow checks remain upcoming.
 
 ## GitHub task workflow
 

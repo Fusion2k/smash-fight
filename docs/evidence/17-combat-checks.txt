@@ -1,0 +1,111 @@
+CHECKS_PASSED foundation
+CHECKS_PASSED movement (96 checks)
+CHECK combat zip ground_neutral selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat zip ground_up selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat zip ground_down selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat zip aerial_neutral selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat zip aerial_up selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat zip aerial_down selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat bramble ground_neutral selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat bramble ground_up selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat bramble ground_down selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat bramble aerial_neutral selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat bramble aerial_up selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat bramble aerial_down selected and facing locked expected=true actual=true
+CHECK combat committed selection/facing/jump preserved expected=true actual=true
+CHECK combat held attack never repeats expected=true actual=true
+CHECK combat authored recovery wins press priority expected=true actual=true
+CHECK combat recovery locks actions after move ends expected=true actual=true
+CHECK combat authored recovery wins press priority expected=true actual=true
+CHECK combat recovery locks actions after move ends expected=true actual=true
+CHECK combat startup interval cannot hit expected=true actual=true
+CHECK combat last startup interval cannot hit expected=true actual=true
+CHECK combat first active interval hits expected=true actual=true
+CHECK combat ordinary attack wins jump priority expected=true actual=true
+CHECK combat whole match pause preserves counters and poses expected=true actual=true
+CHECK combat resume input clearing seam expected=true actual=true
+CHECK combat duplicate hurtboxes deduplicated expected=true actual=true
+CHECK combat damage before launch, mass scaled expected=true actual=true
+CHECK combat new counters retained on entry expected=true actual=true
+CHECK combat local freeze while third participant moves expected=true actual=true
+CHECK combat paused action buffers with frozen expiry expected=true actual=true
+CHECK combat buffer expiry remains frozen expected=true actual=true
+CHECK combat frozen attack cannot hit a newly arriving target expected=true actual=true
+CHECK combat later hit resets pause and clears buffer expected=true actual=true
+CHECK combat three whole frozen steps retain pending launch expected=true actual=true
+CHECK combat release applies latest launch exactly once without steering expected=true actual=true
+CHECK combat release never restarts hit pause expected=true actual=true
+CHECK combat one attack hits three targets expected=true actual=true
+CHECK combat history persists across overlap/pause expected=true actual=true
+CHECK combat greater damage increases launch and hitstun expected=true actual=true
+CHECK combat greater mass reduces equivalent launch expected=true actual=true
+CHECK combat strong launch hitstun capped expected=true actual=true
+CHECK combat first-active fast crossing swept expected=true actual=true
+CHECK combat parallel equal-speed separation never hits expected=true actual=true
+CHECK combat startup crossing never becomes a later sweep expected=true actual=true
+CHECK combat attack recovery interval cannot hit expected=true actual=true
+CHECK combat true simultaneous mutual trade expected=true actual=true
+CHECK combat true simultaneous mutual trade expected=true actual=true
+CHECK combat trade invariant under enumeration expected=true actual=true
+CHECK combat unequal simultaneous vectors retain their remainder expected=true actual=true
+CHECK combat true/near contacts both apply 0.0 reversed=false expected=true actual=true
+CHECK combat simultaneous opposing vectors sum upward expected=true actual=true
+CHECK combat true/near contacts both apply 0.0 reversed=true expected=true actual=true
+CHECK combat simultaneous opposing vectors sum upward expected=true actual=true
+CHECK combat true/near contacts both apply 0.01 reversed=false expected=true actual=true
+CHECK combat distinct contacts replace later launch expected=true actual=true
+CHECK combat true/near contacts both apply 0.01 reversed=true expected=true actual=true
+CHECK combat distinct contacts replace later launch expected=true actual=true
+CHECK combat true/near contacts both apply -0.01 reversed=false expected=true actual=true
+CHECK combat distinct contacts replace later launch expected=true actual=true
+CHECK combat true/near contacts both apply -0.01 reversed=true expected=true actual=true
+CHECK combat distinct contacts replace later launch expected=true actual=true
+CHECK combat early interruption invalidates future contact expected=true actual=true
+CHECK combat drop eligibility before attack selection expected=true actual=true
+CHECK combat solid ground selects ground down expected=true actual=true
+CHECK combat landing ends aerial action with full six-step delay expected=true actual=true
+CHECK combat landing delay blocks action through final delayed step expected=true actual=true
+CHECK combat latest buffered jump starts after landing delay expected=true actual=true
+CHECK combat landing preserves hitstun expected=true actual=true
+CHECK combat native wall requery prevents later chord hit expected=true actual=true
+CHECK combat hit before/at native landing connects 0.0 expected=true actual=true
+CHECK combat measured exact landing tie ends attack after hit expected=true actual=true
+CHECK combat surface constrains tied pending launch expected=true actual=true
+CHECK combat hit before/at native landing connects -0.001 expected=true actual=true
+CHECK combat contact after landing rejected expected=true actual=true
+CHECK combat ring-out/combat exact tie removes first expected=true actual=true
+CHECK combat budget exhaustion reports incomplete trace expected=true actual=true { "ok": false, "error": { "error": "event_budget_exhausted" }, "trace": [{ "time": 0.76189596951008, "states": [{ "grounded": true, "air_jump_available": true, "recovery_available": true, "recovery_locked": false, "facing": 1, "fast_fall": false, "ground_jump": false, "buffer_kind": "", "buffer_steps": 0, "grace_steps": 5, "committed": false, "hitstun": 0, "frozen": false, "damage": 0.0, "pending_launch": (0.0, 0.0), "hit_pause": 0, "landing_delay": 0, "protection": 0, "move_id": "", "attack_age": 0, "attack_id": 0, "targets": [], "phase": "idle", "slot_id": 0, "position": (640.0, 537.9999), "velocity": (0.0, 0.0), "revision": 6, "cursor": 0.76189596951008, "in_step": true }], "contacts": [], "surfaces": { 0: [{ "normal": (0.0, -1.0), "rid": RID(47704201756672), "collider": Main:<StaticBody2D#1701209704019>, "shape": 0, "fraction": 0.76189596951008 }] }, "removed": [] }], "completed": false }
+CHECK combat failed match refuses false completion expected=true actual=true
+CHECK combat invalid restart disables automatic simulation and old feedback expected=true actual=true
+CHECK combat actual hit clears recovery lock without replenishing resources expected=true actual=true
+CHECK combat new attack has fresh once-per-target history expected=true actual=true
+CHECK combat protected target cannot be hit expected=true actual=true
+CHECK combat starting attack removes protection before contacts expected=true actual=true
+CHECK combat Match integrates native floor and wall piecewise expected=true actual=true
+CHECK combat separating native corner progresses expected=true actual=true
+CHECK combat released pending launch re-queries native wall expected=true actual=true
+CHECK combat calibrated native tie at position/speed (600.0, 525.0, 900.0) expected=true actual=true { "native_time": 0.8666605502367, "combat_time": 0.8666605502367, "difference": 0.0 }
+CHECK combat calibrated native tie at position/speed (680.0, 532.0, 840.0) expected=true actual=true { "native_time": 0.42856487631798, "combat_time": 0.42856487631798, "difference": 0.0 }
+CHECKS_PASSED combat (108 checks)

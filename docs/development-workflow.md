@@ -1,6 +1,6 @@
 # Development workflow
 
-**Status: accepted specification for [#9](https://github.com/Fusion2k/smash-fight/issues/9), confirmed by the user on 2026-11-15; #14 launcher/foundation checks, #15 catalog, #16 native movement and #20 export-smoke tooling are implemented. Complete gameplay and physical hardware acceptance remain upcoming.** #8 has resolved GDScript and built-in GodotPhysics2D. The user accepted Compatibility, the logical layout/scaling policy, and the complete workflow below. Evidence comes from [#6 research](https://github.com/Fusion2k/smash-fight/blob/28981362e9541d704f6ffdf7fc4fff42bf6b3080/docs/research/godot-4-7-2-workflow.md), kept on its separate research branch.
+**Status: accepted specification for [#9](https://github.com/Fusion2k/smash-fight/issues/9), confirmed by the user on 2026-11-15; #14 launcher/foundation checks, #15 catalog, #16 native movement, #17 integrated combat and #20 export-smoke tooling are implemented. Complete gameplay and physical hardware acceptance remain upcoming.** #8 has resolved GDScript and built-in GodotPhysics2D. The user accepted Compatibility, the logical layout/scaling policy, and the complete workflow below. Evidence comes from [#6 research](https://github.com/Fusion2k/smash-fight/blob/28981362e9541d704f6ffdf7fc4fff42bf6b3080/docs/research/godot-4-7-2-workflow.md), kept on its separate research branch.
 
 ## Portable setup contract
 
@@ -68,7 +68,7 @@ For exports use separate executable and generated PCK together in each archive, 
 
 ## What is verified today
 
-The source research checked the installed engine version/help and successfully imported the starter project headlessly in an isolated worktree, without tracked changes. Separate #11/#13 labs retain their limited timing evidence. Main has the #14 launcher/foundation runner, #15 Resources/catalog and #16 shared Character movement/first Arena with 96 native movement checks. The #20 export smoke adds a temporary main scene and committed presets; its separate-checkout Windows startup and native Linux build evidence is recorded below. Match/combat/application gameplay, second-PC setup, native Deck/TV execution, the frame-rate target and complete matches remain unverified or unimplemented. This accepted specification makes those responsibilities concrete without counting them as delivered behavior.
+The source research checked the installed engine version/help and successfully imported the starter project headlessly in an isolated worktree, without tracked changes. Separate #11/#13 labs retain their limited timing evidence. Main has the #14 launcher/foundation runner, #15 Resources/catalog and #16 shared Character movement/first Arena with 96 native movement checks. The #20 export smoke adds a temporary main scene and committed presets; its separate-checkout Windows startup and native Linux build evidence is recorded below. Match chronology/shared attacks/hit resolution/local pause now have #17 integrated production checks ([evidence](evidence/17-chronological-combat.md)). Stock/application gameplay, second-PC setup, native Deck/TV execution, the frame-rate target and complete matches remain unverified or unimplemented. This accepted specification makes those responsibilities concrete without counting them as delivered behavior.
 
 ## Export smoke packages (#20)
 

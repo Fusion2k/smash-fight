@@ -98,7 +98,7 @@ try {
             if ($result -notmatch '(?m)^CHECKS_PASSED foundation\r?$') { throw 'Check runner did not report completion.' }
             $catalog = Invoke-Bounded 'catalog' @('--headless','--path',$root,'--script','res://checks/catalog.gd')
             if ($catalog -notmatch '(?m)^CHECKS_PASSED catalog \(\d+ checks\)\r?$') { throw 'Catalog runner did not report completion.' }
-            Write-Host 'PASS: foundation and catalog checks; gameplay/hardware acceptance is not delivered.'
+            Write-Host 'PASS: foundation, native movement, integrated combat and catalog checks; complete flow/hardware acceptance is not delivered.'
         }
         'editor' {
             $editorArgs = @('--path',$root,'--editor')
